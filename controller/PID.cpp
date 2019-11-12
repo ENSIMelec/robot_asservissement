@@ -1,6 +1,13 @@
 #include "PID.h"
 using namespace std;
-
+/**
+ * Construction PID
+ * @param kp
+ * @param ki
+ * @param kd
+ * @param min
+ * @param max
+ */
 PID::PID(float kp, float ki, float kd, float min, float max) {
 
     this->m_kp = kp;

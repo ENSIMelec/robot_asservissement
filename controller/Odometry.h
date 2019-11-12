@@ -1,8 +1,9 @@
 #ifndef ROBOT_ODOMETRY_H
 #define ROBOT_ODOMETRY_H
 
-#include "../ICodeurManager.h"
+#include "ICodeurManager.h"
 #include "cmath"
+#include "iostream"
 
 /**
  * @brief Structure de position.
@@ -44,6 +45,11 @@ public:
     explicit Odometry(ICodeurManager &codeurs);
     float getLinVel() const {return m_linVel;}
     float getAngVel() const {return m_angVel;}
+    int getLastTime() const { return m_lastTime; }
+    void printData();
+
+    float getTotalTicsL() const;
+    float getTotalTicsR() const;
 
     /**
      * @brief Retourne la position
@@ -52,28 +58,40 @@ public:
     const Position &getPosition() const { return m_pos; }
     void setPosition(float x, float y, float theta){ m_pos.x = x; m_pos.y = y; m_pos.theta = theta;}
 
-protected:
     /**
-	 * @brief Calcule la nouvelle position et la nouvelle vitesse.
-	 * détermine la nouvelle vitesse instantanée et la nouvelle position.
-	 */
-    virtual void process();
+    * @brief Calcule la nouvelle position et la nouvelle vitesse.
+    * détermine la nouvelle vitesse instantanée et la nouvelle position.
+    */
+    void process();
+
+protected:
 
     Position m_pos; /*!< Structure de position de Odometry. */
-    float m_linVel; /*!< Vitesse lineaire en mm/s. */
-    float m_angVel; /*!< Vitesse angulaire en rad/s.*/
+    float m_linVel = 0; /*!< Vitesse lineaire en mm/s. */
+    float m_angVel = 0; /*!< Vitesse angulaire en rad/s.*/
+
+    /**
+     * Total des tics
+     */
+    float m_totalTicsL = 0;
+    float m_totalTicsR = 0;
+
+    /**
+     * Time
+     */
+    int m_lastTime = 0;
 
     /**
      * Coefficient pour tics -> mm
      */
 
-    float m_coeffLongL; /* Coefficient Longeur Gauche */
-    float m_coeffLongR; /* Coefficient Longeur Droit */
+    float m_coeffLongL = 0; /* Coefficient Longeur Gauche */
+    float m_coeffLongR = 0; /* Coefficient Longeur Droit */
 
-    float m_coeffAngL; /* Coefficient Angle Gauche */
-    float m_coeffAngR; /* Coefficient Angle Droit */
+    float m_coeffAngL = 0; /* Coefficient Angle Gauche */
+    float m_coeffAngR = 0; /* Coefficient Angle Droit */
 
-    ICodeurManager &codeurs;
+    ICodeurManager &m_codeurs;
 };
 
 

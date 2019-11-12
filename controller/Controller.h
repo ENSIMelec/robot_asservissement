@@ -7,14 +7,18 @@
 
 
 #include "PID.h"
+#include "../ICodeurManager.h";
+#include "Odometry.h";
 
 class Controller {
 
 public:
-    Controller();
+    Controller(ICodeurManager& codeurs);
     void process();
-    void translate(double amount);
-    void rotate();
+    void targetCalcul();
+    void gotoPoint(int x, int y, int angle);
+    void translate(float amount);
+    void rotate(float angle);
 
 private:
     // PID Controller
@@ -24,12 +28,17 @@ private:
     PID m_rotationPID;
 
     // Target point
-    double m_targetX;
-    double m_targetY;
+    float m_targetX;
+    float m_targetY;
 
     // Target distance et angle
-    double m_targetDistance;
+    float m_targetDistance;
     float m_targetAngle;
+
+    //Odometry
+    Odometry m_odometry;
+
+
 
 
 };
