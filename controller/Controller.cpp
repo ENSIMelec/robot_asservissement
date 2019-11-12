@@ -44,7 +44,7 @@ void Controller::rotate(float angle)
     // reset PID
     m_rotationPID.resetErrors();
 
-    m_targetAngle = angle;
+    m_targetPos.theta = angle;
 
 }
 /**
@@ -69,12 +69,13 @@ void Controller::translate(float distance)
 void Controller::targetCalcul()
 {
     // Consigne Déplacement
-    float x = m_odometry.getPosition().x;
-    float y = m_odometry.getPosition().y;
-    m_targetDistance = sqrt((m_targetX - x )*(m_targetX- x)+(m_targetY- y)*(m_targetY-y));
+    Position initialPos = m_odometry.getPosition();
+
+    // Consigne Distance
+    m_targetDistance = sqrt(pow(( m_targetPos.x - initialPos.x ),2) + pow((m_targetPos.y - initialPos.y ),2));
 
     // Consigne Angle
-    m_targetAngle = atan2((m_targetX-x),(m_targetY-y))*180/M_PI;
+    m_targetPos.theta = atan2((m_targetPos.x - initialPos.x),(m_targetPos.y - initialPos.y))*180/M_PI;
 
 }
 /**
@@ -85,7 +86,7 @@ void Controller::targetCalcul()
  * @param angle
  */
 void Controller::gotoPoint(int x, int y, int angle) {
-    m_targetX = x;
-    m_targetY = y;
-    m_targetAngle = angle;
+    m_targetPos.x = x;
+    m_targetPos.y = y;
+    m_targetPos.theta = angle;
 }

@@ -1,7 +1,7 @@
 #ifndef ROBOT_ODOMETRY_H
 #define ROBOT_ODOMETRY_H
 
-#include "ICodeurManager.h"
+#include "../ICodeurManager.h"
 #include "cmath"
 #include "iostream"
 
@@ -48,8 +48,8 @@ public:
     int getLastTime() const { return m_lastTime; }
     void printData();
 
-    float getTotalTicsL() const;
-    float getTotalTicsR() const;
+    float getTotalTicksL() const;
+    float getTotalTicksR() const;
 
     /**
      * @brief Retourne la position
@@ -73,8 +73,8 @@ protected:
     /**
      * Total des tics
      */
-    float m_totalTicsL = 0;
-    float m_totalTicsR = 0;
+    float m_totalTicksL = 0;
+    float m_totalTicksR = 0;
 
     /**
      * Time
@@ -84,12 +84,14 @@ protected:
     /**
      * Coefficient pour tics -> mm
      */
+    float TICK_RIGHT_TO_MM = 0; /* Coefficient Longeur Gauche */
+    float TICK_LEFT_TO_MM = 0; /* Coefficient Longeur Droit */
 
-    float m_coeffLongL = 0; /* Coefficient Longeur Gauche */
-    float m_coeffLongR = 0; /* Coefficient Longeur Droit */
-
-    float m_coeffAngL = 0; /* Coefficient Angle Gauche */
-    float m_coeffAngR = 0; /* Coefficient Angle Droit */
+    /**
+     * Coefficient pour tics -> rad
+     */
+    float TICK_RIGHT_TO_RAD = 0; /* Coefficient Angle Gauche */
+    float TICK_LEFT_TO_RAD = 0; /* Coefficient Angle Droit */
 
     ICodeurManager &m_codeurs;
 };
