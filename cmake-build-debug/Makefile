@@ -258,6 +258,33 @@ Point.cpp.s:
 	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/Point.cpp.s
 .PHONY : Point.cpp.s
 
+controller/Controller.o: controller/Controller.cpp.o
+
+.PHONY : controller/Controller.o
+
+# target to build an object file
+controller/Controller.cpp.o:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Controller.cpp.o
+.PHONY : controller/Controller.cpp.o
+
+controller/Controller.i: controller/Controller.cpp.i
+
+.PHONY : controller/Controller.i
+
+# target to preprocess a source file
+controller/Controller.cpp.i:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Controller.cpp.i
+.PHONY : controller/Controller.cpp.i
+
+controller/Controller.s: controller/Controller.cpp.s
+
+.PHONY : controller/Controller.s
+
+# target to generate assembly for a file
+controller/Controller.cpp.s:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Controller.cpp.s
+.PHONY : controller/Controller.cpp.s
+
 controller/Odometry.o: controller/Odometry.cpp.o
 
 .PHONY : controller/Odometry.o
@@ -417,6 +444,9 @@ help:
 	@echo "... Point.o"
 	@echo "... Point.i"
 	@echo "... Point.s"
+	@echo "... controller/Controller.o"
+	@echo "... controller/Controller.i"
+	@echo "... controller/Controller.s"
 	@echo "... controller/Odometry.o"
 	@echo "... controller/Odometry.i"
 	@echo "... controller/Odometry.s"

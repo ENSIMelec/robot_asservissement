@@ -10,6 +10,8 @@
 class PID {
 public:
 
+
+    PID(): m_kp(0), m_ki(0), m_kd(0), m_min(0), m_max(0) {};
     PID(float kp, float ki, float kd, float min, float max);
 
     float compute(float input, float setpoint, float timestep);
@@ -36,9 +38,9 @@ private:
     // m_max - minimum value of manipulated variable
     float m_min, m_max;
 
-    float m_pre_error;
-    float m_derivative;
-    float m_integral;
+    float m_pre_error   = 0;
+    float m_derivative  = 0;
+    float m_integral    = 0;
 
 };
 

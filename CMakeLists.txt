@@ -9,4 +9,4 @@ add_executable(robot main.cpp
         MoteurManager.cpp MoteurManager.h
        # SerialCodeurManager.cpp SerialCodeurManager.h
         Point.cpp Point.h
-        FakeCodeur.cpp FakeCodeur.h controller/Odometry.cpp controller/Odometry.h controller/VelocityController.cpp controller/VelocityController.h controller/PositionController.cpp controller/PositionController.h controller/PID.cpp controller/PID.h)
+        FakeCodeur.cpp FakeCodeur.h controller/Odometry.cpp controller/Odometry.h controller/VelocityController.cpp controller/VelocityController.h controller/PositionController.cpp controller/PositionController.h controller/PID.cpp controller/PID.h controller/Controller.cpp controller/Controller.h)

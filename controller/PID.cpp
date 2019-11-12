@@ -9,7 +9,14 @@ PID::PID(float kp, float ki, float kd, float min, float max) {
     this->m_min = min;
     this->m_max = max;
 }
-
+/**
+ * @brief Calculer le PID
+ *
+ * @param input
+ * @param setpoint
+ * @param timestep
+ * @return
+ */
 float PID::compute(float input, float setpoint, float timestep) {
 
     // Calculate error
@@ -65,3 +72,4 @@ float PID::getCurrentGoal() const {
 void PID::setGoal(float goal) {
     this->m_goal = goal;
 }
+
