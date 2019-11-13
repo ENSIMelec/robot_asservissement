@@ -7,9 +7,9 @@
 
 
 #include "PID.h"
-#include "../ICodeurManager.h"
+#include "ICodeurManager.h"
 #include "Odometry.h"
-#include "../MoteurManager.h"
+#include "MoteurManager.h"
 
 class Controller {
 

@@ -5,7 +5,7 @@
 #include "Controller.h"
 #include "PID.h"
 #include "Odometry.h"
-#include "../MoteurManager.h"
+#include "MoteurManager.h"
 
 using namespace std;
 /**
@@ -17,19 +17,20 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometr
 {
     // Init PID Controllers
 
-    // Speed Controller
-    m_leftSpeedPID = PID(1.65, 0.005, 50,0,500);
-    m_rightSpeedPID = PID(1.35, 0.005, 50,0,500);
+    // Speed PWM Controller
+    m_leftSpeedPID = PID(0, 0, 0,0,200);
+    m_rightSpeedPID = PID(0, 0, 0,0,200);
 
     // Translation Controller
-    m_translationPID = PID(4.35,0.000001,0,0,500);
-    m_rotationPID = PID(3.5,0.000001,0,0, 2*M_PI);
+    m_translationPID = PID(0,0,0,0,500);
+    m_rotationPID = PID(0,0,0,0, 2*M_PI);
 
 }
 void Controller::update()
 {
     //Mise à jour de la position/orientation et de la vitesse du robot (Odométrie)
     m_odometry.update();
+    m_odometry.printData();
 
     // Calcul de la distance et de l'angle à fair pour aller au prochain point
     targetCalcul();
@@ -37,9 +38,10 @@ void Controller::update()
     updateSpeed();
 
     int32_t leftPWM = m_leftSpeedPID.compute(m_odometry.getLinVel(), m_leftSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
-    int32_t rightPWM = m_rightSpeedPID.compute(m_odometry.getLinVel(), m_leftSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
+    int32_t rightPWM = m_rightSpeedPID.compute(m_odometry.getLinVel(), m_rightSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
 
-    m_motor.setConsigne(leftPWM, rightPWM);
+    cout << " leftPWM: " << leftPWM << " rightPWM: " << rightPWM << endl;
+    //m_motor.setConsigne(leftPWM, rightPWM);
 
     // Déplacement en fonction du type du point
     //translate();
@@ -125,16 +127,21 @@ void Controller::updateSpeed() {
     // si y a un moumvement de rotation
     float speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_targetAngle, m_odometry.getLastTime());
 
+    cout << "PID speedTranslation: " << speedTranslation << "PID rotatationTransalation: " << speedRotation << endl;
     // min / max
-    float maxTranslationSpeed = 150; // 500   mm /s
+    float maxTranslationSpeed = 500; // 500   mm /s
     float maxRotationSpeed = 2*M_PI;  /* rad/s */
 
     speedTranslation = max(-maxTranslationSpeed, min(maxTranslationSpeed, speedTranslation));
     speedRotation = max(-maxRotationSpeed, min(maxRotationSpeed, speedRotation));
 
 
+    cout << "Speed Translation : " << speedTranslation << " Speed Rotation : " << speedRotation << endl;
     m_leftSpeedPID.setGoal(speedTranslation - speedRotation);
     m_rightSpeedPID.setGoal(speedTranslation + speedRotation);
 
+    cout << "left speed goal : " << m_leftSpeedPID.getCurrentGoal() << " left right goal : " << m_rightSpeedPID.getCurrentGoal() << endl;
+
+    cout << "TARGET ANGLE : " << m_targetAngle << " TARGET DISTANCE : " << m_targetDistance << endl;
 }
 

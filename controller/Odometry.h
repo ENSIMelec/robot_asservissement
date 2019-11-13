@@ -1,7 +1,7 @@
 #ifndef ROBOT_ODOMETRY_H
 #define ROBOT_ODOMETRY_H
 
-#include "../ICodeurManager.h"
+#include "ICodeurManager.h"
 #include "cmath"
 #include "iostream"
 

@@ -17,8 +17,8 @@ Odometry::Odometry(ICodeurManager &codeurs) : m_codeurs(codeurs) {
     this->TICK_LEFT_TO_MM = 0.223613;
 
     // Coefficient roue angle
-    this->TICK_RIGHT_TO_RAD = 0.5460;
-    this->TICK_LEFT_TO_RAD = 0.4343;
+    this->TICK_RIGHT_TO_RAD = 0.001182828559;
+    this->TICK_LEFT_TO_RAD = 0.0015802779947;
 }
 
 /**
@@ -50,7 +50,7 @@ void Odometry::update() {
 
     //  dAngle = Өo + (position_roue_D – position_roue_G)
     //  avec Өo représentant l’orientation initiale du robot
-    float dAngle = (ticksRight * TICK_RIGHT_TO_RAD - ticksLeft * TICK_LEFT_TO_RAD);
+    float dAngle = (ticksRight * TICK_RIGHT_TO_RAD - ticksLeft * TICK_LEFT_TO_RAD) / 2;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
@@ -59,8 +59,8 @@ void Odometry::update() {
 
     //Mise à jour de la position du robot en xy et en orientation
     // Convertir rad -> degré ? A revoir
-    this->m_pos.x       += dDistance*cos(avgTheta);
-    this->m_pos.y       += dDistance*sin(avgTheta);
+    this->m_pos.x       += dDistance*cosf(avgTheta);
+    this->m_pos.y       += dDistance*sinf(avgTheta);
     this->m_pos.theta   += dAngle;
 
     // Calcul de la vitesse angulaire et linéaire
@@ -102,10 +102,10 @@ float Odometry::getDeltaOrientation() const {
 void Odometry::printData() {
 
     cout << "[DATA CODEUR][TOTAL TICS] : Gauche:" << getTotalTicksL() << " Droit: " << getTotalTicksR() << endl;
-    cout << "[DATA CODEUR][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  getPosition().theta << endl;
+    cout << "[DATA CODEUR][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  getPosition().theta * (180/M_PI) << endl;
     cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() << endl;
     cout << "[DATA CODEUR][DISTANCE PARCOURU EN LASTTIME (mm)] : " << getDeltaDistance() << endl;
-    cout << "[DATA CODEUR][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaDistance() << endl;
+    cout << "[DATA CODEUR][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaOrientation() << endl;
     cout << "[DATE CODEUR][VITESSE]; Vitesse angulaire(rad/s) : " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
     cout << "=======================" << endl;
 
