@@ -9,16 +9,19 @@
 #include "PID.h"
 #include "../ICodeurManager.h"
 #include "Odometry.h"
+#include "../MoteurManager.h"
 
 class Controller {
 
 public:
-    Controller(ICodeurManager& codeurs);
-    void process();
+    Controller(ICodeurManager& codeurs, MoteurManager& motor);
+    void update();
     void targetCalcul();
+    void updateSpeed();
     void gotoPoint(int x, int y, int angle);
-    void translate(float amount);
-    void rotate(float angle);
+    void translate();
+    void rotate();
+    void stop();
 
 private:
     // PID Controller
@@ -32,12 +35,13 @@ private:
 
     // Target distance et angle
     float m_targetDistance;
+    float m_targetAngle;
 
     //Odometry
     Odometry m_odometry;
 
-
-
+    // MoteurManager
+    MoteurManager m_motor;
 
 };
 

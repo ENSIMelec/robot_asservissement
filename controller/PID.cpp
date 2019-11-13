@@ -19,15 +19,15 @@ PID::PID(float kp, float ki, float kd, float min, float max) {
 /**
  * @brief Calculer le PID
  *
- * @param input
- * @param setpoint
+ * @param currentState L'état actuelle
+ * @param consigne  Goal
  * @param timestep
  * @return
  */
-float PID::compute(float input, float setpoint, float timestep) {
+float PID::compute(float currentState, float consigne, float timestep) {
 
     // Calculate error
-    float error = setpoint - input;
+    float error = consigne - currentState;
 
     // Proportional term
     float Pout = m_kp * error;

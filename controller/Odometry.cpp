@@ -2,9 +2,17 @@
 
 using namespace std;
 
+/**
+ * Odométrie constructeur
+ * Méthode de régalage des coeffs:
+ *  - TICK_TO_MM = faire avancer le robot 1m
+ *  - TICK_TO_RAD = faire tourner le robot 360 sur lui même plusieurs fois
+ *
+ * @param codeurs
+ */
 Odometry::Odometry(ICodeurManager &codeurs) : m_codeurs(codeurs) {
 
-    // Coefficient roue linéaire
+    // Coefficient roue distance
     this->TICK_RIGHT_TO_MM = 0.223313;
     this->TICK_LEFT_TO_MM = 0.223613;
 
@@ -14,10 +22,11 @@ Odometry::Odometry(ICodeurManager &codeurs) : m_codeurs(codeurs) {
 }
 
 /**
- * Odométrie
- * Calcul de la position et orientation du robot et vitesse entre deux intervalle de temps
+* @brief Calcule la nouvelle position et la nouvelle vitesse.
+* détermine la nouvelle vitesse instantanée et la nouvelle position.
+ * @TODO: average left, and right speed .
  */
-void Odometry::process() {
+void Odometry::update() {
 
     // récupérer les tics des codeurs + réinitialisation
     m_codeurs.readAndReset();
@@ -33,8 +42,11 @@ void Odometry::process() {
     m_totalTicksL += ticksLeft;
     m_totalTicksR += ticksRight;
 
-    // Calculer les variations de position en distance et en angle  Chemin parcouru pendant le dernier intervalle de temps)
+    // Calculer les variations de position en distance et en angle
+
+    // distance parcourue depuis la position de départ jusqu’à l’instant présent.
     float dDistance = (distanceRight + distanceLeft)/2;
+    m_dDistance = dDistance;
 
     //  dAngle = Өo + (position_roue_D – position_roue_G)
     //  avec Өo représentant l’orientation initiale du robot
@@ -43,6 +55,7 @@ void Odometry::process() {
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
     float avgTheta = m_pos.theta + dAngle / 2;
+    m_dOrientation = avgTheta;
 
     //Mise à jour de la position du robot en xy et en orientation
     // Convertir rad -> degré ? A revoir
@@ -75,6 +88,14 @@ float Odometry::getTotalTicksL() const {
 float Odometry::getTotalTicksR() const {
     return m_totalTicksR;
 }
+
+float Odometry::getDeltaDistance() const {
+    return m_dDistance;
+}
+float Odometry::getDeltaOrientation() const {
+    return m_dOrientation;
+}
+
 /**
  * Debug purpose
  */
@@ -83,6 +104,8 @@ void Odometry::printData() {
     cout << "[DATA CODEUR][TOTAL TICS] : Gauche:" << getTotalTicksL() << " Droit: " << getTotalTicksR() << endl;
     cout << "[DATA CODEUR][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  getPosition().theta << endl;
     cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() << endl;
+    cout << "[DATA CODEUR][DISTANCE PARCOURU EN LASTTIME (mm)] : " << getDeltaDistance() << endl;
+    cout << "[DATA CODEUR][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaDistance() << endl;
     cout << "[DATE CODEUR][VITESSE]; Vitesse angulaire(rad/s) : " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
     cout << "=======================" << endl;
 

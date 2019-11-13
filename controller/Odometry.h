@@ -62,7 +62,11 @@ public:
     * @brief Calcule la nouvelle position et la nouvelle vitesse.
     * détermine la nouvelle vitesse instantanée et la nouvelle position.
     */
-    void process();
+    void update();
+
+    float getDeltaDistance() const;
+
+    float getDeltaOrientation() const;
 
 protected:
 
@@ -75,6 +79,16 @@ protected:
      */
     float m_totalTicksL = 0;
     float m_totalTicksR = 0;
+
+    /**
+     * Distance en mm parcouru entre un intervalle de temps
+     */
+    float m_dDistance;
+
+    /**
+     * Angle en rad entre un intervalle de temps
+     */
+    float m_dOrientation;
 
     /**
      * Time
