@@ -13,7 +13,7 @@ using namespace std;
  * @param codeurs
  * @param motor
  */
-Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometry(codeurs), m_motor(motor)
+Controller::Controller(FakeCodeur& codeurs, MoteurManager& motor): m_odometry(codeurs), m_motor(motor)
 {
     // Init PID Controllers
 
@@ -46,6 +46,8 @@ void Controller::update()
     // Déplacement en fonction du type du point
     //translate();
     //rotate();
+
+    cout << " ======================== " << endl;
 }
 /*
  * Calcul de consigne de distance et vitesse
@@ -56,14 +58,15 @@ void Controller::targetCalcul()
     // récupérer la position actuelle du robot
     Position initialPos = m_odometry.getPosition();
 
-
-    float dx = (m_targetPos.x - initialPos.x);
-    float dy = (m_targetPos.y - initialPos.y );
+    //Xerr
+    float xError = (m_targetPos.x - initialPos.x);
+    //Yerr
+    float yError = (m_targetPos.y - initialPos.y);
 
     // consigne distance
-    m_targetDistance = sqrt(pow(dx,2) + pow(dy,2));
+    m_targetDistance = sqrt(pow(xError,2) + pow(yError,2));
     // consigne angle
-    m_targetAngle = atan2f(dx, dy);
+    m_targetAngle = atan2f(xError, yError);
 
 }
 /**

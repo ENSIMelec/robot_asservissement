@@ -10,7 +10,12 @@ using namespace std;
  *
  * @param codeurs
  */
-Odometry::Odometry(ICodeurManager &codeurs) : m_codeurs(codeurs) {
+Odometry::Odometry(FakeCodeur &codeurs) : m_codeurs(codeurs) {
+
+//   double CoeffGLong = 0.196370477796;
+//   double CoeffDLong = 0.196232031648;
+//   double CoeffGAngl = 0.035746063822912;
+///  double CoeffDAngl = 0.035766143278026;
 
     // Coefficient roue distance
     this->TICK_RIGHT_TO_MM = 0.223313;
@@ -49,23 +54,24 @@ void Odometry::update() {
     m_dDistance = dDistance;
 
     //  dAngle = Өo + (position_roue_D – position_roue_G)
-    //  avec Өo représentant l’orientation initiale du robot
+    // Calcul de la différence du nombre de tic entre chaque roue
     float dAngle = (ticksRight * TICK_RIGHT_TO_RAD - ticksLeft * TICK_LEFT_TO_RAD) / 2;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
-    float avgTheta = m_pos.theta + dAngle / 2;
+    float avgTheta = (m_pos.theta + dAngle) / 2;
     m_dOrientation = avgTheta;
 
     //Mise à jour de la position du robot en xy et en orientation
-    // Convertir rad -> degré ? A revoir
     this->m_pos.x       += dDistance*cosf(avgTheta);
     this->m_pos.y       += dDistance*sinf(avgTheta);
     this->m_pos.theta   += dAngle;
 
     // Calcul de la vitesse angulaire et linéaire
+    // Actualisation du temps
+    this->m_lastTime = m_codeurs.getTime();
 
-    float timestep      = m_codeurs.getTime() * 0.000001; // en s
+    float timestep      = m_lastTime * 0.000001; // en s
     float linVel        = 0; // mm / s
     float angVel        = 0; // rad / s
 
@@ -73,8 +79,6 @@ void Odometry::update() {
         linVel = dDistance / timestep;
         angVel = dAngle / timestep;
     }
-    // Actualisation du temps
-    this->m_lastTime = m_codeurs.getTime();
 
     // Actualisation de la vitesse linéaire et angulaire du robot
     this->m_linVel = linVel;
@@ -101,12 +105,15 @@ float Odometry::getDeltaOrientation() const {
  */
 void Odometry::printData() {
 
-    cout << "[DATA CODEUR][TOTAL TICS] : Gauche:" << getTotalTicksL() << " Droit: " << getTotalTicksR() << endl;
-    cout << "[DATA CODEUR][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  getPosition().theta * (180/M_PI) << endl;
-    cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() << endl;
-    cout << "[DATA CODEUR][DISTANCE PARCOURU EN LASTTIME (mm)] : " << getDeltaDistance() << endl;
-    cout << "[DATA CODEUR][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaOrientation() << endl;
-    cout << "[DATE CODEUR][VITESSE]; Vitesse angulaire(rad/s) : " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
+    cout << "===========DEBUG ODOMETRY============" << endl;
+    cout << "[DATA CODEUR][DELTA(t) TICS] : Gauche: " << m_codeurs.getLeftTicks() << " Droit: " << m_codeurs.getRightTicks() << endl;
+    cout << "[DATA CODEUR][TOTAL TICS] : Gauche: " << getTotalTicksL() << " Droit: " << getTotalTicksR() << endl;
+    cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() * 0.000001 << " (s)" << endl;
+    cout << "=======================" << endl;
+    cout << "[ODOMETRY][POSITION]: X: " << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  getPosition().theta * (180/M_PI)  << " °"<< endl;
+    cout << "[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)]: " << getDeltaDistance() << endl;
+    cout << "[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)]: " << getDeltaOrientation() << endl;
+    cout << "[ODOMETRY][VITESSE]: Vitesse angulaire(rad/s): " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
     cout << "=======================" << endl;
 
 }

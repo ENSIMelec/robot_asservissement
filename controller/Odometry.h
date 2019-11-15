@@ -2,6 +2,7 @@
 #define ROBOT_ODOMETRY_H
 
 #include "ICodeurManager.h"
+#include "FakeCodeur.h"
 #include "cmath"
 #include "iostream"
 
@@ -42,7 +43,8 @@ class Odometry {
 
 public:
 
-    explicit Odometry(ICodeurManager &codeurs);
+    explicit Odometry(FakeCodeur &codeurs);
+
     float getLinVel() const {return m_linVel;}
     float getAngVel() const {return m_angVel;}
     int getLastTime() const { return m_lastTime; }
@@ -65,7 +67,6 @@ public:
     void update();
 
     float getDeltaDistance() const;
-
     float getDeltaOrientation() const;
 
 protected:
@@ -107,7 +108,7 @@ protected:
     float TICK_RIGHT_TO_RAD = 0; /* Coefficient Angle Gauche */
     float TICK_LEFT_TO_RAD = 0; /* Coefficient Angle Droit */
 
-    ICodeurManager &m_codeurs;
+    FakeCodeur m_codeurs;
 };
 
 

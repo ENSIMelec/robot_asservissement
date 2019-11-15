@@ -2,6 +2,7 @@
 // Created by Taoufik on 11/11/2019.
 //
 
+
 #ifndef ROBOT_PID_H
 #define ROBOT_PID_H
 
@@ -14,7 +15,7 @@ public:
     PID(): m_kp(0), m_ki(0), m_kd(0), m_min(0), m_max(0) {};
     PID(float kp, float ki, float kd, float min, float max);
 
-    float compute(float input, float setpoint, float timestep);
+    float compute(float input, float consigne, float timestep);
     void setTunings(float kp, float ki, float kd);
     void resetErrors();
 

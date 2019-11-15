@@ -1,21 +1,26 @@
 #include <iostream>
-#include "Asservissement.h"
-#include "FakeCodeur.h"
+#include "controller/FakeCodeur.h"
 #include "controller/Odometry.h"
+#include "controller/Controller.h"
 
 using namespace std;
 
 int main() {
 
-    MoteurManager moteurManager(8);
+
     FakeCodeur fakeCodeur;
 
-    Asservissement asservissement(moteurManager,fakeCodeur);
+    MoteurManager motor(8);
 
     Odometry odometry(fakeCodeur);
-    // réinitialisation de la position
-    odometry.setPosition(0,0,0);
+    Controller controller(fakeCodeur, motor);
 
-    cout << "Hello, World!" << endl;
+    controller.gotoPoint(200,300,0);
+    while(1) {
+
+        controller.update();
+
+        sleep(2);
+    }
     return 0;
 }

@@ -1,12 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
 project(robot)
+find_package(Threads)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
+
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 
 add_executable(robot main.cpp
-        Asservissement.cpp Asservissement.h
-        ICodeurManager.cpp ICodeurManager.h
-        MoteurManager.cpp MoteurManager.h
-       # SerialCodeurManager.cpp SerialCodeurManager.h
-        Point.cpp Point.h
-        FakeCodeur.cpp FakeCodeur.h controller/Odometry.cpp controller/Odometry.h controller/VelocityController.cpp controller/VelocityController.h controller/PositionController.cpp controller/PositionController.h controller/PID.cpp controller/PID.h controller/Controller.cpp controller/Controller.h)
+        controller/ICodeurManager.cpp controller/ICodeurManager.h
+        controller/MoteurManager.cpp controller/MoteurManager.h
+        #Point.cpp Point.h
+        controller/FakeCodeur.cpp controller/FakeCodeur.h controller/Odometry.cpp controller/Odometry.h  controller/PID.cpp controller/PID.h controller/Controller.cpp controller/Controller.h)
+target_link_libraries(robot Threads::Threads)

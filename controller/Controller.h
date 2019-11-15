@@ -14,7 +14,7 @@
 class Controller {
 
 public:
-    Controller(ICodeurManager& codeurs, MoteurManager& motor);
+    Controller(FakeCodeur& codeurs, MoteurManager& motor);
     void update();
     void targetCalcul();
     void updateSpeed();
@@ -34,8 +34,8 @@ private:
     Position m_targetPos;
 
     // Target distance et angle
-    float m_targetDistance;
-    float m_targetAngle;
+    float m_targetDistance; // mm
+    float m_targetAngle; // rad
 
     //Odometry
     Odometry m_odometry;

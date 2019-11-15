@@ -26,7 +26,7 @@ PID::PID(float kp, float ki, float kd, float min, float max) {
  */
 float PID::compute(float currentState, float consigne, float timestep) {
 
-    // Calculate error
+    // Ecart entre la consigne et la mesure
     float error = consigne - currentState;
 
     // Proportional term
