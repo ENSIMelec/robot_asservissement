@@ -48,7 +48,7 @@ public:
     float getLinVel() const {return m_linVel;}
     float getAngVel() const {return m_angVel;}
     int getLastTime() const { return m_lastTime; }
-    void printData();
+    void debug();
 
     float getTotalTicksL() const;
     float getTotalTicksR() const;
@@ -68,6 +68,7 @@ public:
 
     float getDeltaDistance() const;
     float getDeltaOrientation() const;
+    float getTotalDistance() const { return m_distance; }
 
 protected:
 
@@ -84,12 +85,17 @@ protected:
     /**
      * Distance en mm parcouru entre un intervalle de temps
      */
-    float m_dDistance;
+    float m_dDistance = 0;
+
+    /**
+     * Total distance parcouru (odometry test)
+     */
+     float m_distance = 0;
 
     /**
      * Angle en rad entre un intervalle de temps
      */
-    float m_dOrientation;
+    float m_dOrientation = 0;
 
     /**
      * Time
@@ -108,7 +114,9 @@ protected:
     float TICK_RIGHT_TO_RAD = 0; /* Coefficient Angle Gauche */
     float TICK_LEFT_TO_RAD = 0; /* Coefficient Angle Droit */
 
-    FakeCodeur m_codeurs;
+
+    FakeCodeur& m_codeurs;
+
 };
 
 

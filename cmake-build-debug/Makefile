@@ -204,6 +204,33 @@ controller/ICodeurManager.cpp.s:
 	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/ICodeurManager.cpp.s
 .PHONY : controller/ICodeurManager.cpp.s
 
+controller/MathUtils.o: controller/MathUtils.cpp.o
+
+.PHONY : controller/MathUtils.o
+
+# target to build an object file
+controller/MathUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/MathUtils.cpp.o
+.PHONY : controller/MathUtils.cpp.o
+
+controller/MathUtils.i: controller/MathUtils.cpp.i
+
+.PHONY : controller/MathUtils.i
+
+# target to preprocess a source file
+controller/MathUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/MathUtils.cpp.i
+.PHONY : controller/MathUtils.cpp.i
+
+controller/MathUtils.s: controller/MathUtils.cpp.s
+
+.PHONY : controller/MathUtils.s
+
+# target to generate assembly for a file
+controller/MathUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/MathUtils.cpp.s
+.PHONY : controller/MathUtils.cpp.s
+
 controller/MoteurManager.o: controller/MoteurManager.cpp.o
 
 .PHONY : controller/MoteurManager.o
@@ -330,6 +357,9 @@ help:
 	@echo "... controller/ICodeurManager.o"
 	@echo "... controller/ICodeurManager.i"
 	@echo "... controller/ICodeurManager.s"
+	@echo "... controller/MathUtils.o"
+	@echo "... controller/MathUtils.i"
+	@echo "... controller/MathUtils.s"
 	@echo "... controller/MoteurManager.o"
 	@echo "... controller/MoteurManager.i"
 	@echo "... controller/MoteurManager.s"

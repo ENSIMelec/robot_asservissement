@@ -102,6 +102,12 @@
 		<Unit filename="/mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.h">
 			<Option target="robot"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.cpp">
+			<Option target="robot"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h">
+			<Option target="robot"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.cpp">
 			<Option target="robot"/>
 		</Unit>
