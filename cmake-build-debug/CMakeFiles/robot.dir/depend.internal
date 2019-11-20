@@ -6,6 +6,7 @@ CMakeFiles/robot.dir/controller/Controller.cpp.o
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Controller.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/FakeCodeur.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.h
+ /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Odometry.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/PID.h
@@ -16,6 +17,9 @@ CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o
 CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.cpp
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.h
+CMakeFiles/robot.dir/controller/MathUtils.cpp.o
+ /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.cpp
+ /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h
 CMakeFiles/robot.dir/controller/MoteurManager.cpp.o
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.cpp
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.h
@@ -31,6 +35,7 @@ CMakeFiles/robot.dir/main.cpp.o
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Controller.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/FakeCodeur.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.h
+ /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Odometry.h
  /mnt/c/Users/Taoufik/CLionProjects/robot/controller/PID.h

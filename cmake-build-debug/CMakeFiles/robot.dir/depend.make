@@ -5,6 +5,7 @@ CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/Controller.cpp
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/Controller.h
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/FakeCodeur.h
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/ICodeurManager.h
+CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/MathUtils.h
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/MoteurManager.h
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/Odometry.h
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/PID.h
@@ -15,6 +16,9 @@ CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o: ../controller/ICodeurManager.h
 
 CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o: ../controller/ICodeurManager.cpp
 CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o: ../controller/ICodeurManager.h
+
+CMakeFiles/robot.dir/controller/MathUtils.cpp.o: ../controller/MathUtils.cpp
+CMakeFiles/robot.dir/controller/MathUtils.cpp.o: ../controller/MathUtils.h
 
 CMakeFiles/robot.dir/controller/MoteurManager.cpp.o: ../controller/MoteurManager.cpp
 CMakeFiles/robot.dir/controller/MoteurManager.cpp.o: ../controller/MoteurManager.h
@@ -30,6 +34,7 @@ CMakeFiles/robot.dir/controller/PID.cpp.o: ../controller/PID.h
 CMakeFiles/robot.dir/main.cpp.o: ../controller/Controller.h
 CMakeFiles/robot.dir/main.cpp.o: ../controller/FakeCodeur.h
 CMakeFiles/robot.dir/main.cpp.o: ../controller/ICodeurManager.h
+CMakeFiles/robot.dir/main.cpp.o: ../controller/MathUtils.h
 CMakeFiles/robot.dir/main.cpp.o: ../controller/MoteurManager.h
 CMakeFiles/robot.dir/main.cpp.o: ../controller/Odometry.h
 CMakeFiles/robot.dir/main.cpp.o: ../controller/PID.h

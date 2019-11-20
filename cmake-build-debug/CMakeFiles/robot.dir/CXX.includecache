@@ -9,12 +9,6 @@
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Controller.cpp
 Controller.h
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Controller.h
-PID.h
-/mnt/c/Users/Taoufik/CLionProjects/robot/controller/PID.h
-Odometry.h
-/mnt/c/Users/Taoufik/CLionProjects/robot/controller/Odometry.h
-MoteurManager.h
-/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.h
 
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Controller.h
 PID.h
@@ -25,6 +19,8 @@ Odometry.h
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Odometry.h
 MoteurManager.h
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.h
+MathUtils.h
+/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h
 
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/FakeCodeur.cpp
 FakeCodeur.h
@@ -51,6 +47,14 @@ ICodeurManager.h
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.h
 
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.h
+
+/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.cpp
+MathUtils.h
+/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h
+
+/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.h
+cmath
+/mnt/c/Users/Taoufik/CLionProjects/robot/controller/cmath
 
 /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.cpp
 MoteurManager.h

@@ -36,7 +36,7 @@ void Controller::update()
     int leftPWM = m_targetAngle + m_targetDistance;
     int rightPWM = m_targetAngle - m_targetDistance;
 
-    cout << " leftPWM: " << leftPWM << " rightPWM: " << rightPWM << endl;
+    cout << "[PWM] leftPWM: " << leftPWM << " rightPWM: " << rightPWM << endl;
     m_motor.setConsigne(leftPWM, rightPWM);
 
     // Déplacement en fonction du type du point
