@@ -47,8 +47,8 @@ public:
 	 *  \brief Sens de déplacement pour le robot.
 	 */
     enum Direction {
-        FORWARD=1 ///< Le robot avance en marche avant.
-        , BACKWARD=-1 ///< Le robot avance en marche arrière.
+        FORWARD     = 1, ///< Le robot avance en marche avant.
+        BACKWARD    = -1 ///< Le robot avance en marche arrière.
     };
 
 private:
