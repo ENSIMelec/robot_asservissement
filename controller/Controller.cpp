@@ -45,7 +45,9 @@ void Controller::update()
 
     cout << " ======================== " << endl;
 }
-
+/**
+ * Calcul de la consigne
+ */
 void Controller::targetCalcul()
 {
     // récupérer la position actuelle du robot (odométrie)
@@ -72,6 +74,11 @@ void Controller::targetCalcul()
         m_direction = Direction::BACKWARD;
     }
 
+    cout << "[CONSIGNE] TARGET ANGLE (°): " << m_targetAngle * (180 / M_PI) << " TARGET DISTANCE (mm) : " << m_targetDistance << endl;
+    cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
+
+    // stratégie de mouvement
+    // steps: Chargé la position et l'angle a atteindre!
 
 }
 
@@ -113,12 +120,12 @@ void Controller::updateSpeed() {
 
 
     cout << "Speed Translation : " << speedTranslation << " Speed Rotation : " << speedRotation << endl;
+
     m_leftSpeedPID.setGoal(speedTranslation - speedRotation);
     m_rightSpeedPID.setGoal(speedTranslation + speedRotation);
 
     cout << "left speed goal : " << m_leftSpeedPID.getCurrentGoal() << " left right goal : " << m_rightSpeedPID.getCurrentGoal() << endl;
 
-    cout << "TARGET ANGLE : " << m_targetAngle << " TARGET DISTANCE : " << m_targetDistance << endl;
 }
 
 /**
