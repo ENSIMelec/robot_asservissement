@@ -21,7 +21,7 @@ public:
      * @param codeurs
      * @param motor
     */
-    Controller(FakeCodeur& codeurs, MoteurManager& motor);
+    Controller(ICodeurManager& codeurs, MoteurManager& motor);
     void update();
 
     /**

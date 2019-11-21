@@ -5,13 +5,13 @@
 #include "Controller.h"
 using namespace std;
 
-Controller::Controller(FakeCodeur& codeurs, MoteurManager& motor): m_odometry(codeurs), m_motor(motor)
+Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometry(codeurs), m_motor(motor)
 {
     // Init PID Controllers
 
     // Speed PWM Controller
-    m_leftSpeedPID = PID(1, 0, 0,0,255);
-    m_rightSpeedPID = PID(1, 0, 0,0,255);
+    m_leftSpeedPID = PID(1.65, 0.005, 50,0,255);
+    m_rightSpeedPID = PID(1.35, 0.005, 50,0,255);
 
     // Translation Controller
     m_translationPID = PID(1,0,0,0,500);
@@ -29,12 +29,16 @@ void Controller::update()
 
     updateSpeed();
 
-//    int32_t leftPWM = m_leftSpeedPID.compute(m_odometry.getLinVel(), m_leftSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
-//    int32_t rightPWM = m_rightSpeedPID.compute(m_odometry.getLinVel(), m_rightSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
+    int32_t leftPWM = m_leftSpeedPID.compute(m_odometry.getLinVel(), m_leftSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
+    int32_t rightPWM = m_rightSpeedPID.compute(m_odometry.getLinVel(), m_rightSpeedPID.getCurrentGoal(), m_odometry.getLastTime());
 
 
+    /*float maxTranslationSpeed = 30; // 500   mm /s
+    float maxRotationSpeed = 2*M_PI;  /* rad/s
     int leftPWM = m_targetAngle + m_targetDistance;
     int rightPWM = m_targetAngle - m_targetDistance;
+    leftPWM = MathUtils::inrange(leftPWM,0,30);
+    rightPWM = MathUtils::inrange(rightPWM,0,30);*/
 
     cout << "[PWM] leftPWM: " << leftPWM << " rightPWM: " << rightPWM << endl;
     m_motor.setConsigne(leftPWM, rightPWM);
@@ -105,7 +109,7 @@ void Controller::stop() {
 void Controller::updateSpeed() {
 
     // un mouvement translation
-    float speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(),m_targetDistance, m_odometry.getLastTime());
+    float speedTranslation = m_translationPID.compute(m_odometry.getTotalDistance(),m_targetDistance, m_odometry.getLastTime());
 
     // un moumvement de rotation
     float speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_targetAngle, m_odometry.getLastTime());
@@ -113,7 +117,7 @@ void Controller::updateSpeed() {
     cout << "PID speedTranslation: " << speedTranslation << "PID rotatationTransalation: " << speedRotation << endl;
     // min / max
     float maxTranslationSpeed = 30; // 500   mm /s
-    float maxRotationSpeed = 2*M_PI;  /* rad/s */
+    float maxRotationSpeed = M_PI;  /* rad/s */
 
     speedTranslation = max(-maxTranslationSpeed, min(maxTranslationSpeed, speedTranslation));
     speedRotation = max(-maxRotationSpeed, min(maxRotationSpeed, speedRotation));

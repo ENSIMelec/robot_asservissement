@@ -10,7 +10,7 @@ using namespace std;
  *
  * @param codeurs
  */
-Odometry::Odometry(FakeCodeur &codeurs) : m_codeurs(codeurs) {
+Odometry::Odometry(ICodeurManager &codeurs) : m_codeurs(codeurs) {
 
     //   double CoeffGLong = 0.196370477796;
     //   double CoeffDLong = 0.196232031648;
@@ -81,7 +81,7 @@ void Odometry::update() {
     // Actualisation du temps
     this->m_lastTime = m_codeurs.getTime();
 
-    float timestep      = m_lastTime * 0.000001; // en s
+    float timestep      = m_lastTime * 0.000001; // micros -> s
     float linVel        = 0; // mm / s
     float angVel        = 0; // rad / s
 

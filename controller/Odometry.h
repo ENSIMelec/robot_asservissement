@@ -2,7 +2,6 @@
 #define ROBOT_ODOMETRY_H
 
 #include "ICodeurManager.h"
-#include "FakeCodeur.h"
 #include "cmath"
 #include "iostream"
 
@@ -43,7 +42,7 @@ class Odometry {
 
 public:
 
-    explicit Odometry(FakeCodeur &codeurs);
+    explicit Odometry(ICodeurManager &codeurs);
 
     float getLinVel() const {return m_linVel;}
     float getAngVel() const {return m_angVel;}
@@ -115,7 +114,7 @@ protected:
     float TICK_LEFT_TO_RAD = 0; /* Coefficient Angle Droit */
 
 
-    FakeCodeur& m_codeurs;
+    ICodeurManager& m_codeurs;
 
 };
 
