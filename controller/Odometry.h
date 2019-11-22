@@ -66,6 +66,7 @@ public:
     void update();
 
     float getDeltaDistance() const;
+    float getDeltaAngle() const;
     float getDeltaOrientation() const;
     float getTotalDistance() const { return m_distance; }
 
@@ -85,6 +86,8 @@ protected:
      * Distance en mm parcouru entre un intervalle de temps
      */
     float m_dDistance = 0;
+
+    float m_dAngle = 0;
 
     /**
      * Total distance parcouru (odometry test)

@@ -62,9 +62,13 @@ private:
     Position m_targetPos;
 
     // Target distance et angle
-    float m_targetDistance; // mm
-    float m_targetAngle; // rad
-    int m_direction;
+    float m_targetDistance = 0.0; // mm
+    float m_targetAngle = 0.0; // rad
+    int m_direction = 0;
+
+    float m_maxTranslationSpeed = 0.0;
+    float m_maxRotationSpeed = 0.0;
+    int m_maxPWM = 0;
 
     //Odometry
     Odometry m_odometry;

@@ -1,4 +1,5 @@
 #include "Odometry.h"
+#include "MathUtils.h"
 
 using namespace std;
 
@@ -63,6 +64,7 @@ void Odometry::update() {
     //  dAngle = (position_roue_D – position_roue_G) / entraxe
     // Calcul de la différence du nombre de tic entre chaque roue (appx. gauss)
     float dAngle = (ticksRight * TICK_RIGHT_TO_RAD - ticksLeft * TICK_LEFT_TO_RAD) / 2;
+    m_dAngle = dAngle;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
@@ -79,9 +81,9 @@ void Odometry::update() {
 
     // Calcul de la vitesse angulaire et linéaire
     // Actualisation du temps
-    this->m_lastTime = m_codeurs.getTime();
+    this->m_lastTime = MathUtils::micros2sec(m_codeurs.getTime());
 
-    float timestep      = m_lastTime * 0.000001; // micros -> s
+    float timestep      = m_lastTime; // micros -> s
     float linVel        = 0; // mm / s
     float angVel        = 0; // rad / s
 
@@ -93,6 +95,10 @@ void Odometry::update() {
     // Actualisation de la vitesse linéaire et angulaire du robot
     this->m_linVel = linVel;
     this->m_angVel = angVel;
+}
+
+float Odometry::getDeltaAngle() const {
+    return m_dAngle;
 }
 
 float Odometry::getTotalTicksL() const {
@@ -117,8 +123,8 @@ void Odometry::debug() {
     cout << "===========DEBUG ODOMETRY============" << endl;
     cout << "[DATA CODEUR][TICS] : Gauche:" << m_codeurs.getLeftTicks() << " Droit: " << m_codeurs.getRightTicks() << endl;
     cout << "[DATA CODEUR][TOTAL TICS] : Gauche:" << getTotalTicksL() << " Droit: " << getTotalTicksR() << endl;
-    cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() * 0.000001  << " (s)" << endl;
-    cout << "[ODOMETRY][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  getPosition().theta * (180/M_PI) << " °" << endl;
+    cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() << " (s)" << endl;
+    cout << "[ODOMETRY][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  MathUtils::rad2deg(getPosition().theta) << " °" << endl;
     cout << "[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : " << getDeltaDistance() << endl;
     cout << "[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaOrientation() << endl;
     cout << "[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
