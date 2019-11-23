@@ -4,6 +4,7 @@
 #include "ICodeurManager.h"
 #include "cmath"
 #include "iostream"
+#include "MathUtils.h"
 
 /**
  * @brief Structure de position.

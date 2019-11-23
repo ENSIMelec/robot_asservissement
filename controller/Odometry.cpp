@@ -1,5 +1,4 @@
 #include "Odometry.h"
-#include "MathUtils.h"
 
 using namespace std;
 
@@ -81,9 +80,9 @@ void Odometry::update() {
 
     // Calcul de la vitesse angulaire et linéaire
     // Actualisation du temps
-    this->m_lastTime = MathUtils::micros2sec(m_codeurs.getTime());
+    this->m_lastTime = m_codeurs.getTime();
 
-    float timestep      = m_lastTime; // micros -> s
+    float timestep      = MathUtils::micros2sec(m_lastTime); // micros -> s
     float linVel        = 0; // mm / s
     float angVel        = 0; // rad / s
 

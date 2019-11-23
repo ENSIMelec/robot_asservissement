@@ -14,9 +14,9 @@ public:
 
     static float periodicmod(float x, float y);
     static float inrange(float x, float min, float max);
-    static float inline deg2rad(float deg);
-    static float inline rad2deg(float rad);
-    static float inline micros2sec(float rad);
+    static float deg2rad(float deg);
+    static float rad2deg(float rad);
+    static float micros2sec(float sec);
 };
 
 

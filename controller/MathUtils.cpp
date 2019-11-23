@@ -12,12 +12,12 @@ float MathUtils::periodicmod(float x, float y) {
     return fmod(fmod(x, y) + y, y);
 }
 
-float inline MathUtils::deg2rad(float x) {
-    return x * (180 / M_PI);
+float MathUtils::deg2rad(float deg) {
+    return deg * (M_PI / 180);
 }
-float inline MathUtils::rad2deg(float x) {
-    return x * (M_PI / 180);
+float MathUtils::rad2deg(float rad) {
+    return rad * (180 / M_PI);
 }
-float inline MathUtils::micros2sec(float x) {
-    return x * 0.000001;
+float MathUtils::micros2sec(float sec) {
+    return sec * 0.000001;
 }
