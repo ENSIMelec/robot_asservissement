@@ -11,11 +11,11 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometr
 
     m_maxTranslationSpeed = 40; // mm/s
     m_maxRotationSpeed = M_PI; // rad/s
-    m_maxPWM = 50; // PWM
+    m_maxPWM = 50; // -50 PWM
 
     // Speed PWM Controller
-    //m_leftSpeedPID = PID(1.4, 0.005, 0,0,m_maxPWM);
-    //m_rightSpeedPID = PID(1.4, 0.005, 0,0,m_maxPWM);
+    //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
+    //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
 
     // Translation Controller
     m_translationPID = PID(1,0,0,0,m_maxTranslationSpeed);
@@ -46,11 +46,6 @@ void Controller::update()
     int32_t leftPWM = speedTranslation - speedRotation;
     int32_t rightPWM = speedTranslation + speedRotation;
 
-    /*
-    int leftPWM = m_targetAngle + m_targetDistance;
-    int rightPWM = m_targetAngle - m_targetDistance;
-    leftPWM = MathUtils::inrange(leftPWM,0,30);
-    rightPWM = MathUtils::inrange(rightPWM,0,30);*/
 
     cout << "[PWM] leftPWM: " << leftPWM << " rightPWM: " << rightPWM << endl;
     m_motor.setConsigne(leftPWM, rightPWM);
@@ -83,6 +78,7 @@ void Controller::targetCalcul()
     m_targetAngle = MathUtils::inrange(m_targetAngle, -M_PI, M_PI);
 
     // Direction (cap inférieur à -pi/2 et supérieur à pi/2)
+    //gestion de la marche arrière
     if(fabs(m_targetAngle) < M_PI_2) {
         m_direction = Direction::FORWARD;
     }
