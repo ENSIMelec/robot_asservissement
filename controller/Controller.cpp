@@ -18,7 +18,7 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometr
     //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
 
     // Translation Controller
-    m_translationPID = PID(1,0,0,0,m_maxTranslationSpeed);
+    m_translationPID = PID(10,0,0,0,m_maxTranslationSpeed);
     m_rotationPID = PID(1,0,0,0, m_maxRotationSpeed);
 
 }
@@ -91,7 +91,7 @@ void Controller::targetCalcul()
         m_targetAngle = MathUtils::inrange(m_targetAngle, -M_PI, M_PI);
     }
 
-    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_targetAngle) << " TARGET DISTANCE (mm) : " << m_targetDistance << endl;
+    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_targetAngle) << " TARGET DISTANCE (mm) : " << m_targetDistance / 10 << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
 
     // stratégie de mouvement
