@@ -18,37 +18,51 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometr
     //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
 
     // Translation Controller
-    m_translationPID = PID(1,0,0,0,m_maxTranslationSpeed);
-    m_rotationPID = PID(1,0,0,0, m_maxRotationSpeed);
+     = PID(1,0,0,-m_maxTranslationSpeed,m_maxTranslationSpeed);
+    m_rotationPID = PID(1,0,0,-m_maxRotationSpeed, m_maxRotationSpeed);
 
 }
 void Controller::update()
 {
+    //synchronisation à une fréquence régulière!!
+
     //Mise à jour de la position/orientation et de la vitesse du robot (Odométrie)
     m_odometry.update();
     m_odometry.debug();
 
     // Calcul de la distance et de l'angle à fair pour aller au prochain point
-    targetCalcul();
+    updateConsigne();
 
-    //
-    //updateSpeed();
+    //calcul des réponses provenant des PIDs
+
     // un mouvement translation
-    float speedTranslation = m_translationPID.compute(m_odometry.getTotalDistance(),m_targetDistance, m_odometry.getLastTime());
-    // un moumvement de rotation
-    float speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_targetAngle, m_odometry.getLastTime());
+    float speedTranslation = m_translationPID.compute(m_odometry.getTotalDistance(), m_target.distance);
+//    // un moumvement de rotation
+//    float speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_target.angle);
 
-    cout << "PID speedTranslation: " << speedTranslation << " | PID rotatationTransalation: " << speedRotation << endl;
     speedTranslation = max(-m_maxTranslationSpeed, min(m_maxTranslationSpeed, speedTranslation));
-    speedRotation = max(-m_maxRotationSpeed, min(m_maxRotationSpeed, speedRotation));
-    cout << "Speed Translation : " << speedTranslation << " Speed Rotation : " << speedRotation << endl;
+//    speedRotation = max(-m_maxRotationSpeed, min(m_maxRotationSpeed, speedRotation));
 
-    int32_t leftPWM = speedTranslation - speedRotation;
-    int32_t rightPWM = speedTranslation + speedRotation;
+//    int32_t leftPWM = speedTranslation - speedRotation;
+//    int32_t rightPWM = speedTranslation + speedRotation;
 
+    int32_t leftPWM = speedTranslation;
+    int32_t rightPWM = speedTranslation;
 
-    cout << "[PWM] leftPWM: " << leftPWM << " rightPWM: " << rightPWM << endl;
     m_motor.setConsigne(leftPWM, rightPWM);
+
+
+    // debug:
+    cout << "[PID DISTANCE] Speed Translation : " << speedTranslation;
+    //cout << "[PID ANGLE] Speed Rotation : " << speedRotation;
+    cout << "[PWM] LEFT : " << leftPWM << " RIGHT: " << rightPWM << endl;
+
+    //correction eventuelle des commandes
+
+    //écretage (si trop forte acceleration/décélérantion)
+
+    //on regarde si on est pas arrivé à bon port
+
 
     // Déplacement en fonction du type du point
     //translate();
@@ -59,7 +73,7 @@ void Controller::update()
 /**
  * Calcul de la consigne
  */
-void Controller::targetCalcul()
+void Controller::updateConsigne()
 {
     // récupérer la position actuelle du robot (odométrie)
     Position deltaPos = m_odometry.getPosition();
@@ -69,29 +83,31 @@ void Controller::targetCalcul()
     float yError = (m_targetPos.y - deltaPos.y);
 
     // distance entre la position du robot à instant t, et son objectif (toujours positif? fait que avancer)
-    m_targetDistance = sqrt(pow(xError,2) + pow(yError,2));
+    m_target.distance = sqrt(pow(xError,2) + pow(yError,2));
     // orientation qui doit prendre le robot pour atteindre le point
-    // m_targetAngle = atan2(dy,dx) - T0
-    m_targetAngle = atan2f(yError, xError) - deltaPos.theta;
+    // m_target.angle = atan2(dy,dx) - T0
+    m_target.angle = atan2f(yError, xError) - deltaPos.theta;
 
     // Borner la consigne Angle entre Pi et -Pi
-    m_targetAngle = MathUtils::inrange(m_targetAngle, -M_PI, M_PI);
+    m_target.angle = MathUtils::inrange(m_target.angle, -M_PI, M_PI);
 
     // Direction (cap inférieur à -pi/2 et supérieur à pi/2)
-    //gestion de la marche arrière
-    if(fabs(m_targetAngle) < M_PI_2) {
+    //gestion de la marche arrière si on dépasse point de consigne
+    if(fabs(m_target.angle) < M_PI_2) {
         m_direction = Direction::FORWARD;
     }
     else {
         m_direction = Direction::BACKWARD;
 
-        m_targetDistance = (-1)*m_targetDistance;
-        m_targetAngle += M_PI;
+        m_target.distance = (-1)*m_target.distance;
+        m_target.angle += M_PI;
         // Borner la consigne Angle entre Pi et -Pi
-        m_targetAngle = MathUtils::inrange(m_targetAngle, -M_PI, M_PI);
+        m_target.angle = MathUtils::inrange(m_target.angle, -M_PI, M_PI);
     }
 
-    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_targetAngle) << " TARGET DISTANCE (mm) : " << m_targetDistance << endl;
+    //debug:
+
+    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_target.angle) << " TARGET DISTANCE (mm) : " << m_target.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
 
     // stratégie de mouvement
@@ -122,10 +138,10 @@ void Controller::stop() {
 void Controller::updateSpeed() {
 
     // un mouvement translation
-    float speedTranslation = m_translationPID.compute(m_odometry.getTotalDistance(),m_targetDistance, m_odometry.getLastTime());
+    float speedTranslation = m_translationPID.compute(m_odometry.getTotalDistance(),m_target.distance);
 
     // un moumvement de rotation
-    float speedRotation = m_rotationPID.compute(m_odometry.getDeltaAngle(),m_targetAngle, m_odometry.getLastTime());
+    float speedRotation = m_rotationPID.compute(m_odometry.getDeltaAngle(),m_target.angle);
 
     cout << "PID speedTranslation: " << speedTranslation << " | PID rotatationTransalation: " << speedRotation << endl;
 
@@ -153,7 +169,7 @@ void Controller::rotate()
     // reset PID
     m_rotationPID.resetErrors();
 
-    m_rotationPID.setGoal(m_targetAngle);
+    m_rotationPID.setGoal(m_target.angle);
 
 }
 /**
@@ -166,6 +182,6 @@ void Controller::translate()
     m_translationPID.resetErrors();
 
     // préciser la consigne de distance
-    m_translationPID.setGoal(m_targetDistance + m_odometry.getDeltaDistance());
+    m_translationPID.setGoal(m_target.distance + m_odometry.getDeltaDistance());
 
 }

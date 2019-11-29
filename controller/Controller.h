@@ -13,6 +13,12 @@
 #include "MathUtils.h"
 
 
+/**
+   * Consigne
+   */
+
+
+
 class Controller {
 
 public:
@@ -28,7 +34,7 @@ public:
      * @brief Consigne de de déplacement
      * Calcul erreur entre la consigne et la position actuelle du robot
     **/
-    void targetCalcul();
+    void updateConsigne();
     void updateSpeed();
     /**
      * Déplacement x, y, angle
@@ -61,9 +67,14 @@ private:
     // Target position
     Position m_targetPos;
 
-    // Target distance et angle
-    float m_targetDistance = 0.0; // mm
-    float m_targetAngle = 0.0; // rad
+    // Consigne struct
+    struct
+    {
+        float distance = 0.0; // mm
+        float angle = 0.0; // rad
+
+    } m_target;
+
     int m_direction = 0;
 
     float m_maxTranslationSpeed = 0.0;
