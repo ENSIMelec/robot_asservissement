@@ -18,8 +18,21 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor): m_odometr
     //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
 
     // Translation Controller
-     = PID(1,0,0,-m_maxTranslationSpeed,m_maxTranslationSpeed);
-    m_rotationPID = PID(1,0,0,-m_maxRotationSpeed, m_maxRotationSpeed);
+    m_translationPID = PID(
+            m_config.getPIDkpDep(),
+            m_config.getPIDkiDep(),
+            m_config.getPIDkdDep(),
+            -m_maxTranslationSpeed,
+            m_maxTranslationSpeed
+     );
+
+    m_rotationPID = PID(
+            m_config.getPIDkpA(),
+            m_config.getPIDkiA(),
+            m_config.getPIDkdA(),
+            -m_maxRotationSpeed,
+            m_maxRotationSpeed
+    );
 
 }
 void Controller::update()

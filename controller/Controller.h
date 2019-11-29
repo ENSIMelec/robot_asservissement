@@ -11,6 +11,7 @@
 #include "Odometry.h"
 #include "MoteurManager.h"
 #include "MathUtils.h"
+#include "Config.h"
 
 
 /**
@@ -86,6 +87,8 @@ private:
 
     // MoteurManager
     MoteurManager m_motor;
+    //Config
+    Config m_config;
 
 };
 

@@ -1,0 +1,18 @@
+asservissement {
+
+
+	; Réglages du PID
+
+
+    ;pid déplacement
+    pid_kpdep 		1
+    pid_kidep 		0
+    pid_kddep 		0
+
+	;pid d'angle
+	pid_kpa 		1
+	pid_kia 		0
+	pid_kda 		0
+
+
+}
