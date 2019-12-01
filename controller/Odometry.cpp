@@ -70,7 +70,7 @@ void Odometry::update() {
     float avgTheta = m_pos.theta + dAngle/2;
     m_dOrientation = avgTheta;
 
-    //Mise à jour de la position du robot en xy et en orientation
+    //Mise à jour de la position du robot en xy et en angle
     this->m_pos.x       += dDistance*cosf(avgTheta); // dAngle?
     this->m_pos.y       += dDistance*sinf(avgTheta);
     this->m_pos.theta   += dAngle;

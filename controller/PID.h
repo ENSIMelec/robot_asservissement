@@ -21,6 +21,7 @@ public:
 
     float getCurrentGoal() const;
     void setGoal(float mGoal);
+    int getError() const { return m_pre_error; };
 
 
 private:

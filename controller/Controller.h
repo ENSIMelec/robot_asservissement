@@ -50,6 +50,7 @@ public:
     void translate();
     void rotate();
     void stop();
+    bool positionReached();
 
     /** enum Direction
 	 *  \brief Sens de déplacement pour le robot.
@@ -69,18 +70,20 @@ private:
     // Target position
     Position m_targetPos;
 
-    // Consigne struct
+    /**
+     * Structure de la consigne à atteindre
+     */
     struct
     {
         float distance = 0.0; // mm
         float angle = 0.0; // rad
 
-    } m_target;
+    } m_consigne;
 
     int m_direction = 0;
 
-    float m_maxTranslationSpeed = 0.0;
-    float m_maxRotationSpeed = 0.0;
+    float m_maxTranslationSpeed = 0; // mm/s
+    float m_maxRotationSpeed = 0; // mm/s
     int m_maxPWM = 0;
 
     //Odometry

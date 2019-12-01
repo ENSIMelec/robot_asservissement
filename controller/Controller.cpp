@@ -5,13 +5,15 @@
 #include "Controller.h"
 using namespace std;
 
-Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config): m_odometry(codeurs), m_motor(motor), m_config(config)
+Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config):
+m_odometry(codeurs), m_motor(motor), m_config(config)
 {
     // Init PID Controllers
 
     m_maxTranslationSpeed = 70; // mm/s
     m_maxRotationSpeed = M_PI; // rad/s
-    m_maxPWM = 50; // -50 PWM
+
+    m_maxPWM = 70; // -50 PWM
 
     // Speed PWM Controller
     //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
@@ -23,16 +25,16 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
             m_config.getPIDkpDep(),
             m_config.getPIDkiDep(),
             m_config.getPIDkdDep(),
-            -m_maxTranslationSpeed,
-            m_maxTranslationSpeed
+            -m_maxPWM,
+            m_maxPWM
      );
 
     m_rotationPID = PID(
             m_config.getPIDkpA(),
             m_config.getPIDkiA(),
             m_config.getPIDkdA(),
-            -m_maxRotationSpeed,
-            m_maxRotationSpeed
+            -m_maxPWM,
+            m_maxPWM
     );
 
 }
@@ -50,18 +52,18 @@ void Controller::update()
     //calcul des réponses provenant des PIDs
 
     // un mouvement translation
-//    float speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), m_target.distance);
+//    float speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), m_consigne.distance);
 //    // un moumvement de rotation
-   float speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_target.angle);
+   int speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_consigne.angle);
 
-   //   speedTranslation = max(-m_maxTranslationSpeed, min(m_maxTranslationSpeed, speedTranslation));
-    speedRotation = max(-m_maxRotationSpeed, min(m_maxRotationSpeed, speedRotation));
+   //   speedTranslation = max(-m_maxPWM, min(m_maxPWM, speedTranslation));
+    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
 //    int32_t leftPWM = speedTranslation - speedRotation;
 //    int32_t rightPWM = speedTranslation + speedRotation;
 
-    int32_t leftPWM = -speedRotation;
-    int32_t rightPWM = speedRotation;
+    int leftPWM = -speedRotation;
+    int rightPWM = speedRotation;
 
     m_motor.setConsigne(leftPWM, rightPWM);
 
@@ -97,81 +99,56 @@ void Controller::updateConsigne()
     float yError = (m_targetPos.y - deltaPos.y);
 
     // distance entre la position du robot à instant t, et son objectif (toujours positif? fait que avancer)
-    m_target.distance = sqrt(pow(xError,2) + pow(yError,2));
+    m_consigne.distance = sqrt(pow(xError,2) + pow(yError,2));
     // orientation qui doit prendre le robot pour atteindre le point
-    // m_target.angle = atan2(dy,dx) - T0
-    //m_target.angle = atan2f(yError, xError) - deltaPos.theta;
-    m_target.angle = atan2f(yError, xError) - deltaPos.theta;
+    // m_consigne.angle = atan2(dy,dx) - T0
+    //m_consigne.angle = atan2f(yError, xError) - deltaPos.theta;
+    m_consigne.angle = atan2f(yError, xError) - deltaPos.theta;
 
     // Borner la consigne Angle entre Pi et -Pi
-    m_target.angle = MathUtils::inrange(m_target.angle, -M_PI, M_PI);
+    m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
     // Direction (cap inférieur à -pi/2 et supérieur à pi/2)
     //gestion de la marche arrière si on dépasse point de consigne
-    if(fabs(m_target.angle) < M_PI_2) {
+    if(fabs(m_consigne.angle) < M_PI_2) {
         m_direction = Direction::FORWARD;
     }
     else {
         m_direction = Direction::BACKWARD;
 
-        m_target.distance = (-1)*m_target.distance;
-        m_target.angle += M_PI;
+        m_consigne.distance = (-1)*m_consigne.distance;
+        m_consigne.angle += M_PI;
         // Borner la consigne Angle entre Pi et -Pi
-        m_target.angle = MathUtils::inrange(m_target.angle, -M_PI, M_PI);
+        m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
     }
 
 
-    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_target.angle) << " TARGET DISTANCE (mm) : " << m_target.distance << endl;
+    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << " TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
-
-    // stratégie de mouvement
-    // steps: Chargé la position et l'angle a atteindre!
-
 }
-
+/**
+ * Mettre en place le point voulu à atteindre dans la table
+ * @param x  en mm
+ * @param y  en mm
+ * @param angle  en degré
+ */
 void Controller::gotoPoint(int x, int y, int angle) {
     m_targetPos.x = x;
     m_targetPos.y = y;
-    m_targetPos.theta = angle;
+    m_targetPos.theta = MathUtils::deg2rad(angle);
 }
 /**
- * Stop
+ * Stop des moteurs et réinitilisation des PID
  */
 void Controller::stop() {
 
     // arrêt des moteurs
     m_motor.stop();
-
+    // reset des erreurs
     m_translationPID.resetErrors();
     m_rotationPID.resetErrors();
 }
 
-/**
- * Asser du moteur
- */
-void Controller::updateSpeed() {
-
-    // un mouvement translation
-    float speedTranslation = m_translationPID.compute(m_odometry.getTotalDistance(),m_target.distance);
-
-    // un moumvement de rotation
-    float speedRotation = m_rotationPID.compute(m_odometry.getDeltaAngle(),m_target.angle);
-
-    cout << "PID speedTranslation: " << speedTranslation << " | PID rotatationTransalation: " << speedRotation << endl;
-
-
-    speedTranslation = max(-m_maxTranslationSpeed, min(m_maxTranslationSpeed, speedTranslation));
-    speedRotation = max(-m_maxRotationSpeed, min(m_maxRotationSpeed, speedRotation));
-
-
-    cout << "Speed Translation : " << speedTranslation << " Speed Rotation : " << speedRotation << endl;
-
-    m_leftSpeedPID.setGoal(speedTranslation - speedRotation);
-    m_rightSpeedPID.setGoal(speedTranslation + speedRotation);
-
-    cout << "left speed goal : " << m_leftSpeedPID.getCurrentGoal() << " left right goal : " << m_rightSpeedPID.getCurrentGoal() << endl;
-
-}
 
 /**
  * Rotation du robot asservi
@@ -183,7 +160,7 @@ void Controller::rotate()
     // reset PID
     m_rotationPID.resetErrors();
 
-    m_rotationPID.setGoal(m_target.angle);
+    m_rotationPID.setGoal(m_consigne.angle);
 
 }
 /**
@@ -196,6 +173,17 @@ void Controller::translate()
     m_translationPID.resetErrors();
 
     // préciser la consigne de distance
-    m_translationPID.setGoal(m_target.distance + m_odometry.getDeltaDistance());
+    m_translationPID.setGoal(m_consigne.distance + m_odometry.getDeltaDistance());
+
+}
+
+bool Controller::positionReached() {
+
+    int M_PRECISION_DELTA = 10; // mm
+    // get errors from PID
+    return abs(m_translationPID.getError() < M_PRECISION_DELTA) != 0;
+}
+
+void Controller::updateSpeed() {
 
 }
