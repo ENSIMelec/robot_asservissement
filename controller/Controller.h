@@ -47,8 +47,6 @@ public:
      * @param angle
     */
     void gotoPoint(int x, int y, int angle);
-    void translate();
-    void rotate();
     void stop();
     bool positionReached();
 
