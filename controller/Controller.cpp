@@ -93,6 +93,8 @@ void Controller::update()
 }
 /**
  * Calcul de la consigne
+ * m_consigne.distance = is the distance between the robot and the goal position
+ * m_consigne.angle = is the angle to the goal relative to the heading of the robot
  */
 void Controller::updateConsigne()
 {
@@ -100,32 +102,42 @@ void Controller::updateConsigne()
     Position deltaPos = m_odometry.getPosition();
 
     // calcul des erreurs ( prendre la position du robot comme zero)
-    float xError = (m_targetPos.x - deltaPos.x);
-    float yError = (m_targetPos.y - deltaPos.y);
+    float x_diff = (m_targetPos.x - deltaPos.x);
+    float y_diff = (m_targetPos.y - deltaPos.y);
 
-    // distance entre la position du robot à instant t, et son objectif (toujours positif? fait que avancer)
-    m_consigne.distance = sqrt(pow(xError,2) + pow(yError,2));
+    // coordonnées cart -> polaire
+    // distance entre la position du robot à instant t, et son objectif
+    m_consigne.distance = sqrt(pow(x_diff,2) + pow(y_diff,2));
 
     // orientation qui doit prendre le robot pour atteindre le point
-    m_consigne.angle = atan2f(yError, xError) - deltaPos.theta;
+    m_consigne.angle = atan2f(y_diff, x_diff) - deltaPos.theta;
 
     // Borner la consigne Angle entre Pi et -Pi
     m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
     // Direction (cap inférieur à -pi/2 et supérieur à pi/2)
     //gestion de la marche arrière si on dépasse point de consigne
-    if(fabs(m_consigne.angle) < M_PI_2) {
-        m_direction = Direction::FORWARD;
+    // TODO: à tester ( cas < -90  pas nécessaire)
+    if (m_consigne.angle > M_PI_2)
+    {
+        m_direction = Direction::BACKWARD;
+        m_consigne.angle -= M_PI;
+        m_consigne.distance = -m_consigne.distance;
+    }
+    else if (m_consigne.angle < -M_PI_2)
+    {
+        m_direction = Direction::BACKWARD;
+        m_consigne.angle += M_PI;
+        m_consigne.distance = -m_consigne.distance;
     }
     else {
-        m_direction = Direction::BACKWARD;
-
-        m_consigne.distance = (-1)*m_consigne.distance;
-        m_consigne.angle += M_PI;
-        // Borner la consigne Angle entre Pi et -Pi
-        m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
+        m_direction = Direction::FORWARD;
     }
+    // Borner l'angle
+    m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
+    //TODO : gestion point non atteignable
+    //(si l'on demande un point trop prés du robot et à la perpendiculaire de la direction du robot il se met à tourner autour du point)
 
     cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << " TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
@@ -156,9 +168,9 @@ void Controller::stop() {
 
 bool Controller::positionReached() {
 
-    int M_PRECISION_DELTA = 10; // mm
+    int distance_tolerance = 10; // mm
     // get errors from PID
-    return abs(m_translationPID.getError() < M_PRECISION_DELTA) != 0;
+    return abs(m_translationPID.getError()) < distance_tolerance;
 }
 
 void Controller::updateSpeed() {
