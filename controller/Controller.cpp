@@ -5,14 +5,14 @@
 #include "Controller.h"
 using namespace std;
 
-Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config): m_odometry(codeurs), m_motor(motor), m_config(config)
+Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config): m_odometry(codeurs,config), m_motor(motor), m_config(config)
 {
     // Init PID Controllers
 
     m_maxTranslationSpeed = 70; // mm/s
     m_maxRotationSpeed = M_PI; // rad/s
 
-    m_maxPWM = 120; // -50 PWM
+    m_maxPWM = 50; // -50 PWM
 
     // Speed PWM Controller
     //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);

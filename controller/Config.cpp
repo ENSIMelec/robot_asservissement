@@ -45,6 +45,7 @@ void Config::loadFromFile(string filename)
 	CoeffGLong = tree.get<double>("asservissement.CoeffGLong");
 	CoeffDLong = tree.get<double>("asservissement.CoeffDLong");
 	CoeffAngl = tree.get<double>("asservissement.CoeffAngl");
+    CoeffCorrecteur = tree.get<double>("asservissement.CoeffCorrecteur");
 
 	I2C_SERVOS = tree.get<int>("asservissement.I2C_SERVOS");
 	I2C_LANCEUR = tree.get<int>("asservissement.I2C_LANCEUR");
@@ -91,6 +92,7 @@ double Config::getPIDkdVHigh() const { return pid_kdV_high; }
 double Config::getCoeffGLong() const { return CoeffGLong; }
 double Config::getCoeffDLong() const { return CoeffDLong; }
 double Config::getCoeffAngl() const { return CoeffAngl; }
+double Config::getCoeffCorrecteur() const { return CoeffCorrecteur; }
 
 int Config::get_I2C_SERVOS() const {return I2C_SERVOS; }
 int Config::get_I2C_LANCEUR() const {return I2C_LANCEUR; }

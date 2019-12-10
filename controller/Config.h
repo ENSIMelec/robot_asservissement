@@ -51,6 +51,7 @@ public:
 	double getCoeffGLong() const;
 	double getCoeffDLong() const;
 	double getCoeffAngl() const;
+    double getCoeffCorrecteur() const;
 
 	int get_I2C_SERVOS() const;
 	int get_I2C_LANCEUR() const;
@@ -72,6 +73,7 @@ private:
 	double pid_kpV_low, pid_kiV_low, pid_kdV_low, pid_kpV_medium, pid_kiV_medium, pid_kdV_medium, pid_kpV_high, pid_kiV_high, pid_kdV_high;
 
 	double CoeffGLong, CoeffDLong, CoeffAngl;
+	double CoeffCorrecteur;
 
 	int I2C_SERVOS, I2C_LANCEUR, I2C_MOTEURS;
 
