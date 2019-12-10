@@ -71,8 +71,8 @@ void Odometry::update() {
     m_dOrientation = avgTheta;
 
     //Mise à jour de la position du robot en xy et en angle
-    this->m_pos.x       += dDistance*cosf(avgTheta); // dAngle?
-    this->m_pos.y       += dDistance*sinf(avgTheta);
+    this->m_pos.x       += dDistance*cos(avgTheta); // dAngle?
+    this->m_pos.y       += dDistance*sin(avgTheta);
     this->m_pos.theta   += dAngle;
 
     if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
@@ -129,5 +129,13 @@ void Odometry::debug() {
     cout << "[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
     cout << "[ODOMETRY][TOTAL DISTANCE] (cm): " << getTotalDistance() / 10 << endl;
     cout << "=======================" << endl;
+
+}
+
+void Odometry::calcul_position_arc(double distance, double angle) {
+
+}
+
+void Odometry::calcul_position_segement(double distance, double angle) {
 
 }

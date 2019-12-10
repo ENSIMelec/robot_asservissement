@@ -7,6 +7,7 @@
 #define ROBOT_PID_H
 
 #include <cmath>
+#include "iostream"
 
 class PID {
 public:

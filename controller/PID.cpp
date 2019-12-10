@@ -32,6 +32,9 @@ float PID::compute(float currentState, float consigne) {
     // Proportional term
     float Pout = m_kp * error;
 
+    //cout << " ERROR : " << error << endl;
+    //cout << " ERROR Pout (kp*error): " << Pout << endl;
+
     // Integral term
     this->m_integral += error;
     float Iout = m_ki * this->m_integral;

@@ -12,7 +12,7 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
     m_maxTranslationSpeed = 70; // mm/s
     m_maxRotationSpeed = M_PI; // rad/s
 
-    m_maxPWM = 70; // -50 PWM
+    m_maxPWM = 120; // -50 PWM
 
     // Speed PWM Controller
     //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
@@ -66,11 +66,11 @@ void Controller::update()
    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
 
-//    int32_t leftPWM = speedTranslation - speedRotation;
-//    int32_t rightPWM = speedTranslation + speedRotation;
+    //int leftPWM = speedTranslation - speedRotation;
+    //int rightPWM = speedTranslation + speedRotation;
 
-    int leftPWM = -speedRotation;
-    int rightPWM = speedRotation;
+    int leftPWM = speedTranslation;
+    int rightPWM = speedTranslation;
 
     m_motor.setConsigne(leftPWM, rightPWM);
 
@@ -107,7 +107,7 @@ void Controller::updateConsigne()
 
     // coordonnées cart -> polaire
     // distance entre la position du robot à instant t, et son objectif
-    m_consigne.distance = sqrt(pow(x_diff,2) + pow(y_diff,2));
+    m_consigne.distance = sqrt(x_diff * x_diff + y_diff * y_diff);
 
     // orientation qui doit prendre le robot pour atteindre le point
     m_consigne.angle = atan2f(y_diff, x_diff) - deltaPos.theta;
@@ -139,7 +139,9 @@ void Controller::updateConsigne()
     //TODO : gestion point non atteignable
     //(si l'on demande un point trop prés du robot et à la perpendiculaire de la direction du robot il se met à tourner autour du point)
 
-    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << " TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
+    cout << "X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
+    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
+    cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
 }
 /**

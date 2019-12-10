@@ -70,6 +70,8 @@ public:
     float getDeltaAngle() const;
     float getDeltaOrientation() const;
     float getTotalDistance() const { return m_distance; }
+    void calcul_position_segement(double distance, double angle);
+    void calcul_position_arc(double distance, double angle);
 
 protected:
 
