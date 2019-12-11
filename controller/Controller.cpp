@@ -66,9 +66,6 @@ void Controller::update()
    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
 
-    //int leftPWM = speedTranslation - speedRotation;
-    //int rightPWM = speedTranslation + speedRotation;
-
     int leftPWM = speedTranslation + speedRotation;
     int rightPWM = speedTranslation - speedRotation;
 
