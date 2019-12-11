@@ -24,7 +24,7 @@ PID::PID(float kp, float ki, float kd, float min, float max) {
  * @param timestep
  * @return
  */
-float PID::compute(float currentState, float consigne, float timestep) {
+float PID::compute(float currentState, float consigne) {
 
     // Ecart entre la consigne et la mesure
     float error = consigne - currentState;
@@ -32,12 +32,15 @@ float PID::compute(float currentState, float consigne, float timestep) {
     // Proportional term
     float Pout = m_kp * error;
 
+    //cout << " ERROR : " << error << endl;
+    //cout << " ERROR Pout (kp*error): " << Pout << endl;
+
     // Integral term
-    this->m_integral += error * timestep;
+    this->m_integral += error;
     float Iout = m_ki * this->m_integral;
 
     // Derivative term
-    this->m_derivative = (error - m_pre_error)/timestep;
+    this->m_derivative = (error - m_pre_error);
     float Dout = m_kd * this->m_derivative;
 
     // Compute the PID controller's output

@@ -1,0 +1,98 @@
+asservissement {
+	; Temps d’attente entre chaque boucle d’asservissement, en ms.
+	; Attention : une valeur trop élevée sature le bus I2C !
+	delta_asserv 	10
+
+	temps_match 	100
+
+	nbAX12 			4
+
+	
+	;Raspberry
+	ipServeur  	127.0.0.1
+	port 			1111
+	
+	;1.5 mm erreur Y sur 2m
+	;CoeffCorrecteur 0.9963138
+	;monter le coef = monter erreur Y
+	; -4 mm error sur 2m
+	CoeffCorrecteur 0.9965138
+
+	; Réglages du PID
+
+	;pid déplacement
+    pid_kpdep 		0.85
+    pid_kidep 		0
+    pid_kddep 		0
+
+	;pid d'angle
+	pid_kpa 		100
+	pid_kia 		1
+	pid_kda 		10
+
+	;au dela de 20 de p le pathfinding foire
+	pid_kpdepPathFinding	8
+	pid_kpdep 		30
+	pid_kidep 		0
+	pid_kddep 		7
+
+
+	; pid de position
+	pid_kppos 		2
+	pid_kipos 		0
+	pid_kdpos 		1
+
+	;pid vitesse moyenne
+	pid_kpV_medium 	0.1
+	pid_kiV_medium 	0.005
+	pid_kdV_medium 	0
+
+	;Ne sert plus
+	;pid vitesse faible
+	pid_kpV_low 	0.1
+	pid_kiV_low 	0.005
+	pid_kdV_low 	0
+
+	;pid vitesse haute
+	pid_kpV_high 	0.1
+	pid_kiV_high 	0.005
+	pid_kdV_high 	0
+
+	; Réglages coefs déplacement
+
+	;CoeffGLong 0.2192765113974
+	;CoeffDLong 0.2188427299703
+
+	;CoeffGLong 0.2204356846473029
+	;CoeffDLong 0.2209804419608839
+
+	;24/05/2019 initiaux
+	;CoeffGLong 0.2175127805414823
+	;CoeffDLong 0.2180503145536678
+	;CoeffGLong 0,2175127805414823
+	;CoeffDLong 0,2180503145536678
+
+	;trop
+	;CoeffGLong 0.2171502592405798
+	;CoeffDLong 0.2184137317445906
+
+	;calcule un sixieme
+	CoeffGLong 0.2174523603246652
+	CoeffDLong 0.2181108840854883
+	
+	;CoefAngle Solveur
+	;CoeffAngl 0.0511967234097018
+	CoeffAngl 0.0510457284650833
+
+	CoeffAnglD 0.0518380923726007
+	CoeffAnglG 0.0518358531317495
+
+	; Adresses cartes arduino
+	I2C_SERVOS  6
+	I2C_LANCEUR 7
+	I2C_MOTEURS 8
+	I2C_STEPPER 9
+
+	;Booleen pour attendre ou non la connexion de l'électron, l'expérience et le deuxième robot: 0 non, 1 oui (tjrs 0 pour le petit)
+	WAIT_DEVICES_CONNECTIONS 1
+}

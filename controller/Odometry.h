@@ -4,6 +4,8 @@
 #include "ICodeurManager.h"
 #include "cmath"
 #include "iostream"
+#include "MathUtils.h"
+#include "Config.h"
 
 /**
  * @brief Structure de position.
@@ -42,16 +44,14 @@ class Odometry {
 
 public:
 
-    explicit Odometry(ICodeurManager &codeurs);
-
-    float getLinVel() const {return m_linVel;}
-    float getAngVel() const {return m_angVel;}
-    int getLastTime() const { return m_lastTime; }
+    explicit Odometry(ICodeurManager &codeurs, Config& config);
     void debug();
-
-    float getTotalTicksL() const;
-    float getTotalTicksR() const;
-
+    float delta_mm(long int ticksLeft, long int ticksRight) const;
+    float angle_rad(long int ticksLeft, long int ticksRight) const;
+    float calcul_angle_delta() const;
+    void calcul_position_segment(float distance, float angle);
+    void calcul_position_arc(float distance, float angle);
+    void distance_total_update(int long ticksLeft, int long ticksRight);
     /**
      * @brief Retourne la position
      * @return
@@ -65,13 +65,17 @@ public:
     */
     void update();
 
-    float getDeltaDistance() const;
-    float getDeltaAngle() const;
-    float getDeltaOrientation() const;
-    float getTotalDistance() const { return m_distance; }
+
+    float getDeltaOrientation() const { return m_dOrientation; }
+    float getDeltaDistance() const { return m_dDistance; }
+    float getTotalDistance() const { return m_totalDistance; }
+    float getLinVel() const {return m_linVel;}
+    float getAngVel() const {return m_angVel;}
+    int getLastTime() const { return m_lastTime; }
+    float getTotalTicksL() const { return m_totalTicksL; };
+    float getTotalTicksR() const { return m_totalTicksR; };
 
 protected:
-
     Position m_pos; /*!< Structure de position de Odometry. */
     float m_linVel = 0; /*!< Vitesse lineaire en mm/s. */
     float m_angVel = 0; /*!< Vitesse angulaire en rad/s.*/
@@ -79,25 +83,23 @@ protected:
     /**
      * Total des tics
      */
-    float m_totalTicksL = 0;
-    float m_totalTicksR = 0;
+    int m_totalTicksL = 0;
+    int m_totalTicksR = 0;
 
     /**
      * Distance en mm parcouru entre un intervalle de temps
      */
-    float m_dDistance = 0;
-
-    float m_dAngle = 0;
+    int m_dDistance = 0;
 
     /**
      * Total distance parcouru (odometry test)
      */
-     float m_distance = 0;
+    int m_totalDistance = 0;
 
     /**
      * Angle en rad entre un intervalle de temps
      */
-    float m_dOrientation = 0;
+    int m_dOrientation = 0;
 
     /**
      * Time
@@ -118,6 +120,9 @@ protected:
 
 
     ICodeurManager& m_codeurs;
+
+    //Config
+    Config m_config;
 
 };
 

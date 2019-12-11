@@ -312,6 +312,33 @@ controller/PID.cpp.s:
 	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/PID.cpp.s
 .PHONY : controller/PID.cpp.s
 
+controller/Trajectory.o: controller/Trajectory.cpp.o
+
+.PHONY : controller/Trajectory.o
+
+# target to build an object file
+controller/Trajectory.cpp.o:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Trajectory.cpp.o
+.PHONY : controller/Trajectory.cpp.o
+
+controller/Trajectory.i: controller/Trajectory.cpp.i
+
+.PHONY : controller/Trajectory.i
+
+# target to preprocess a source file
+controller/Trajectory.cpp.i:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Trajectory.cpp.i
+.PHONY : controller/Trajectory.cpp.i
+
+controller/Trajectory.s: controller/Trajectory.cpp.s
+
+.PHONY : controller/Trajectory.s
+
+# target to generate assembly for a file
+controller/Trajectory.cpp.s:
+	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Trajectory.cpp.s
+.PHONY : controller/Trajectory.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -369,6 +396,9 @@ help:
 	@echo "... controller/PID.o"
 	@echo "... controller/PID.i"
 	@echo "... controller/PID.s"
+	@echo "... controller/Trajectory.o"
+	@echo "... controller/Trajectory.i"
+	@echo "... controller/Trajectory.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

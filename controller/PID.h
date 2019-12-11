@@ -7,6 +7,7 @@
 #define ROBOT_PID_H
 
 #include <cmath>
+#include "iostream"
 
 class PID {
 public:
@@ -15,12 +16,13 @@ public:
     PID(): m_kp(0), m_ki(0), m_kd(0), m_min(0), m_max(0) {};
     PID(float kp, float ki, float kd, float min, float max);
 
-    float compute(float input, float consigne, float timestep);
+    float compute(float input, float consigne);
     void setTunings(float kp, float ki, float kd);
     void resetErrors();
 
     float getCurrentGoal() const;
     void setGoal(float mGoal);
+    int getError() const { return m_pre_error; };
 
 
 private:

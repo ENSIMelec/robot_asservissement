@@ -122,6 +122,12 @@
 		<Unit filename="/cygdrive/c/Users/Admin/Desktop/robot/controller/PID.h">
 			<Option target="robot"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/Admin/Desktop/robot/controller/Trajectory.cpp">
+			<Option target="robot"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Admin/Desktop/robot/controller/Trajectory.h">
+			<Option target="robot"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Admin/Desktop/robot/main.cpp">
 			<Option target="robot"/>
 		</Unit>
