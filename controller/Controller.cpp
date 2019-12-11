@@ -66,11 +66,8 @@ void Controller::update()
    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
 
-    //int leftPWM = speedTranslation - speedRotation;
-    //int rightPWM = speedTranslation + speedRotation;
-
-    int leftPWM = speedTranslation;
-    int rightPWM = speedTranslation;
+    int leftPWM = speedTranslation + speedRotation;
+    int rightPWM = speedTranslation - speedRotation;
 
     m_motor.setConsigne(leftPWM, rightPWM);
 
