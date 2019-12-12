@@ -136,7 +136,7 @@ void Controller::updateConsigne()
     //TODO : gestion point non atteignable
     //(si l'on demande un point trop prés du robot et à la perpendiculaire de la direction du robot il se met à tourner autour du point)
 
-    cout << "X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
+    cout << "[CONSIGNE] X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
     cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
     cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
