@@ -119,12 +119,12 @@ int main(int argc, char **argv) {
 void jouerMatch(Controller& controller, Odometry& odometry) {
 
     //timer asservTimer;
-    controller.gotoPoint(500,0,0);
+    controller.set_trajectory(Controller::Trajectory::XY_ABSOLU);
+    controller.set_point(500,0,0);
+
 	while(!forcing_stop) {
-		
-		odometry.update();
-        odometry.debug();
-       
+
+        controller.update();
 			
         //if(asservTimer.elapsed_ms() >= deltaAsservTimer) {
             //controller.update();
@@ -133,7 +133,7 @@ void jouerMatch(Controller& controller, Odometry& odometry) {
         //}
         //odometry.update();
         //odometry.debug();
-		sleepMillis(100);
+		sleepMillis(10);
 	}
     //asserv.stop();
     //sleepMillis(100); //Permet de laisser le temps de demander l'arrêt des moteurs :)

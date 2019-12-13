@@ -13,24 +13,20 @@ using namespace std;
 
 Odometry::Odometry(ICodeurManager &codeurs, Config& config) : m_codeurs(codeurs), m_config(config) {
 
-    //   double CoeffGLong = 0.196370477796;
-    //   double CoeffDLong = 0.196232031648;
-    //   double CoeffGAngl = 0.035746063822912;
-    ///  double CoeffDAngl = 0.035766143278026;
 
     // Coefficient roue distance
-    //this->TICK_RIGHT_TO_MM = 0.223313;
-    //this->TICK_LEFT_TO_MM = 0.223613;
+//    this->TICK_RIGHT_TO_MM  = 0.192901235;
+//    this->TICK_LEFT_TO_MM   = 0.193259122;
+//    // Coefficient roue angle (à revérifier)
+//    this->TICK_RIGHT_TO_RAD = 0.00134527931;
+//    this->TICK_LEFT_TO_RAD  = 0.00134551869;
 
-    this->TICK_RIGHT_TO_MM  = 0.192901235;
-    this->TICK_LEFT_TO_MM   = 0.193259122;
+    // nouvelle approche odométrie
+    this->PERIM_ROUE = 32*M_PI; //Diametre * PI
+    this->RESOLUTION = 516;
+    this->COEF_CORRECTEUR = m_config.getCoeffCorrecteur();
+    this->ENTRAXE = 293;
 
-    // Coefficient roue angle (à revérifier)
-    //this->TICK_RIGHT_TO_RAD = 0.00133627931;
-    //this->TICK_LEFT_TO_RAD  = 0.00135471869;
-
-    this->TICK_RIGHT_TO_RAD = 0.00134527931;
-    this->TICK_LEFT_TO_RAD  = 0.00134551869;
 }
 
 /**
@@ -48,40 +44,28 @@ void Odometry::update() {
     long int ticksLeft = m_codeurs.getLeftTicks();
     long int ticksRight = m_codeurs.getRightTicks();
 
-    float perim_roue = 36*M_PI; //Diametre * PI
-
-    float resolution = 516;
-    // si positif decendre
-    // si negative augmenter
-    float coef_correcteur = m_config.getCoeffCorrecteur();
-    float entraxe = 288;
-
-
-    float distanceLeft = ticksLeft * (perim_roue/resolution);
-    float distanceRight = ticksRight * ((coef_correcteur*perim_roue)/resolution);
-
-    m_dDistance = (distanceRight + distanceLeft) / 2;
-    float dAngle = (distanceRight - distanceLeft) / entraxe;
+    // calculer la distance de effectué par chaque roue
+    float distanceLeft = ticksLeft * (PERIM_ROUE/RESOLUTION);
+    float distanceRight = ticksRight * ((COEF_CORRECTEUR*PERIM_ROUE)/RESOLUTION);
 
 
     // Calculer les variations de position en distance et en angle
 
     // distance parcourue depuis la position de départ jusqu’à l’instant présent.
-    //m_dDistance = delta_mm(ticksLeft, ticksRight);
-
+    float distance = (distanceRight + distanceLeft) / 2;
+    m_dDistance = distance;
     // Calcul de la différence du nombre de tic entre chaque roue (appx. gauss)
-    //float dAngle = angle_rad(ticksLeft, ticksRight);
-    // m_dAngle = dAngle;
+    float dAngle = (distanceRight - distanceLeft) / ENTRAXE;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
     float avgTheta = m_pos.theta + dAngle/2;
-    m_dOrientation = avgTheta;
+    m_dAvgTheta = avgTheta;
 
     //Mise à jour de la position du robot en xy et en angle
 
-    this->m_pos.x       += m_dDistance * cosf(avgTheta); // dAngle?
-    this->m_pos.y       += m_dDistance * sinf(avgTheta);
+    this->m_pos.x       += distance * cosf(avgTheta); // dAngle?
+    this->m_pos.y       += distance * sinf(avgTheta);
     this->m_pos.theta   += dAngle;
 
     if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
@@ -96,7 +80,7 @@ void Odometry::update() {
     float angVel        = 0; // rad / s
 
     if(timestep > 0) {
-        linVel = m_dDistance / timestep;
+        linVel = distance / timestep;
         angVel = dAngle / timestep;
     }
 
@@ -124,21 +108,6 @@ void Odometry::debug() {
     cout << "=======================" << endl;
 
 }
-float Odometry::delta_mm(long int ticksLeft, long int ticksRight) const {
-
-    // Conversion de distance pour chaque roue parcouru de tick en mm
-    float distanceRight = ticksRight * TICK_RIGHT_TO_MM;
-    float distanceLeft = ticksLeft * TICK_LEFT_TO_MM;
-
-    return  (distanceRight + distanceLeft)/ 2;
-}
-
-float Odometry::angle_rad(long int ticksLeft, long int ticksRight) const {
-
-
-    return (ticksRight * TICK_RIGHT_TO_RAD - ticksLeft * TICK_LEFT_TO_RAD) / 2;
-
-}
 
 void Odometry::distance_total_update(int long ticksLeft, int long ticksRight) {
 
@@ -148,11 +117,4 @@ void Odometry::distance_total_update(int long ticksLeft, int long ticksRight) {
     m_totalDistance += m_dDistance;
 }
 
-void Odometry::calcul_position_arc(float distance, float angle) {
-
-}
-
-void Odometry::calcul_position_segment(float distance, float angle) {
-
-}
 
