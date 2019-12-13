@@ -119,12 +119,12 @@ int main(int argc, char **argv) {
 void jouerMatch(Controller& controller, Odometry& odometry) {
 
     //timer asservTimer;
-    //controller.setTrajectory(Trajectory::ALPHA_DELTA);
-    controller.gotoPoint(2000,0,0);
+    controller.set_trajectory(Controller::Trajectory::XY_ABSOLU);
+    controller.set_point(500,0,0);
+
 	while(!forcing_stop) {
-		
-		controller.update();
-       
+
+        controller.update();
 			
         //if(asservTimer.elapsed_ms() >= deltaAsservTimer) {
             //controller.update();

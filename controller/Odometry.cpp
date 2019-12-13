@@ -22,10 +22,10 @@ Odometry::Odometry(ICodeurManager &codeurs, Config& config) : m_codeurs(codeurs)
 //    this->TICK_LEFT_TO_RAD  = 0.00134551869;
 
     // nouvelle approche odométrie
-    this->PERIM_ROUE = 36*M_PI; //Diametre * PI
+    this->PERIM_ROUE = 32*M_PI; //Diametre * PI
     this->RESOLUTION = 516;
     this->COEF_CORRECTEUR = m_config.getCoeffCorrecteur();
-    this->ENTRAXE = 288;
+    this->ENTRAXE = 293;
 
 }
 
@@ -52,18 +52,20 @@ void Odometry::update() {
     // Calculer les variations de position en distance et en angle
 
     // distance parcourue depuis la position de départ jusqu’à l’instant présent.
-    m_dDistance = (distanceRight + distanceLeft) / 2;
+    float distance = (distanceRight + distanceLeft) / 2;
+    m_dDistance = distance;
     // Calcul de la différence du nombre de tic entre chaque roue (appx. gauss)
     float dAngle = (distanceRight - distanceLeft) / ENTRAXE;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
-    m_dAvgTheta = m_pos.theta + dAngle/2;
+    float avgTheta = m_pos.theta + dAngle/2;
+    m_dAvgTheta = avgTheta;
 
     //Mise à jour de la position du robot en xy et en angle
 
-    this->m_pos.x       += m_dDistance * cosf(m_dAvgTheta); // dAngle?
-    this->m_pos.y       += m_dDistance * sinf(m_dAvgTheta);
+    this->m_pos.x       += distance * cosf(avgTheta); // dAngle?
+    this->m_pos.y       += distance * sinf(avgTheta);
     this->m_pos.theta   += dAngle;
 
     if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
@@ -78,7 +80,7 @@ void Odometry::update() {
     float angVel        = 0; // rad / s
 
     if(timestep > 0) {
-        linVel = m_dDistance / timestep;
+        linVel = distance / timestep;
         angVel = dAngle / timestep;
     }
 
