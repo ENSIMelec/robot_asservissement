@@ -46,8 +46,8 @@ public:
 
     explicit Odometry(ICodeurManager &codeurs, Config& config);
     void debug();
-    void calcul_position_segment(float distance, float angle);
-    void calcul_position_arc(float distance, float angle);
+    /*void calcul_position_segment(float distance, float angle);
+    void calcul_position_arc(float distance, float angle);*/
     void distance_total_update(int long ticksLeft, int long ticksRight);
     /**
      * @brief Retourne la position

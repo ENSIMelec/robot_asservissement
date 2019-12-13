@@ -37,70 +37,68 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
     );
 
 }
+/**
+ * Asservissement
+ */
 void Controller::update()
 {
     //synchronisation à une fréquence régulière!!
 
-    //Mise à jour de la position/orientation et de la vitesse du robot (Odométrie)
+    //Mise à jour de la position/orientation et de la vitesse du robot (Odométrie) (via les roues codeuses)
     m_odometry.update();
     m_odometry.debug();
 
 
-    // update consigne en fonction du point pour aller au prochain
 
-    // Calcul de la distance et de l'angle à fair pour aller au prochain point
-    updateConsigne();
+    // update des consignes en fonction du trajectoire choisi
 
-    //calcul des réponses provenant des PIDs
+    switch (m_trajectory) {
 
-    // un mouvement en distance
+        case THETA:
+            make_trajectory_theta(m_targetPos.theta);
+            break;
+        case XY_ABSOLU:
+            make_trajectory_xy(m_targetPos.x, m_targetPos.y);
+            break;
+        case LOCKED:
+            make_trajectory_stop();
+            break;
 
-    int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), m_consigne.distance);
-    // borner la distance (pas nécessaire, la vitesse est déjà borner dans le PID)
-    speedTranslation = max(-m_maxPWM, min(m_maxPWM, speedTranslation));
+        case null:
+            //il n'y a plus rien a faire
+            break;
 
-   // un moumvement de rotation
+    }
 
-   int speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_consigne.angle);
-   // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
-   speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
+    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
+    cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
+    cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
 
-
-    int leftPWM = speedTranslation + speedRotation;
-    int rightPWM = speedTranslation - speedRotation;
-
-    m_motor.setConsigne(leftPWM, rightPWM);
-
-
-    // debug:
-    cout << "[PID DISTANCE] Speed Translation : " << speedTranslation;
-    cout << "[PID ANGLE] Speed Rotation : " << speedRotation;
-    cout << "[PWM] LEFT : " << leftPWM << " RIGHT: " << rightPWM << endl;
-    cout << " ======================== " << endl;
-
-    //correction eventuelle des commandes
-
-    //écretage (si trop forte acceleration/décélérantion)
-
-    //on regarde si on est pas arrivé à bon port
+    // gestion d'arrivé
+    if(position_reached()) {
+        make_trajectory_stop();
+        motors_stop();
+    }
 
 
-    // Déplacement en fonction du type du point
+    //m_consigne.distance = is the distance between the robot and the goal position
+    //m_consigne.angle = is the angle to the goal relative to the heading of the robot
+    // envoye des commandes au moteurs
+    update_speed(m_consigne.distance, m_consigne.angle);
 
 }
+
 /**
- * Calcul de la consigne
- * m_consigne.distance = is the distance between the robot and the goal position
- * m_consigne.angle = is the angle to the goal relative to the heading of the robot
+ * Assevissement en angle et distance
  */
-void Controller::updateConsigne()
-{
+void Controller::make_trajectory_xy(float x_voulu, float y_voulu) {
+
     // récupérer la position actuelle du robot (odométrie)
     Position deltaPos = m_odometry.getPosition();
 
     // calcul des erreurs ( prendre la position du robot comme zero)
-    float x_diff = (m_targetPos.x - deltaPos.x);
-    float y_diff = (m_targetPos.y - deltaPos.y);
+    float x_diff = (x_voulu - deltaPos.x);
+    float y_diff = (y_voulu - deltaPos.y);
 
     // coordonnées cart -> polaire
     // distance entre la position du robot à instant t, et son objectif
@@ -133,13 +131,65 @@ void Controller::updateConsigne()
     // Borner l'angle
     m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
-    //TODO : gestion point non atteignable
-    //(si l'on demande un point trop prés du robot et à la perpendiculaire de la direction du robot il se met à tourner autour du point)
-
     cout << "[CONSIGNE] X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
-    cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
-    cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
-    cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
+    //m_trajectory = null;
+}
+/**
+ * Asservissement angle
+ * Calcul de la consigne en angle
+ */
+void Controller::make_trajectory_theta(float angle_voulu) {
+
+    // récupérer la position actuelle du robot (odométrie)
+    Position deltaPos = m_odometry.getPosition();
+
+    // set consigne
+    m_consigne.distance = 0;
+    m_consigne.angle = angle_voulu - deltaPos.theta;
+    // Borner l'angle
+    m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
+
+
+    //m_trajectory = null;
+
+}
+/**
+ * Calcul PID
+ * @param consigne_distance
+ * @param consigne_theta
+ */
+void Controller::update_speed(float consigne_distance, float consigne_theta) {
+
+    // un mouvement en distance
+
+    int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), consigne_distance);
+    // borner la distance (pas nécessaire, la vitesse est déjà borner dans le PID)
+    speedTranslation = max(-m_maxPWM, min(m_maxPWM, speedTranslation));
+
+    // un mouvement de rotation
+
+    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(), consigne_theta);
+    // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
+    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
+
+
+    int leftPWM = speedTranslation + speedRotation;
+    int rightPWM = speedTranslation - speedRotation;
+
+    m_motor.setConsigne(leftPWM, rightPWM);
+
+
+    // debug:
+    cout << "[PID DISTANCE] Speed Translation : " << speedTranslation;
+    cout << "[PID ANGLE] Speed Rotation : " << speedRotation;
+    cout << "[PWM] LEFT : " << leftPWM << " RIGHT: " << rightPWM << endl;
+    cout << " ======================== " << endl;
+
+    //correction eventuelle des commandes
+
+    //écretage (si trop forte acceleration/décélérantion)
+
+    //on regarde si on est pas arrivé à bon port
 }
 /**
  * Mettre en place le point voulu à atteindre dans la table
@@ -147,7 +197,7 @@ void Controller::updateConsigne()
  * @param y  en mm
  * @param angle  en degré
  */
-void Controller::gotoPoint(int x, int y, int angle) {
+void Controller::set_point(int x, int y, int angle) {
     m_targetPos.x = x;
     m_targetPos.y = y;
     m_targetPos.theta = MathUtils::deg2rad(angle);
@@ -155,7 +205,7 @@ void Controller::gotoPoint(int x, int y, int angle) {
 /**
  * Stop des moteurs et réinitilisation des PID
  */
-void Controller::stop() {
+void Controller::motors_stop() {
 
     // arrêt des moteurs
     m_motor.stop();
@@ -164,14 +214,18 @@ void Controller::stop() {
     m_rotationPID.resetErrors();
 }
 
-
-bool Controller::positionReached() {
+bool Controller::position_reached() {
 
     int distance_tolerance = 10; // mm
+    float angle_tolerance = MathUtils::deg2rad(5);
+
     // get errors from PID
-    return abs(m_translationPID.getError()) < distance_tolerance;
+    return abs(m_translationPID.getError()) < distance_tolerance
+           && (abs(m_rotationPID.getError()) < angle_tolerance);
 }
 
-void Controller::updateSpeed() {
-
+void Controller::make_trajectory_stop() {
+    // set consigne angle et distance en 0
+    m_consigne.angle = 0;
+    m_consigne.distance = 0;
 }

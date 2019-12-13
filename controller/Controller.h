@@ -14,11 +14,6 @@
 #include "Config.h"
 
 
-/**
-   * Consigne
-   */
-
-
 
 class Controller {
 
@@ -30,14 +25,11 @@ public:
      * @param config
     */
     Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config);
-    void update();
-
     /**
-     * @brief Consigne de de déplacement
-     * Calcul erreur entre la consigne et la position actuelle du robot
-    **/
-    void updateConsigne();
-    void updateSpeed();
+     * Method asserv
+     */
+    void update();
+    void update_speed(float consigne_distance, float consigne_theta);
     /**
      * Déplacement x, y, angle
      * Target Position
@@ -46,9 +38,9 @@ public:
      * @param y
      * @param angle
     */
-    void gotoPoint(int x, int y, int angle);
-    void stop();
-    bool positionReached();
+    void set_point(int x, int y, int angle);
+    void motors_stop();
+    bool position_reached();
 
     /** enum Direction
 	 *  \brief Sens de déplacement pour le robot.
@@ -57,6 +49,16 @@ public:
         FORWARD     = 1, ///< Le robot avance en marche avant.
         BACKWARD    = -1 ///< Le robot avance en marche arrière.
     };
+
+    enum Trajectory {
+        THETA,
+        XY_ABSOLU,
+        LOCKED,
+    };
+    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
+    void make_trajectory_theta(float angle_voulu);
+    void make_trajectory_xy(float x_voulu, float y_voulu);
+    void make_trajectory_stop();
 
 private:
     // PID Controller
@@ -67,6 +69,9 @@ private:
 
     // Target position
     Position m_targetPos;
+
+    //Trajectory actuelle
+    Trajectory m_trajectory;
 
     /**
      * Structure de la consigne à atteindre
