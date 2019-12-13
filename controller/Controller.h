@@ -18,7 +18,11 @@
    * Consigne
    */
 
-
+typedef enum {
+    ALPHA_DELTA,
+    ALPHA,
+    MSTOP,
+} Trajectory;
 
 class Controller {
 
@@ -38,6 +42,7 @@ public:
     **/
     void updateConsigne();
     void updateSpeed();
+    void rotate();
     /**
      * Déplacement x, y, angle
      * Target Position
@@ -49,7 +54,6 @@ public:
     void gotoPoint(int x, int y, int angle);
     void stop();
     bool positionReached();
-
     /** enum Direction
 	 *  \brief Sens de déplacement pour le robot.
 	 */
@@ -57,6 +61,8 @@ public:
         FORWARD     = 1, ///< Le robot avance en marche avant.
         BACKWARD    = -1 ///< Le robot avance en marche arrière.
     };
+
+    void setTrajectory(Trajectory trajectory) { m_trajectory = trajectory; };
 
 private:
     // PID Controller
@@ -67,6 +73,9 @@ private:
 
     // Target position
     Position m_targetPos;
+
+    // Trajectory
+    Trajectory m_trajectory;
 
     /**
      * Structure de la consigne à atteindre

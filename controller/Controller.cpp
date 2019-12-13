@@ -26,7 +26,7 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
             m_config.getPIDkdDep(),
             -m_maxPWM,
             m_maxPWM
-     );
+    );
 
     m_rotationPID = PID(
             m_config.getPIDkpA(),
@@ -59,11 +59,11 @@ void Controller::update()
     // borner la distance (pas nécessaire, la vitesse est déjà borner dans le PID)
     speedTranslation = max(-m_maxPWM, min(m_maxPWM, speedTranslation));
 
-   // un moumvement de rotation
+    // un moumvement de rotation
 
-   int speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_consigne.angle);
-   // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
-   speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
+    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(),m_consigne.angle);
+    // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
+    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
 
     int leftPWM = speedTranslation + speedRotation;
@@ -136,7 +136,7 @@ void Controller::updateConsigne()
     //TODO : gestion point non atteignable
     //(si l'on demande un point trop prés du robot et à la perpendiculaire de la direction du robot il se met à tourner autour du point)
 
-    cout << "[CONSIGNE] X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
+    cout << "X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
     cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
     cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
