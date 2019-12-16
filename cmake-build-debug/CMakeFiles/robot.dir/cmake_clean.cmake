@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robot.dir/main.cpp.o"
-  "CMakeFiles/robot.dir/controller/asservt.cpp.o"
   "CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o"
   "CMakeFiles/robot.dir/controller/MoteurManager.cpp.o"
   "CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o"

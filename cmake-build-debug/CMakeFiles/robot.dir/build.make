@@ -81,33 +81,9 @@ CMakeFiles/robot.dir/main.cpp.o.provides: CMakeFiles/robot.dir/main.cpp.o.requir
 CMakeFiles/robot.dir/main.cpp.o.provides.build: CMakeFiles/robot.dir/main.cpp.o
 
 
-CMakeFiles/robot.dir/controller/asservt.cpp.o: CMakeFiles/robot.dir/flags.make
-CMakeFiles/robot.dir/controller/asservt.cpp.o: ../controller/asservt.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robot.dir/controller/asservt.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/asservt.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/asservt.cpp
-
-CMakeFiles/robot.dir/controller/asservt.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot.dir/controller/asservt.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Taoufik/CLionProjects/robot/controller/asservt.cpp > CMakeFiles/robot.dir/controller/asservt.cpp.i
-
-CMakeFiles/robot.dir/controller/asservt.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot.dir/controller/asservt.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Taoufik/CLionProjects/robot/controller/asservt.cpp -o CMakeFiles/robot.dir/controller/asservt.cpp.s
-
-CMakeFiles/robot.dir/controller/asservt.cpp.o.requires:
-
-.PHONY : CMakeFiles/robot.dir/controller/asservt.cpp.o.requires
-
-CMakeFiles/robot.dir/controller/asservt.cpp.o.provides: CMakeFiles/robot.dir/controller/asservt.cpp.o.requires
-	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/asservt.cpp.o.provides.build
-.PHONY : CMakeFiles/robot.dir/controller/asservt.cpp.o.provides
-
-CMakeFiles/robot.dir/controller/asservt.cpp.o.provides.build: CMakeFiles/robot.dir/controller/asservt.cpp.o
-
-
 CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o: ../controller/ICodeurManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/ICodeurManager.cpp
 
 CMakeFiles/robot.dir/controller/ICodeurManager.cpp.i: cmake_force
@@ -131,7 +107,7 @@ CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/robot.dir/controller/MoteurManager.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/MoteurManager.cpp.o: ../controller/MoteurManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/robot.dir/controller/MoteurManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/robot.dir/controller/MoteurManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/MoteurManager.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.cpp
 
 CMakeFiles/robot.dir/controller/MoteurManager.cpp.i: cmake_force
@@ -155,7 +131,7 @@ CMakeFiles/robot.dir/controller/MoteurManager.cpp.o.provides.build: CMakeFiles/r
 
 CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o: ../controller/FakeCodeur.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/FakeCodeur.cpp
 
 CMakeFiles/robot.dir/controller/FakeCodeur.cpp.i: cmake_force
@@ -179,7 +155,7 @@ CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o.provides.build: CMakeFiles/robo
 
 CMakeFiles/robot.dir/controller/Odometry.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/Odometry.cpp.o: ../controller/Odometry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/robot.dir/controller/Odometry.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/robot.dir/controller/Odometry.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/Odometry.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Odometry.cpp
 
 CMakeFiles/robot.dir/controller/Odometry.cpp.i: cmake_force
@@ -203,7 +179,7 @@ CMakeFiles/robot.dir/controller/Odometry.cpp.o.provides.build: CMakeFiles/robot.
 
 CMakeFiles/robot.dir/controller/PID.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/PID.cpp.o: ../controller/PID.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robot.dir/controller/PID.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/robot.dir/controller/PID.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/PID.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/PID.cpp
 
 CMakeFiles/robot.dir/controller/PID.cpp.i: cmake_force
@@ -227,7 +203,7 @@ CMakeFiles/robot.dir/controller/PID.cpp.o.provides.build: CMakeFiles/robot.dir/c
 
 CMakeFiles/robot.dir/controller/Controller.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/Controller.cpp.o: ../controller/Controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robot.dir/controller/Controller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robot.dir/controller/Controller.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/Controller.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Controller.cpp
 
 CMakeFiles/robot.dir/controller/Controller.cpp.i: cmake_force
@@ -251,7 +227,7 @@ CMakeFiles/robot.dir/controller/Controller.cpp.o.provides.build: CMakeFiles/robo
 
 CMakeFiles/robot.dir/controller/MathUtils.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/MathUtils.cpp.o: ../controller/MathUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robot.dir/controller/MathUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robot.dir/controller/MathUtils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/MathUtils.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/MathUtils.cpp
 
 CMakeFiles/robot.dir/controller/MathUtils.cpp.i: cmake_force
@@ -275,7 +251,7 @@ CMakeFiles/robot.dir/controller/MathUtils.cpp.o.provides.build: CMakeFiles/robot
 
 CMakeFiles/robot.dir/controller/Trajectory.cpp.o: CMakeFiles/robot.dir/flags.make
 CMakeFiles/robot.dir/controller/Trajectory.cpp.o: ../controller/Trajectory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/robot.dir/controller/Trajectory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robot.dir/controller/Trajectory.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot.dir/controller/Trajectory.cpp.o -c /mnt/c/Users/Taoufik/CLionProjects/robot/controller/Trajectory.cpp
 
 CMakeFiles/robot.dir/controller/Trajectory.cpp.i: cmake_force
@@ -300,7 +276,6 @@ CMakeFiles/robot.dir/controller/Trajectory.cpp.o.provides.build: CMakeFiles/robo
 # Object files for target robot
 robot_OBJECTS = \
 "CMakeFiles/robot.dir/main.cpp.o" \
-"CMakeFiles/robot.dir/controller/asservt.cpp.o" \
 "CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o" \
 "CMakeFiles/robot.dir/controller/MoteurManager.cpp.o" \
 "CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o" \
@@ -314,7 +289,6 @@ robot_OBJECTS = \
 robot_EXTERNAL_OBJECTS =
 
 robot: CMakeFiles/robot.dir/main.cpp.o
-robot: CMakeFiles/robot.dir/controller/asservt.cpp.o
 robot: CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o
 robot: CMakeFiles/robot.dir/controller/MoteurManager.cpp.o
 robot: CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o
@@ -325,7 +299,7 @@ robot: CMakeFiles/robot.dir/controller/MathUtils.cpp.o
 robot: CMakeFiles/robot.dir/controller/Trajectory.cpp.o
 robot: CMakeFiles/robot.dir/build.make
 robot: CMakeFiles/robot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable robot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable robot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -334,7 +308,6 @@ CMakeFiles/robot.dir/build: robot
 .PHONY : CMakeFiles/robot.dir/build
 
 CMakeFiles/robot.dir/requires: CMakeFiles/robot.dir/main.cpp.o.requires
-CMakeFiles/robot.dir/requires: CMakeFiles/robot.dir/controller/asservt.cpp.o.requires
 CMakeFiles/robot.dir/requires: CMakeFiles/robot.dir/controller/ICodeurManager.cpp.o.requires
 CMakeFiles/robot.dir/requires: CMakeFiles/robot.dir/controller/MoteurManager.cpp.o.requires
 CMakeFiles/robot.dir/requires: CMakeFiles/robot.dir/controller/FakeCodeur.cpp.o.requires

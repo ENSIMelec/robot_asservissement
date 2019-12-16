@@ -9,14 +9,10 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
 {
     // Init PID Controllers
 
-    m_maxTranslationSpeed = 70; // mm/s
-    m_maxRotationSpeed = M_PI; // rad/s
+//    m_maxTranslationSpeed = 70; // mm/s
+//    m_maxRotationSpeed = M_PI; // rad/s
 
-    m_maxPWM = 50; // -50 PWM
-
-    // Speed PWM Controller
-    //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
-    //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
+    m_maxPWM = 50;
 
     // Translation Controller
 
@@ -49,7 +45,6 @@ void Controller::update()
     m_odometry.debug();
 
 
-
     // update des consignes en fonction du trajectoire choisi
 
     switch (m_trajectory) {
@@ -64,7 +59,7 @@ void Controller::update()
             make_trajectory_stop();
             break;
 
-        case null:
+        default:
             //il n'y a plus rien a faire
             break;
 
@@ -151,7 +146,6 @@ void Controller::make_trajectory_theta(float angle_voulu) {
 
 
     //m_trajectory = null;
-
 }
 /**
  * Calcul PID

@@ -339,33 +339,6 @@ controller/Trajectory.cpp.s:
 	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/Trajectory.cpp.s
 .PHONY : controller/Trajectory.cpp.s
 
-controller/asservt.o: controller/asservt.cpp.o
-
-.PHONY : controller/asservt.o
-
-# target to build an object file
-controller/asservt.cpp.o:
-	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/asservt.cpp.o
-.PHONY : controller/asservt.cpp.o
-
-controller/asservt.i: controller/asservt.cpp.i
-
-.PHONY : controller/asservt.i
-
-# target to preprocess a source file
-controller/asservt.cpp.i:
-	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/asservt.cpp.i
-.PHONY : controller/asservt.cpp.i
-
-controller/asservt.s: controller/asservt.cpp.s
-
-.PHONY : controller/asservt.s
-
-# target to generate assembly for a file
-controller/asservt.cpp.s:
-	$(MAKE) -f CMakeFiles/robot.dir/build.make CMakeFiles/robot.dir/controller/asservt.cpp.s
-.PHONY : controller/asservt.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -426,9 +399,6 @@ help:
 	@echo "... controller/Trajectory.o"
 	@echo "... controller/Trajectory.i"
 	@echo "... controller/Trajectory.s"
-	@echo "... controller/asservt.o"
-	@echo "... controller/asservt.i"
-	@echo "... controller/asservt.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

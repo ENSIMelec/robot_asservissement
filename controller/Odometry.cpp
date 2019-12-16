@@ -64,10 +64,11 @@ void Odometry::update() {
 
     this->m_pos.x       += m_dDistance * cosf(m_dAvgTheta); // dAngle?
     this->m_pos.y       += m_dDistance * sinf(m_dAvgTheta);
-    this->m_pos.theta   += dAngle;
+    this->m_pos.theta   += MathUtils::inrange(dAngle,-M_PI, M_PI);
 
-    if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
-        this->m_pos.theta = 0;
+    // shit! => borner l'angle entre [-pi, pi]
+    //    if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
+    //        this->m_pos.theta = 0;
 
     // Calcul de la vitesse angulaire et linéaire
     // Actualisation du temps

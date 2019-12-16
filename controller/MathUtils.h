@@ -17,6 +17,8 @@ public:
     static float deg2rad(float deg);
     static float rad2deg(float rad);
     static float micros2sec(float sec);
+    static float simple_modulo_2pi(float rad);
+    static float modulo_2pi(float rad);
 };
 
 
