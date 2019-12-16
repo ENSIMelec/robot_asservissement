@@ -133,7 +133,7 @@ void jouerMatch(Controller& controller, Odometry& odometry) {
         //}
         //odometry.update();
         //odometry.debug();
-		sleepMillis(100);
+		sleepMillis(10);
 	}
     //asserv.stop();
     //sleepMillis(100); //Permet de laisser le temps de demander l'arrêt des moteurs :)

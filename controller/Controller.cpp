@@ -12,7 +12,15 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
 //    m_maxTranslationSpeed = 70; // mm/s
 //    m_maxRotationSpeed = M_PI; // rad/s
 
+<<<<<<< HEAD
     m_maxPWM = 50;
+=======
+    m_maxPWM = 70; // -50 PWM
+
+    // Speed PWM Controller
+    //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
+    //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
+>>>>>>> 843e37dec68462b85d1fe916ffefded67b5ab66e
 
     // Translation Controller
 
@@ -22,7 +30,7 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
             m_config.getPIDkdDep(),
             -m_maxPWM,
             m_maxPWM
-     );
+    );
 
     m_rotationPID = PID(
             m_config.getPIDkpA(),
@@ -44,7 +52,6 @@ void Controller::update()
     m_odometry.update();
     m_odometry.debug();
 
-
     // update des consignes en fonction du trajectoire choisi
 
     switch (m_trajectory) {
@@ -59,7 +66,7 @@ void Controller::update()
             make_trajectory_stop();
             break;
 
-        default:
+        case NOTHING:
             //il n'y a plus rien a faire
             break;
 
@@ -154,6 +161,7 @@ void Controller::make_trajectory_theta(float angle_voulu) {
  */
 void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
+    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - CONSIGNE THETA:  " << consigne_theta << endl;
     // un mouvement en distance
 
     int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), consigne_distance);
@@ -174,6 +182,8 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
 
     // debug:
+    cout << "[ERROR DISTANCE] Error distance : " << m_translationPID.getError() << endl;
+    cout << "[ERROR ANGLE ] Error Angle : " << m_rotationPID.getError() << endl;
     cout << "[PID DISTANCE] Speed Translation : " << speedTranslation;
     cout << "[PID ANGLE] Speed Rotation : " << speedRotation;
     cout << "[PWM] LEFT : " << leftPWM << " RIGHT: " << rightPWM << endl;
@@ -214,10 +224,9 @@ bool Controller::position_reached() {
     float angle_tolerance = MathUtils::deg2rad(5);
 
     // get errors from PID
-    return abs(m_translationPID.getError()) < distance_tolerance
-           && (abs(m_rotationPID.getError()) < angle_tolerance);
+    return abs(m_consigne.distance) < distance_tolerance
+           && (abs(m_consigne.angle) < angle_tolerance);
 }
-
 void Controller::make_trajectory_stop() {
     // set consigne angle et distance en 0
     m_consigne.angle = 0;

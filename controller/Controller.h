@@ -14,7 +14,6 @@
 #include "Config.h"
 
 
-
 class Controller {
 
 public:
@@ -38,6 +37,7 @@ public:
      * @param y
      * @param angle
     */
+
     void set_point(int x, int y, int angle);
     void motors_stop();
     bool position_reached();
@@ -54,6 +54,7 @@ public:
         THETA,
         XY_ABSOLU,
         LOCKED,
+        NOTHING
     };
     void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
     void make_trajectory_theta(float angle_voulu);
@@ -71,7 +72,7 @@ private:
     Position m_targetPos;
 
     //Trajectory actuelle
-    Trajectory m_trajectory;
+    Trajectory m_trajectory = NOTHING;
 
     /**
      * Structure de la consigne à atteindre
