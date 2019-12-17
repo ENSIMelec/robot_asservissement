@@ -81,12 +81,12 @@ protected:
 
     int m_totalTicksL = 0; /* Totat des tics gauche */
     int m_totalTicksR = 0;/* Totat des tics droite */
-    int m_totalDistance = 0; /* Total distance parcouru (odometry test purpose) */
+    float m_totalDistance = 0; /* Total distance parcouru (odometry test purpose) */
 
     float m_dDistance = 0; /*  Distance en mm parcouru en dt */
     float m_dAvgTheta = 0; /* moyenne angle(t-1) et t en rad en dt */
     float m_dTheta = 0; /* angle rad en dt */
-    int m_lastTime = 0; /* dt */
+    float m_lastTime = 0; /* dt */
 
 
     /**
