@@ -5,12 +5,14 @@
 /**
  * Checklist à verifier:
  *  - inverser rotation (right-left) odometrie  ou dans le controller
+ *  - correction pid en int < à revoir>
  */
 
 #include "Controller.h"
 using namespace std;
 
-Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config): m_odometry(codeurs,config), m_motor(motor), m_config(config)
+Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config):
+m_odometry(codeurs,config),m_motor(motor), m_config(config)
 {
     // Init PID Controllers
 
@@ -107,7 +109,7 @@ void Controller::make_trajectory_xy(float x_voulu, float y_voulu) {
     // orientation qui doit prendre le robot pour atteindre le point
     m_consigne.angle = atan2f(y_diff, x_diff) - deltaPos.theta;
 
-    // Borner la consigne Angle entre Pi et -Pi
+    // Borner la consigne Angle entre [-pi, pi]
     m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
     // Direction (cap inférieur à -pi/2 et supérieur à pi/2)
@@ -128,7 +130,7 @@ void Controller::make_trajectory_xy(float x_voulu, float y_voulu) {
     else {
         m_direction = Direction::FORWARD;
     }
-    // Borner l'angle
+    // Borner l'angle [-pi, pi]
     m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
     cout << "[CONSIGNE] X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
@@ -168,7 +170,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
     // un mouvement de rotation
 
-    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaOrientation(), consigne_theta);
+    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaTheta(), consigne_theta);
     // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
     speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
@@ -181,7 +183,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
     // debug:
     cout << "[ERROR DISTANCE] Error distance : " << m_translationPID.getError() << endl;
-    cout << "[ERROR ANGLE ] Error Angle : " << m_rotationPID.getError() << endl;
+    cout << "[ERROR ANGLE] Error Angle : " << m_rotationPID.getError() << endl;
     cout << "[PID DISTANCE] Speed Translation : " << speedTranslation;
     cout << "[PID ANGLE] Speed Rotation : " << speedRotation;
     cout << "[PWM] LEFT : " << leftPWM << " RIGHT: " << rightPWM << endl;
@@ -222,8 +224,8 @@ bool Controller::position_reached() {
     float angle_tolerance = MathUtils::deg2rad(3);
 
     // get errors from PID
-    return abs(m_consigne.distance) < distance_tolerance
-           && (abs(m_consigne.angle) < angle_tolerance);
+    return abs(m_translationPID.getError()) < distance_tolerance
+           && (abs(m_rotationPID.getError()) < angle_tolerance);
 }
 void Controller::make_trajectory_stop() {
     // set consigne angle et distance en 0

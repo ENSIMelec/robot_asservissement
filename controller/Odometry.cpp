@@ -87,9 +87,9 @@ void Odometry::update() {
     this->m_linVel = linVel;
     this->m_angVel = angVel;
 
-    // Sauvegarde distance et angle précendant
+    // Sauvegarde distance et angle actuelle
     m_dDistance = dDistance;
-    m_dAvgTheta = avgTheta;
+    m_dTheta = dAngle;
 
     // Actualisation du total distance parcouru
     distance_total_update(ticksLeft, ticksRight);
