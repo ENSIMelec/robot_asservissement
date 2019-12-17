@@ -32,7 +32,7 @@ Odometry::Odometry(ICodeurManager &codeurs, Config& config) : m_codeurs(codeurs)
 /**
 * @brief Calcule la nouvelle position et la nouvelle vitesse.
 * détermine la nouvelle vitesse instantanée et la nouvelle position par approximation de segment de droite
- * @TODO: average left, and right speed .
+ * Approximation linéaire
  */
 void Odometry::update() {
 
@@ -52,24 +52,23 @@ void Odometry::update() {
     // Calculer les variations de position en distance et en angle
 
     // distance parcourue depuis la position de départ jusqu’à l’instant présent.
-    float distance = (distanceRight + distanceLeft) / 2;
-    m_dDistance = distance;
+    float dDistance = (distanceLeft + distanceRight) / 2;
     // Calcul de la différence du nombre de tic entre chaque roue (appx. gauss)
-    float dAngle = (distanceRight - distanceLeft) / ENTRAXE;
+    float dAngle = (distanceLeft - distanceRight) / ENTRAXE;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
     float avgTheta = m_pos.theta + dAngle/2;
-    m_dAvgTheta = avgTheta;
 
     //Mise à jour de la position du robot en xy et en angle
 
-    this->m_pos.x       += distance * cosf(avgTheta); // dAngle?
-    this->m_pos.y       += distance * sinf(avgTheta);
+    this->m_pos.x       += dDistance * cosf(avgTheta); // dAngle?
+    this->m_pos.y       += dDistance * sinf(avgTheta);
     this->m_pos.theta   += dAngle;
 
-    if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
-        this->m_pos.theta = 0;
+    // borner l'angle
+    //    if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
+    //        this->m_pos.theta = 0;
 
     // Calcul de la vitesse angulaire et linéaire
     // Actualisation du temps
@@ -80,13 +79,17 @@ void Odometry::update() {
     float angVel        = 0; // rad / s
 
     if(timestep > 0) {
-        linVel = distance / timestep;
+        linVel = dDistance / timestep;
         angVel = dAngle / timestep;
     }
 
     // Actualisation de la vitesse linéaire et angulaire du robot
     this->m_linVel = linVel;
     this->m_angVel = angVel;
+
+    // Sauvegarde distance et angle actuelle
+    m_dDistance = dDistance;
+    m_dTheta = dAngle;
 
     // Actualisation du total distance parcouru
     distance_total_update(ticksLeft, ticksRight);
