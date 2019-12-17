@@ -2,6 +2,11 @@
 // Created by Taoufik on 12/11/2019.
 //
 
+/**
+ * Checklist à verifier:
+ *  - inverser rotation (right-left) odometrie  ou dans le controller
+ */
+
 #include "Controller.h"
 using namespace std;
 
@@ -12,15 +17,8 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
 //    m_maxTranslationSpeed = 70; // mm/s
 //    m_maxRotationSpeed = M_PI; // rad/s
 
-<<<<<<< HEAD
     m_maxPWM = 50;
-=======
-    m_maxPWM = 70; // -50 PWM
 
-    // Speed PWM Controller
-    //m_leftSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
-    //m_rightSpeedPID = PID(1.4, 0.005, 0,-m_maxPWM, m_maxPWM);
->>>>>>> 843e37dec68462b85d1fe916ffefded67b5ab66e
 
     // Translation Controller
 
@@ -221,7 +219,7 @@ void Controller::motors_stop() {
 bool Controller::position_reached() {
 
     int distance_tolerance = 10; // mm
-    float angle_tolerance = MathUtils::deg2rad(5);
+    float angle_tolerance = MathUtils::deg2rad(3);
 
     // get errors from PID
     return abs(m_consigne.distance) < distance_tolerance
@@ -229,6 +227,11 @@ bool Controller::position_reached() {
 }
 void Controller::make_trajectory_stop() {
     // set consigne angle et distance en 0
-    m_consigne.angle = 0;
-    m_consigne.distance = 0;
+    set_consigne_distance_theta(0,0);
+}
+
+void Controller::set_consigne_distance_theta(float new_distance, float new_angle) {
+
+    m_consigne.distance = new_distance  + m_odometry.getDeltaDistance();
+    m_consigne.angle    = new_angle     + m_odometry.getDeltaOrientation();
 }
