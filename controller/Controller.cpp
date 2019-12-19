@@ -157,7 +157,7 @@ void Controller::make_trajectory_theta(float angle_voulu) {
  */
 void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
-    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - | CONSIGNE THETA:  " << MathUtils::rad2deg(m_consigne.angle) << endl;
+    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - | CONSIGNE THETA:  " << MathUtils::rad2deg(consigne_theta) << endl;
     // un mouvement en distance
 
     int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), consigne_distance);
@@ -166,7 +166,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
     // un mouvement de rotation
 
-    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaTheta(), m_consigne.angle);
+    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaTheta(), consigne_theta);
     // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
     speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
@@ -201,6 +201,10 @@ void Controller::set_point(int x, int y, int angle) {
     m_targetPos.x = x;
     m_targetPos.y = y;
     m_targetPos.theta = MathUtils::deg2rad(angle);
+
+    // init distance qui reste
+    distance_now = sqrt(pow(x,2) + pow(y,2));
+
 }
 /**
  * Stop des moteurs et réinitilisation des PID
@@ -232,4 +236,32 @@ void Controller::set_consigne_distance_theta(float new_distance, float new_angle
 
     m_consigne.distance = new_distance  + m_odometry.getDeltaDistance();
     m_consigne.angle    = new_angle     + m_odometry.getDeltaOrientation();
+}
+
+float Controller::ramp_distance() {
+
+    // const
+    float afrein = 200;
+    float vmax = 50;
+    float amax = 60;
+    float dt = m_odometry.getLastTime();
+
+
+    float distance_before = distance_now;
+    distance_now = m_consigne.distance;
+    float vrob = (distance_now - distance_before)/dt;
+
+    float dfrein = (pow(vrob,2)  / 2 * afrein);
+
+    if(distance_now < dfrein) {
+        vdist = vrob - (dt * afrein);
+    }
+    else if (vrob < vmax) {
+        vdist = vrob + (dt * amax);
+    }
+    else {
+        vdist = vmax;
+    }
+
+    return vdist;
 }
