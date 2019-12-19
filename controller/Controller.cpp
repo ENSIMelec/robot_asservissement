@@ -12,16 +12,11 @@
 using namespace std;
 
 Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config):
-m_odometry(codeurs,config),m_motor(motor), m_config(config)
+        m_odometry(codeurs,config),m_motor(motor), m_config(config)
 {
     // Init PID Controllers
 
-//    m_maxTranslationSpeed = 70; // mm/s
-//    m_maxRotationSpeed = M_PI; // rad/s
-
     m_maxPWM = 50;
-
-
     // Translation Controller
 
     m_translationPID = PID(
@@ -73,20 +68,21 @@ void Controller::update()
     }
 
     cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
-    cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
+    cout << "[CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
 
-    // gestion d'arrivé
-    if(position_reached()) {
-        make_trajectory_stop();
-        motors_stop();
-    }
 
 
     //m_consigne.distance = is the distance between the robot and the goal position
     //m_consigne.angle = is the angle to the goal relative to the heading of the robot
     // envoye des commandes au moteurs
     update_speed(m_consigne.distance, m_consigne.angle);
+
+    // gestion d'arrivé
+    if(position_reached()) {
+        // make_trajectory_stop();
+        // motors_stop();
+    }
 
 }
 
@@ -161,7 +157,7 @@ void Controller::make_trajectory_theta(float angle_voulu) {
  */
 void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
-    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - CONSIGNE THETA:  " << consigne_theta << endl;
+    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - | CONSIGNE THETA:  " << MathUtils::rad2deg(m_consigne.angle) << endl;
     // un mouvement en distance
 
     int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), consigne_distance);
@@ -170,7 +166,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
     // un mouvement de rotation
 
-    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaTheta(), consigne_theta);
+    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaTheta(), m_consigne.angle);
     // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
     speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 

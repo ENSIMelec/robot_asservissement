@@ -120,7 +120,7 @@ void jouerMatch(Controller& controller, Odometry& odometry) {
 
     //timer asservTimer;
     controller.set_trajectory(Controller::Trajectory::XY_ABSOLU);
-    controller.set_point(500,0,0);
+    controller.set_point(0,0,90);
 
 	while(!forcing_stop) {
 
