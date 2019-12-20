@@ -62,6 +62,7 @@ public:
     void make_trajectory_xy(float x_voulu, float y_voulu);
     void make_trajectory_stop();
     void set_consigne_distance_theta(float new_distance, float new_angle);
+    bool trajectory_reached();
 
 private:
     // PID Controller

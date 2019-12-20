@@ -82,6 +82,7 @@ void Controller::update()
     if(position_reached()) {
         // make_trajectory_stop();
         // motors_stop();
+
     }
 
 }
@@ -150,7 +151,9 @@ void Controller::make_trajectory_theta(float angle_voulu) {
 }
 void Controller::make_trajectory_stop() {
     // set consigne angle et distance en 0
-    set_consigne_distance_theta(0,0);
+    m_consigne.distance = 0;
+    m_consigne.angle = 0;
+    //set_consigne_distance_theta(0,0);
 }
 
 /**
@@ -206,7 +209,7 @@ void Controller::set_point(int x, int y, int angle) {
     m_targetPos.theta = MathUtils::deg2rad(angle);
 
     // init distance qui reste
-    distance_now = sqrt(pow(x,2) + pow(y,2));
+   // distance_now = sqrt(pow(x,2) + pow(y,2));
 
 }
 /**
@@ -235,6 +238,7 @@ void Controller::set_consigne_distance_theta(float new_distance, float new_angle
     m_consigne.distance = new_distance  + m_odometry.getDeltaDistance();
     m_consigne.angle    = new_angle     + m_odometry.getDeltaOrientation();
 }
+/** return true if traj is nearly finished */
 
 float Controller::ramp_distance() {
 
@@ -243,11 +247,11 @@ float Controller::ramp_distance() {
     float vmax = 50;
     float amax = 60;
     float dt = m_odometry.getLastTime();
+//    float distance_before = distance_now;
+//    distance_now = m_consigne.distance;
 
 
-    float distance_before = distance_now;
-    distance_now = m_consigne.distance;
-    float vrob = (distance_now - distance_before)/dt;
+    float vrob = m_odometry.getDeltaDistance() / m_odometry.getLastTime();
 
     float dfrein = (pow(vrob,2)  / 2 * afrein);
 
@@ -262,4 +266,26 @@ float Controller::ramp_distance() {
     }
 
     return vdist;
+}
+
+bool Controller::trajectory_reached() {
+
+    int distance_tolerance = 10;
+    float angle_tolerance = MathUtils::deg2rad(3);
+
+    switch (m_trajectory) {
+
+        case THETA:
+            break;
+        case XY_ABSOLU:
+
+            break;
+        case LOCKED:
+            break;
+        case NOTHING:
+            break;
+        default:
+            return 0;
+    }
+
 }
