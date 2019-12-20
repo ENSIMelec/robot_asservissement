@@ -9,13 +9,14 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 #include <sys/time.h>
+#include <vector>  //for std::vector
 
 using namespace std;
 
 #include "Controller.h"
 #include "SerialCodeurManager.h"
 #include "Odometry.h"
-
+#include "Point.h"
 /*********************************** Define ************************************/
 
 #define EXIT_SUCCESS 0
@@ -121,6 +122,13 @@ void jouerMatch(Controller& controller, Odometry& odometry) {
     //timer asservTimer;
     controller.set_trajectory(Controller::Trajectory::XY_ABSOLU);
     controller.set_point(0,0,90);
+    
+    Point pt1(1000,0,0,Controller::Trajectory::XY_ABSOLU);
+    Point pt2(0,0,90,Controller::Trajectory::THETA);
+
+    vector<Point> strategy;
+    strategy.push_back(pt1);
+    strategy.push_back(pt2);
 
 	while(!forcing_stop) {
 

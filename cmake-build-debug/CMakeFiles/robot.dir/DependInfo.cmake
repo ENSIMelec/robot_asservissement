@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/c/Users/Taoufik/CLionProjects/robot/controller/MoteurManager.cpp" "/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles/robot.dir/controller/MoteurManager.cpp.o"
   "/mnt/c/Users/Taoufik/CLionProjects/robot/controller/Odometry.cpp" "/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles/robot.dir/controller/Odometry.cpp.o"
   "/mnt/c/Users/Taoufik/CLionProjects/robot/controller/PID.cpp" "/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles/robot.dir/controller/PID.cpp.o"
+  "/mnt/c/Users/Taoufik/CLionProjects/robot/controller/Point.cpp" "/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles/robot.dir/controller/Point.cpp.o"
   "/mnt/c/Users/Taoufik/CLionProjects/robot/controller/Trajectory.cpp" "/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles/robot.dir/controller/Trajectory.cpp.o"
   "/mnt/c/Users/Taoufik/CLionProjects/robot/main.cpp" "/mnt/c/Users/Taoufik/CLionProjects/robot/cmake-build-debug/CMakeFiles/robot.dir/main.cpp.o"
   )

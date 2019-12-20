@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/robot.dir/controller/Controller.cpp.o"
   "CMakeFiles/robot.dir/controller/MathUtils.cpp.o"
   "CMakeFiles/robot.dir/controller/Trajectory.cpp.o"
+  "CMakeFiles/robot.dir/controller/Point.cpp.o"
   "robot.pdb"
   "robot"
 )
