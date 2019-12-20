@@ -151,9 +151,12 @@ void Controller::make_trajectory_theta(float angle_voulu) {
     // Borner l'angle
     m_consigne.angle = MathUtils::inrange(m_consigne.angle, -M_PI, M_PI);
 
-
-    //m_trajectory = null;
 }
+void Controller::make_trajectory_stop() {
+    // set consigne angle et distance en 0
+    set_consigne_distance_theta(0,0);
+}
+
 /**
  * Calcul PID
  * @param consigne_distance
@@ -227,11 +230,6 @@ bool Controller::position_reached() {
     return abs(m_translationPID.getError()) < distance_tolerance
            && (abs(m_rotationPID.getError()) < angle_tolerance);
 }
-void Controller::make_trajectory_stop() {
-    // set consigne angle et distance en 0
-    set_consigne_distance_theta(0,0);
-}
-
 void Controller::set_consigne_distance_theta(float new_distance, float new_angle) {
 
     m_consigne.distance = new_distance  + m_odometry.getDeltaDistance();
