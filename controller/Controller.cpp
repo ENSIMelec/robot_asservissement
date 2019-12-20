@@ -12,16 +12,11 @@
 using namespace std;
 
 Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config):
-m_odometry(codeurs,config),m_motor(motor), m_config(config)
+        m_odometry(codeurs,config),m_motor(motor), m_config(config)
 {
     // Init PID Controllers
 
-//    m_maxTranslationSpeed = 70; // mm/s
-//    m_maxRotationSpeed = M_PI; // rad/s
-
     m_maxPWM = 50;
-
-
     // Translation Controller
 
     m_translationPID = PID(
@@ -73,20 +68,21 @@ void Controller::update()
     }
 
     cout << "[CONSIGNE] TARGET ANGLE (°): " << MathUtils::rad2deg(m_consigne.angle) << endl;
-    cout <<" [CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
+    cout << "[CONSIGNE] TARGET DISTANCE (mm) : " << m_consigne.distance << endl;
     cout << "[CONSIGNE] DIRECTION: " << m_direction << endl;
 
-    // gestion d'arrivé
-    if(position_reached()) {
-        make_trajectory_stop();
-        motors_stop();
-    }
 
 
     //m_consigne.distance = is the distance between the robot and the goal position
     //m_consigne.angle = is the angle to the goal relative to the heading of the robot
     // envoye des commandes au moteurs
     update_speed(m_consigne.distance, m_consigne.angle);
+
+    // gestion d'arrivé
+    if(position_reached()) {
+        // make_trajectory_stop();
+        // motors_stop();
+    }
 
 }
 
@@ -164,7 +160,7 @@ void Controller::make_trajectory_stop() {
  */
 void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
-    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - CONSIGNE THETA:  " << consigne_theta << endl;
+    cout << "CONSIGNE_DISTANCE " << consigne_distance << " - | CONSIGNE THETA:  " << MathUtils::rad2deg(consigne_theta) << endl;
     // un mouvement en distance
 
     int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), consigne_distance);
@@ -208,6 +204,10 @@ void Controller::set_point(int x, int y, int angle) {
     m_targetPos.x = x;
     m_targetPos.y = y;
     m_targetPos.theta = MathUtils::deg2rad(angle);
+
+    // init distance qui reste
+    distance_now = sqrt(pow(x,2) + pow(y,2));
+
 }
 /**
  * Stop des moteurs et réinitilisation des PID
@@ -234,4 +234,32 @@ void Controller::set_consigne_distance_theta(float new_distance, float new_angle
 
     m_consigne.distance = new_distance  + m_odometry.getDeltaDistance();
     m_consigne.angle    = new_angle     + m_odometry.getDeltaOrientation();
+}
+
+float Controller::ramp_distance() {
+
+    // const
+    float afrein = 200;
+    float vmax = 50;
+    float amax = 60;
+    float dt = m_odometry.getLastTime();
+
+
+    float distance_before = distance_now;
+    distance_now = m_consigne.distance;
+    float vrob = (distance_now - distance_before)/dt;
+
+    float dfrein = (pow(vrob,2)  / 2 * afrein);
+
+    if(distance_now < dfrein) {
+        vdist = vrob - (dt * afrein);
+    }
+    else if (vrob < vmax) {
+        vdist = vrob + (dt * amax);
+    }
+    else {
+        vdist = vmax;
+    }
+
+    return vdist;
 }

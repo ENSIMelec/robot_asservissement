@@ -29,6 +29,7 @@ public:
      */
     void update();
     void update_speed(float consigne_distance, float consigne_theta);
+    float ramp_distance();
     /**
      * Déplacement x, y, angle
      * Target Position
@@ -98,6 +99,10 @@ private:
     MoteurManager m_motor;
     //Config
     Config m_config;
+
+    // acceleration const
+    float distance_now = 0;
+    float vdist = 0;
 
 };
 
