@@ -13,7 +13,6 @@
 #include "MathUtils.h"
 #include "Config.h"
 
-
 class Controller {
 
 public:
@@ -57,12 +56,15 @@ public:
         LOCKED,
         NOTHING
     };
-    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
-    void make_trajectory_theta(float angle_voulu);
-    void make_trajectory_xy(float x_voulu, float y_voulu);
-    void make_trajectory_stop();
     void set_consigne_distance_theta(float new_distance, float new_angle);
+    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
+    void trajectory_theta(float angle_voulu);
+    void trajectory_xy(float x_voulu, float y_voulu);
+    void trajectory_stop();
     bool trajectory_reached();
+    void trajectory_distance_finished();
+    void trajectory_angle_finished();
+    void trajectory_distance_angle();
 
 private:
     // PID Controller
@@ -85,7 +87,7 @@ private:
         float distance = 0.0; // mm
         float angle = 0.0; // rad
 
-    } m_consigne;
+    } m_consign;
 
     int m_direction = 0;
 
@@ -100,10 +102,6 @@ private:
     MoteurManager m_motor;
     //Config
     Config m_config;
-
-    // acceleration const
-    float distance_now = 0;
-    float vdist = 0;
 
 };
 

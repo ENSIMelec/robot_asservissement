@@ -13,11 +13,11 @@ class Point {
 public:
     Point(float mX, float mY, float mTheta, Controller::Trajectory mTrajectory);
 
-    float getMX() const;
+    float getX() const;
 
-    float getMY() const;
+    float getY() const;
 
-    float getMTheta() const;
+    float getTheta() const;
 
 private:
 

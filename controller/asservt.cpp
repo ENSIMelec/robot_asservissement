@@ -130,9 +130,11 @@ void jouerMatch(Controller& controller, Odometry& odometry) {
     strategy.push_back(pt1);
     strategy.push_back(pt2);
 
+
 	while(!forcing_stop) {
 
         controller.update();
+        // gestion d'un chemin ici !
 			
         //if(asservTimer.elapsed_ms() >= deltaAsservTimer) {
             //controller.update();

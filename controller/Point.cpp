@@ -9,14 +9,14 @@ Point::Point(float x, float y, float theta, Controller::Trajectory mTrajectory) 
 
 }
 
-float Point::getMX() const {
+float Point::getX() const {
     return m_x;
 }
 
-float Point::getMY() const {
+float Point::getY() const {
     return m_y;
 }
 
-float Point::getMTheta() const {
+float Point::getTheta() const {
     return m_theta;
 }
