@@ -3,11 +3,11 @@
 //
 
 /**
- * TODO:
- *  -Test asservissement angle+distance
+ * @TODO:
+ *  - Correction coefs PID angle et distance
  *  -Gestion du point d'arrivé
  *  - Add trajectory goto distance+angle
- *  -Création de plusieurs points (stratgie)
+ *  -Création de plusieurs points (stratégie)
  *  -Rajouter des coefs pour corriger les moteurs en ligne droite sans asservissement angle
  *  -Création du module pour détection lidar
  *  -Lidar path planning
@@ -22,7 +22,7 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
 {
     // Init PID Controllers
 
-    m_maxPWM = 50;
+    m_maxPWM = 100;
     // Translation Controller
 
     m_translationPID = PID(
@@ -150,7 +150,7 @@ void Controller::trajectory_theta(float angle_voulu) {
 
     // set consigne
     m_consign.distance = 0;
-    m_consign.angle = angle_voulu - deltaPos.theta;
+    m_consign.angle = deltaPos.theta - angle_voulu;
     // Borner l'angle
     m_consign.angle = MathUtils::inrange(m_consign.angle, -M_PI, M_PI);
 
