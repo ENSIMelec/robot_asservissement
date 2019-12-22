@@ -5,12 +5,13 @@
 /**
  * TODO:
  *  -Test asservissement angle+distance
- *  -Gestion du point d'arrivé
+ *  -Gestion du point d'arrivé (remove correction angle when we are in windowed point)
  *  - Add trajectory goto distance+angle
  *  -Création de plusieurs points (stratgie)
  *  -Rajouter des coefs pour corriger les moteurs en ligne droite sans asservissement angle
  *  -Création du module pour détection lidar
  *  -Lidar path planning
+ *
  *
  */
 
@@ -247,7 +248,7 @@ float Controller::ramp_distance() {
 
     float vrob = m_odometry.getDeltaDistance() / m_odometry.getLastTime();
 
-    float dfrein = (pow(vrob,2)  / 2 * afrein);
+    float dfrein = (pow(vrob,2)  / 2 * afrein); //pivot
 
     if(distance_now < dfrein) {
         vdist = vrob - (dt * afrein);
