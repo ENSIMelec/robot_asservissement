@@ -4,14 +4,13 @@
 
 /**
  * TODO:
- *  -Test asservissement angle+distance
+ *  -Asservissement vitesse, ramp
  *  -Gestion du point d'arrivé (remove correction angle when we are in windowed point)
  *  - Add trajectory goto distance+angle
- *  -Création de plusieurs points (stratgie)
+ *  -Création de plusieurs points (stratégie)
  *  -Rajouter des coefs pour corriger les moteurs en ligne droite sans asservissement angle
  *  -Création du module pour détection lidar
  *  -Lidar path planning
- *
  *
  */
 
@@ -23,18 +22,17 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
 {
     // Init PID Controllers
 
-    m_maxPWM = 50;
-    // Translation Controller
+    this->m_maxPWM = 100;
 
-    m_translationPID = PID(
+    // Polar position PID
+    this->m_distancePID = PID(
             m_config.getPIDkpDep(),
             m_config.getPIDkiDep(),
             m_config.getPIDkdDep(),
             -m_maxPWM,
             m_maxPWM
     );
-
-    m_rotationPID = PID(
+    this->m_anglePID = PID(
             m_config.getPIDkpA(),
             m_config.getPIDkiA(),
             m_config.getPIDkdA(),
@@ -42,9 +40,20 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
             m_maxPWM
     );
 
+
+    // Speed PID
+    this->m_maxTranslationSpeed = 500; // mm/s
+    this->m_maxRotationSpeed = 2*M_PI;
+
+    this->m_leftSpeedPID = PID(1,0,0, 0, m_maxTranslationSpeed);
+    this->m_rightSpeedPID = PID(1,0,0, 0, m_maxRotationSpeed);
+
+    // Enable Control System
+    this->m_controlDistance = true;
+    this->m_controlAngle = true;
 }
 /**
- * Asservissement boucle
+ * CS Loop
  */
 void Controller::update()
 {
@@ -94,8 +103,8 @@ void Controller::update()
 /**
  * Effectuer un trajectoire en XY
  * update angle and/or distance
- * @param x_voulu
- * @param y_voulu
+ * @param x_voulu en mm
+ * @param y_voulu en mm
  */
 void Controller::trajectory_xy(float x_voulu, float y_voulu) {
 
@@ -138,11 +147,10 @@ void Controller::trajectory_xy(float x_voulu, float y_voulu) {
     m_consign.angle = MathUtils::inrange(m_consign.angle, -M_PI, M_PI);
 
     cout << "[CONSIGNE] X_DIFF = " << x_diff << " | Y_DIFF = " << y_diff  << endl;
-    //m_trajectory = null;
 }
 /**
  * Effectuer un trajectoire theta
- * @param angle_voulu  en deg
+ * @param angle_voulu  en rad
  */
 void Controller::trajectory_theta(float angle_voulu) {
 
@@ -151,7 +159,7 @@ void Controller::trajectory_theta(float angle_voulu) {
 
     // set consigne
     m_consign.distance = 0;
-    m_consign.angle = angle_voulu - deltaPos.theta;
+    m_consign.angle = deltaPos.theta - angle_voulu;
     // Borner l'angle
     m_consign.angle = MathUtils::inrange(m_consign.angle, -M_PI, M_PI);
 
@@ -160,7 +168,6 @@ void Controller::trajectory_stop() {
     // set consigne angle et distance en 0
     m_consign.distance = 0;
     m_consign.angle = 0;
-    //set_consigne_distance_theta(0,0);
 }
 
 /**
@@ -171,30 +178,35 @@ void Controller::trajectory_stop() {
 void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
     cout << "CONSIGNE_DISTANCE " << consigne_distance << " - | CONSIGNE THETA:  " << MathUtils::rad2deg(consigne_theta) << endl;
-    // un mouvement en distance
 
-    int speedTranslation = m_translationPID.compute(m_odometry.getDeltaDistance(), consigne_distance);
-    // borner la distance (pas nécessaire, la vitesse est déjà borner dans le PID)
-    speedTranslation = max(-m_maxPWM, min(m_maxPWM, speedTranslation));
+    // un mouvement en distance
+    // PID distance activé
+    if(m_controlDistance) {
+        m_speedDistance = m_distancePID.compute(m_odometry.getDeltaDistance(), consigne_distance);
+        // borner la distance (pas nécessaire, la vitesse est déjà borner dans le PID)
+        m_speedDistance = max(-m_maxPWM, min(m_maxPWM, m_speedDistance));
+    }
 
     // un mouvement de rotation
+    // PID angle activé
+    if(m_controlAngle) {
+        m_speedAngle = m_anglePID.compute(m_odometry.getDeltaTheta(), consigne_theta);
+        // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
+        m_speedAngle = max(-m_maxPWM, min(m_maxPWM, m_speedAngle));
+    }
 
-    int speedRotation = m_rotationPID.compute(m_odometry.getDeltaTheta(), consigne_theta);
-    // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
-    speedRotation = max(-m_maxPWM, min(m_maxPWM, speedRotation));
 
-
-    int leftPWM = speedTranslation + speedRotation;
-    int rightPWM = speedTranslation - speedRotation;
+    int leftPWM = m_speedDistance + m_speedAngle;
+    int rightPWM = m_speedDistance - m_speedAngle;
 
     m_motor.setConsigne(leftPWM, rightPWM);
 
 
     // debug:
-    cout << "[ERROR DISTANCE] Error distance : " << m_translationPID.getError() << endl;
-    cout << "[ERROR ANGLE] Error Angle : " << m_rotationPID.getError() << endl;
-    cout << "[PID DISTANCE] Speed Translation : " << speedTranslation;
-    cout << "[PID ANGLE] Speed Rotation : " << speedRotation;
+    cout << "[ERROR DISTANCE] Error distance : " << m_distancePID.getError() << endl;
+    cout << "[ERROR ANGLE] Error Angle : " << m_anglePID.getError() << endl;
+    cout << "[PID DISTANCE] Speed Translation : " << m_speedDistance;
+    cout << "[PID ANGLE] Speed Rotation : " << m_speedAngle;
     cout << "[PWM] LEFT : " << leftPWM << " RIGHT: " << rightPWM << endl;
     cout << " ======================== " << endl;
 }
@@ -217,8 +229,8 @@ void Controller::motors_stop() {
     // arrêt des moteurs
     m_motor.stop();
     // reset des erreurs
-    m_translationPID.resetErrors();
-    m_rotationPID.resetErrors();
+    m_distancePID.resetErrors();
+    m_anglePID.resetErrors();
 }
 
 bool Controller::position_reached() {
@@ -227,16 +239,16 @@ bool Controller::position_reached() {
     float angle_tolerance = MathUtils::deg2rad(3);
 
     // get errors from PID
-    return abs(m_translationPID.getError()) < distance_tolerance
-           && (abs(m_rotationPID.getError()) < angle_tolerance);
+    return abs(m_distancePID.getError()) < distance_tolerance
+           && (abs(m_anglePID.getError()) < angle_tolerance);
 }
-void Controller::set_consigne_distance_theta(float new_distance, float new_angle) {
+//void Controller::set_consigne_distance_theta(float new_distance, float new_angle) {
+//
+//    m_consign.distance = new_distance  + m_odometry.getDeltaDistance();
+//    m_consign.angle    = new_angle     + m_odometry.getDeltaOrientation();
+//}
 
-    m_consign.distance = new_distance  + m_odometry.getDeltaDistance();
-    m_consign.angle    = new_angle     + m_odometry.getDeltaOrientation();
-}
-
-float Controller::ramp_distance() {
+float Controller::quadramp_filter() {
 
     // const
     float afrein = 200;
@@ -250,15 +262,22 @@ float Controller::ramp_distance() {
 
     float dfrein = (pow(vrob,2)  / 2 * afrein); //pivot
 
+    // Decceleration  : the pivot has been crossed, so we reverse the acceleration.
+    // As the speed decreases, the pivot decreases. In fact we keep the pivot nearby
     if(distance_now < dfrein) {
         vdist = vrob - (dt * afrein);
     }
+    // acceleration  : the goal is far away, so we accelerate
     else if (vrob < vmax) {
         vdist = vrob + (dt * amax);
     }
+    // constant speed : the maximal speed is atteined, so the acceleration is ignored
+    // (this phase may not exist if the position is not far away)
     else {
         vdist = vmax;
     }
+
+    // algorithm must shut down on window
 
     return vdist;
 }

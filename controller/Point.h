@@ -18,7 +18,6 @@ public:
     float getY() const;
 
     float getTheta() const;
-
 private:
 
     float m_x = 0;

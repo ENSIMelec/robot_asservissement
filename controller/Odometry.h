@@ -30,11 +30,11 @@ struct Position
      * @param theta angle initial.
      */
     Position(float x, float y, float theta) : x(x), y(y), theta(theta){}
-    // Coordonnée en x
+    // Coordonnée en x en mm
     float x;
-    // Cordonnée en y
+    // Cordonnée en y en mm
     float y;
-    // Angle
+    // Angle en rad
     float theta;
 };
 /**

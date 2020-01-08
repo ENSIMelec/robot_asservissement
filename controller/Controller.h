@@ -28,16 +28,7 @@ public:
      */
     void update();
     void update_speed(float consigne_distance, float consigne_theta);
-    float ramp_distance();
-    /**
-     * Déplacement x, y, angle
-     * Target Position
-     *
-     * @param x
-     * @param y
-     * @param angle
-    */
-
+    float quadramp_filter();
     void set_point(int x, int y, int angle);
     void motors_stop();
     bool position_reached();
@@ -56,7 +47,6 @@ public:
         LOCKED,
         NOTHING
     };
-    void set_consigne_distance_theta(float new_distance, float new_angle);
     void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
     void trajectory_theta(float angle_voulu);
     void trajectory_xy(float x_voulu, float y_voulu);
@@ -65,13 +55,14 @@ public:
     void trajectory_distance_finished();
     void trajectory_angle_finished();
     void trajectory_distance_angle();
+    void set_consigne_distance_theta(float new_distance, float new_angle);
 
 private:
     // PID Controller
     PID m_leftSpeedPID;
     PID m_rightSpeedPID;
-    PID m_translationPID;
-    PID m_rotationPID;
+    PID m_distancePID;
+    PID m_anglePID;
 
     // Target position
     Position m_targetPos;
@@ -102,6 +93,14 @@ private:
     MoteurManager m_motor;
     //Config
     Config m_config;
+
+    // enabled cs system
+    bool m_controlDistance = true;
+    bool m_controlAngle = true;
+
+    // cs speed
+    int m_speedDistance = 0;
+    int m_speedAngle = 0;
 
 };
 

@@ -1,3 +1,8 @@
+/**
+ * @TODO: Frequency compensation
+ * @TODO: Remove goal
+ */
+
 #include "PID.h"
 using namespace std;
 /**

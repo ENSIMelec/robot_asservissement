@@ -3,6 +3,12 @@
 using namespace std;
 
 /**
+ * @TODO:
+ * Left speed,
+ * Right speed,
+ */
+
+/**
  * Odométrie constructeur
  * Méthode de régalage des coeffs:
  *  - TICK_TO_MM = faire avancer le robot 1m
@@ -52,9 +58,9 @@ void Odometry::update() {
     // Calculer les variations de position en distance et en angle
 
     // distance parcourue depuis la position de départ jusqu’à l’instant présent.
-    float dDistance = (distanceLeft + distanceRight) / 2;
+    float dDistance = (distanceRight + distanceLeft) / 2;
     // Calcul de la différence du nombre de tic entre chaque roue (appx. gauss)
-    float dAngle = (distanceLeft - distanceRight) / ENTRAXE;
+    float dAngle = (distanceRight - distanceLeft) / ENTRAXE;
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact

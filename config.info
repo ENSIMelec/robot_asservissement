@@ -21,15 +21,22 @@ asservissement {
 	; Réglages du PID
 
 	;pid déplacement
-    pid_kpdep 		0.85
+    pid_kpdep 		1
     pid_kidep 		0
-    pid_kddep 		0
+    pid_kddep 		0.5
 
 	;pid d'angle
-	pid_kpa 		100
-	pid_kia 		1
-	pid_kda 		10
-
+	;pid_kia 		0.20
+	;pid_kda 		100
+	
+	;pid_kpa 		100
+	;pid_kia 		0.17
+	;pid_kda 		50
+	
+	pid_kpa 		270
+	pid_kia 		0
+	pid_kda 		50
+	
 	;au dela de 20 de p le pathfinding foire
 	pid_kpdepPathFinding	8
 	pid_kpdep 		30
