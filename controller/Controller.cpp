@@ -92,7 +92,7 @@ void Controller::update()
     update_speed(m_consign.distance, m_consign.angle);
 
     // gestion d'arrivé
-    if(position_reached()) {
+    if(is_target_reached()) {
         // make_trajectory_stop();
         // motors_stop();
 
@@ -232,16 +232,20 @@ void Controller::motors_stop() {
     m_distancePID.resetErrors();
     m_anglePID.resetErrors();
 }
+/** near the target (dist in mm and angle in rad) **/
+bool Controller::is_target_reached() {
 
-bool Controller::position_reached() {
-
-    int distance_tolerance = 10; // mm
-    float angle_tolerance = MathUtils::deg2rad(3);
+    int distance_tolerance = 5; // mm
+    float angle_tolerance = MathUtils::deg2rad(1);
 
     // get errors from PID
     return abs(m_distancePID.getError()) < distance_tolerance
            && (abs(m_anglePID.getError()) < angle_tolerance);
 }
+/** near the target (dist in x,y) ? */
+
+
+
 //void Controller::set_consigne_distance_theta(float new_distance, float new_angle) {
 //
 //    m_consign.distance = new_distance  + m_odometry.getDeltaDistance();
@@ -282,7 +286,7 @@ float Controller::quadramp_filter() {
     return vdist;
 }
 /** return true if traj is nearly finished */
-bool Controller::trajectory_reached() {
+bool Controller::is_trajectory_reached() {
 
     int distance_tolerance = 10;
     float angle_tolerance = MathUtils::deg2rad(3);

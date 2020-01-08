@@ -20,3 +20,7 @@ float Point::getY() const {
 float Point::getTheta() const {
     return m_theta;
 }
+
+Controller::Trajectory Point::getTrajectory() const {
+    return m_trajectory;
+}

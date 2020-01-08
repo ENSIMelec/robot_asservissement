@@ -27,11 +27,12 @@ public:
      * Method asserv
      */
     void update();
-    void update_speed(float consigne_distance, float consigne_theta);
-    float quadramp_filter();
     void set_point(int x, int y, int angle);
+    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
     void motors_stop();
-    bool position_reached();
+    bool is_target_reached();
+    bool is_target_reached_xy();
+    bool is_target_reached_angle();
 
     /** enum Direction
 	 *  \brief Sens de déplacement pour le robot.
@@ -47,17 +48,20 @@ public:
         LOCKED,
         NOTHING
     };
-    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
+
+private:
+
+    void update_speed(float consigne_distance, float consigne_theta);
     void trajectory_theta(float angle_voulu);
     void trajectory_xy(float x_voulu, float y_voulu);
     void trajectory_stop();
-    bool trajectory_reached();
+    float quadramp_filter();
+    bool is_trajectory_reached();
     void trajectory_distance_finished();
     void trajectory_angle_finished();
     void trajectory_distance_angle();
     void set_consigne_distance_theta(float new_distance, float new_angle);
 
-private:
     // PID Controller
     PID m_leftSpeedPID;
     PID m_rightSpeedPID;

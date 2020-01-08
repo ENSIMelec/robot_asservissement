@@ -12,12 +12,11 @@ class Point {
 
 public:
     Point(float mX, float mY, float mTheta, Controller::Trajectory mTrajectory);
-
     float getX() const;
-
     float getY() const;
-
     float getTheta() const;
+    Controller::Trajectory getTrajectory() const;
+
 private:
 
     float m_x = 0;
