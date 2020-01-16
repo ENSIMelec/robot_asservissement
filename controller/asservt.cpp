@@ -120,30 +120,30 @@ int main(int argc, char **argv) {
 void jouerMatch(Controller& controller, Odometry& odometry) {
 
     // Définition de l'ensemble des points de stratégies
-    controller.set_trajectory(Controller::Trajectory::XY_ABSOLU);
-    controller.set_point(0,0,90);
     
     Point pt1(1000,0,0,Controller::Trajectory::XY_ABSOLU);
     Point pt2(0,0,90,Controller::Trajectory::THETA);
+    Point pt3(0,0,0,Controller::Trajectory::LOCKED);
     // Ajouter dans le tableau
     vector<Point> strategy;
     strategy.push_back(pt1);
     strategy.push_back(pt2);
+    strategy.push_back(pt3);
 
     int strategyIndex = 0;
 
-	while(!forcing_stop) {
+
+	while(!forcing_stop &&  strategyIndex < strategy.size()) {
 
         // passage au point suivant
-        if((controller.is_target_reached() || strategyIndex == 0)
-            && strategy.size() > strategyIndex) {
+        if( (controller.is_target_reached() || strategyIndex == 0)
+            && strategy.size() > strategyIndex)
+        {
+            Point& point = strategy[strategyIndex++];
 
-            Point& point = strategy.at(strategyIndex);
-
-            controller.set_point(point.getX(), point.getY(), point.getTheta());
             controller.set_trajectory(point.getTrajectory());
+            controller.set_point(point.getX(), point.getY(), point.getTheta());
 
-            strategyIndex++;
         }
 
         //controller

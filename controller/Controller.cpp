@@ -4,10 +4,10 @@
 
 /**
  * TODO:
+ * -Création de plusieurs points (stratégie)
  *  -Asservissement vitesse, ramp
  *  -Gestion du point d'arrivé (remove correction angle when we are in windowed point)
  *  - Add trajectory goto distance+angle
- *  -Création de plusieurs points (stratégie)
  *  -Rajouter des coefs pour corriger les moteurs en ligne droite sans asservissement angle
  *  -Création du module pour détection lidar
  *  -Lidar path planning
@@ -243,7 +243,28 @@ bool Controller::is_target_reached() {
            && (abs(m_anglePID.getError()) < angle_tolerance);
 }
 /** near the target (dist in x,y) ? */
+bool Controller::is_target_reached_xy() {
 
+    float distance_tolerance = 10; // mm
+
+    // target position
+    float x1 = m_targetPos.x;
+    float y1 = m_targetPos.y;
+
+    // actual position
+    float x2 = m_odometry.getPosition().x;
+    float y2 = m_odometry.getPosition().y;
+
+    return  (sqrt(pow((x2 - x1),2) + pow((y2 - y1), 2)) < distance_tolerance);
+
+}
+/* near the angle target in radian ? */
+bool Controller::is_target_reached_angle() {
+
+    float angle_tolerance = MathUtils::deg2rad(1);
+
+    return  (m_consign.angle < angle_tolerance);
+}
 
 
 //void Controller::set_consigne_distance_theta(float new_distance, float new_angle) {
@@ -264,7 +285,8 @@ float Controller::quadramp_filter() {
 
     float vrob = m_odometry.getDeltaDistance() / m_odometry.getLastTime();
 
-    float dfrein = (pow(vrob,2)  / 2 * afrein); //pivot
+    //pivot
+    float dfrein = (pow(vrob,2)  / 2 * afrein);
 
     // Decceleration  : the pivot has been crossed, so we reverse the acceleration.
     // As the speed decreases, the pivot decreases. In fact we keep the pivot nearby
@@ -288,22 +310,17 @@ float Controller::quadramp_filter() {
 /** return true if traj is nearly finished */
 bool Controller::is_trajectory_reached() {
 
-    int distance_tolerance = 10;
-    float angle_tolerance = MathUtils::deg2rad(3);
-
     switch (m_trajectory) {
-
         case THETA:
-            break;
+            return this->is_target_reached_angle();
         case XY_ABSOLU:
-
-            break;
+            return this->is_target_reached_xy();
         case LOCKED:
-            break;
+            return true;
         case NOTHING:
-            break;
+            return true;
         default:
-            return 0;
+            return false;
     }
 
 }

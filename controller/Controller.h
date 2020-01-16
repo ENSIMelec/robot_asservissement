@@ -16,27 +16,9 @@
 class Controller {
 
 public:
-    /**
-     * Initialisation de l'asservisement
-     * @param codeurs
-     * @param motor
-     * @param config
-    */
-    Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config);
-    /**
-     * Method asserv
-     */
-    void update();
-    void set_point(int x, int y, int angle);
-    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
-    void motors_stop();
-    bool is_target_reached();
-    bool is_target_reached_xy();
-    bool is_target_reached_angle();
-
-    /** enum Direction
-	 *  \brief Sens de déplacement pour le robot.
-	 */
+        /** enum Direction
+      *  \brief Sens de déplacement pour le robot.
+      */
     enum Direction {
         FORWARD     = 1, ///< Le robot avance en marche avant.
         BACKWARD    = -1 ///< Le robot avance en marche arrière.
@@ -48,6 +30,27 @@ public:
         LOCKED,
         NOTHING
     };
+
+
+    /**
+     * Initialisation de l'asservisement
+     * @param codeurs
+     * @param motor
+     * @param config
+    */
+    Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config);
+
+    /**
+     * Method asserv
+     */
+    void update();
+    void set_point(int x, int y, int angle);
+    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
+    void motors_stop();
+    bool is_target_reached();
+    bool is_target_reached_xy();
+    bool is_target_reached_angle();
+
 
 private:
 
