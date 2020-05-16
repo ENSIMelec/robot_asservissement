@@ -3,29 +3,31 @@
 using namespace std;
 
 /**
- * Odométrie constructeur
- * Méthode de régalage des coeffs:
- *  - TICK_TO_MM = faire avancer le robot 1m
- *  - TICK_TO_RAD = faire tourner le robot 360 sur lui même plusieurs fois
- *
+ * Odométrie
  * @param codeurs
  */
 
 Odometry::Odometry(ICodeurManager &codeurs, Config& config) : m_codeurs(codeurs), m_config(config) {
 
 
-    // Coefficient roue distance
-//    this->TICK_RIGHT_TO_MM  = 0.192901235;
-//    this->TICK_LEFT_TO_MM   = 0.193259122;
-//    // Coefficient roue angle (à revérifier)
-//    this->TICK_RIGHT_TO_RAD = 0.00134527931;
-//    this->TICK_LEFT_TO_RAD  = 0.00134551869;
-
     // nouvelle approche odométrie
-    this->PERIM_ROUE = 32*M_PI; //Diametre * PI
-    this->RESOLUTION = 516;
-    this->COEF_CORRECTEUR = m_config.getCoeffCorrecteur();
-    this->ENTRAXE = 293;
+    //this->PERIM_ROUE = 31.5*M_PI;
+    //this->PERIM_ROUE = 34.8*M_PI; //Diametre * PI
+//
+//    this->PERIM_ROUE = 31.5*M_PI; //Diametre * PI
+//    this->RESOLUTION = 516;
+//    this->COEF_CORRECTEUR = m_config.getCoeffCorrecteur();
+//    this->ENTRAXE = 290;
+
+    //this->ENTRAXE = 280;
+
+    float diametre = Configuration::instance().getFloat("diametre_roue");
+    this->PERIM_ROUE = diametre*M_PI; //Diametre * PI
+    this->RESOLUTION = Configuration::instance().getFloat("resolution");
+    this->COEF_CORRECTEUR = Configuration::instance().getFloat("coeff_correcteur");
+    this->ENTRAXE = Configuration::instance().getFloat("entraxe");
+    // init
+    this->m_pos.theta = 0;
 
 }
 
@@ -52,9 +54,42 @@ void Odometry::update() {
     // Calculer les variations de position en distance et en angle
 
     // distance parcourue depuis la position de départ jusqu’à l’instant présent.
-    float dDistance = (distanceLeft + distanceRight) / 2;
+    float dDistance = (distanceRight + distanceLeft) / 2;
     // Calcul de la différence du nombre de tic entre chaque roue (appx. gauss)
-    float dAngle = (distanceLeft - distanceRight) / ENTRAXE;
+    float diffCount = distanceRight - distanceLeft;
+    float dAngle = diffCount/(ENTRAXE);
+
+
+
+    // nouvelle méthode:
+
+//    if (diffCount==0)    // On considère le mouvement comme une ligne droite
+//    {
+//        // Mise à jour de la position
+//        this->m_pos.x    += dDistance * cos(this->m_pos.theta);
+//        this->m_pos.y    += dDistance * sin(this->m_pos.theta);
+//    }
+//    else
+//    {
+//        //On approxime en considérant que le robot suit un arc de cercle
+//        // On calcule le rayon de courbure du cercle
+//        double R = dDistance / dAngle;
+//
+//        //Mise à jour de la position
+//        this->m_pos.x    += R * (-sin(this->m_pos.theta) + sin(this->m_pos.theta + dAngle));
+//        this->m_pos.y    += R * (cos(this->m_pos.theta) - cos(this->m_pos.theta + dAngle));
+//        // Mise à jour du cap
+//        this->m_pos.theta += dAngle;
+//
+//        // On limite le cap à +/- PI afin de ne pouvoir tourner dans les deux sens et pas dans un seul
+//        if (this->m_pos.theta > M_PI)
+//            this->m_pos.theta -= 2 * M_PI ;
+//        else if (this->m_pos.theta <= -M_PI)
+//            this->m_pos.theta += 2 * M_PI ;
+//    }
+
+
+
 
     // <!> m_pos.theta l'angle initiale
     // Moyenne des angles pour connaître le cap exact
@@ -66,15 +101,18 @@ void Odometry::update() {
     this->m_pos.y       += dDistance * sinf(avgTheta);
     this->m_pos.theta   += dAngle;
 
-    // borner l'angle
-    //    if(this->m_pos.theta >= M_PI*2 || this->m_pos.theta <= -M_PI*2)
-    //        this->m_pos.theta = 0;
+     if (this->m_pos.theta > M_PI)
+		this->m_pos.theta -= 2 * M_PI ;
+     else if (this->m_pos.theta <= -M_PI)
+		this->m_pos.theta += 2 * M_PI ;
 
     // Calcul de la vitesse angulaire et linéaire
     // Actualisation du temps
     this->m_lastTime = m_codeurs.getTime();
 
-    float timestep      = MathUtils::micros2sec(m_lastTime); // micros -> s
+    float timestep      = MathUtils::millis2sec(m_lastTime); // micros -> s
+    //float timestep      = 0.01; // micros -> s
+
     float linVel        = 0; // mm / s
     float angVel        = 0; // rad / s
 
@@ -102,7 +140,7 @@ void Odometry::debug() {
     cout << "===========DEBUG ODOMETRY============" << endl;
     cout << "[DATA CODEUR][TICS] : Gauche:" << m_codeurs.getLeftTicks() << " Droit: " << m_codeurs.getRightTicks() << endl;
     cout << "[DATA CODEUR][TOTAL TICS] : Gauche:" << getTotalTicksL() << " Droit: " << getTotalTicksR() << endl;
-    cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() << " (s)" << endl;
+    cout << "[DATA CODEUR][LAST TIME] : " << getLastTime() << " (ms)" << endl;
     cout << "[ODOMETRY][POSITION] : X:" << getPosition().x << " Y: " << getPosition().y << " Theta: " <<  MathUtils::rad2deg(getPosition().theta) << " °" << endl;
     cout << "[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : " << getDeltaDistance() << endl;
     cout << "[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaOrientation() << endl;
@@ -118,6 +156,7 @@ void Odometry::distance_total_update(int long ticksLeft, int long ticksRight) {
     m_totalTicksR += ticksRight;
 
     m_totalDistance += m_dDistance;
+    m_totalAngle += m_dTheta;
 }
 
 

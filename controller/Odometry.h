@@ -5,6 +5,7 @@
 #include "cmath"
 #include "iostream"
 #include "MathUtils.h"
+#include "Configuration.h"
 #include "Config.h"
 
 /**
@@ -44,7 +45,7 @@ class Odometry {
 
 public:
 
-    explicit Odometry(ICodeurManager &codeurs, Config& config);
+    explicit Odometry(ICodeurManager &codeurs);
     void debug();
     /*void calcul_position_segment(float distance, float angle);
     void calcul_position_arc(float distance, float angle);*/
@@ -65,6 +66,7 @@ public:
 
     float getDeltaOrientation() const { return m_dAvgTheta; }
     float getDeltaTheta() const { return m_dTheta; }
+    float getTotalTheta() const { return m_totalAngle; }
     float getDeltaDistance() const { return m_dDistance; }
     float getTotalDistance() const { return m_totalDistance; }
     float getLinVel() const {return m_linVel;} /* Vitesse linéaire */
@@ -72,6 +74,7 @@ public:
     int getLastTime() const { return m_lastTime; }
     float getTotalTicksL() const { return m_totalTicksL; };
     float getTotalTicksR() const { return m_totalTicksR; };
+    float getEntraxe() const { return ENTRAXE; };
 
 
 protected:
@@ -82,6 +85,7 @@ protected:
     int m_totalTicksL = 0; /* Totat des tics gauche */
     int m_totalTicksR = 0;/* Totat des tics droite */
     float m_totalDistance = 0; /* Total distance parcouru (odometry test purpose) */
+    float m_totalAngle = 0;
 
     float m_dDistance = 0; /*  Distance en mm parcouru en dt */
     float m_dAvgTheta = 0; /* moyenne angle(t-1) et t en rad en dt */
@@ -109,9 +113,6 @@ protected:
     float ENTRAXE = 0; // entraxe entre les deux roues en mm
 
     ICodeurManager& m_codeurs;
-
-    //Config
-    Config m_config;
 
 };
 
