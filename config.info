@@ -1,7 +1,7 @@
 asservissement {
 	; Temps d’attente entre chaque boucle d’asservissement, en ms.
 	; Attention : une valeur trop élevée sature le bus I2C !
-	delta_asserv 	10
+	delta_asserv 	5
 
 	temps_match 	100
 
@@ -16,20 +16,106 @@ asservissement {
 	;CoeffCorrecteur 0.9963138
 	;monter le coef = monter erreur Y
 	; -4 mm error sur 2m
-	CoeffCorrecteur 0.9965138
+	;CoeffCorrecteur 	0.9965138
+	
+	;1mm error sur 2m
+	;CoeffCorrecteur 	0.9989900
+	
+	;CoeffCorrecteur 	0.9999500
+	
+	;CoeffCorrecteur	0.9999999
 
-	; Réglages du PID
+	;CoeffCorrecteur 	0.9953500
+	
+	;26/03/2020
+	;CoeffCorrecteur 	0.9031000
+	
+	;27/03/2020 (dont work for distance)
+	;CoeffCorrecteur 	0.9531000
+	;CoeffCorrecteur 	0.9531000
+	
+	; 16/05/20
+	;CoeffCorrecteur 	0.8800000
+	
+	; ---------------------- Odométrie --------------------------------------
+	
+	; precision sur l'avance en X en mm
+	diametre_roue	32
+	
+	; precision sur l'avance en Y
+	coeff_correcteur	1.0011862
+	;coeff_correcteur	0.9953500
+	
+	; combien de tics par 1 tour de roue?
+	resolution	516
+	
+	; distance en deux roue en mm
+	;entraxe	260
+	entraxe	255
 
-	;pid déplacement
-    pid_kpdep 		0.85
+	; ---------------------- PID distance --------------------------------------
+    pid_kpdep 		1
     pid_kidep 		0
-    pid_kddep 		0
+    pid_kddep 		0.5
 
-	;pid d'angle
-	pid_kpa 		100
-	pid_kia 		1
-	pid_kda 		10
-
+	; ---------------------- PID angle --------------------------------------
+	;pid_kia 		0.20
+	;pid_kda 		100
+	
+	;pid_kpa 		100
+	;pid_kia 		0.17
+	;pid_kda 		50
+	
+	;20 decembre
+	;pid_kpa 		270
+	;pid_kia 		0
+	;pid_kda 		50
+	
+	;9 janvier
+	;pid_kpa 		150
+	;pid_kia 		0
+	;pid_kda 		50
+	
+	;pid_kpa 		43
+	;pid_kia 		0.08
+	;pid_kda 		10
+	
+	;11/03/2020
+	;pid_kpa 		120
+	;pid_kia 		0.08
+	;pid_kda 		20
+	
+	;27/03/2020
+	;pid_kpa 		120
+	;pid_kia 		0.04
+	;pid_kda 		80
+	
+	pid_kpa 		140
+	pid_kia 		0.05
+	pid_kda 		40
+	
+	; PID acceleration angle (27/03/2020)
+	;pid_kpa 		3
+	;pid_kia 		0
+	;pid_kda 		1
+	; -----------------------------------------------------------------------------------
+	
+	; ---------------------- acceleration distance --------------------------------------
+	distance_speed_max 150
+	distance_acceleration_max 2
+	distance_deceleration_max 2
+	
+	; Coeff déterminant le début de la rampe de décélération en distance
+	distance_anticipation_gain 42
+	; ---------------------- acceleration angle (unité PWM) ----------------------------
+	angle_speed_max 40
+	angle_acceleration_max 1
+	angle_deceleration_max 2
+	
+	; Coeff déterminant le début de la rampe de décélération en rotation
+	angle_anticipation_gain 9
+	; ------------------------------------------------------------
+	
 	;au dela de 20 de p le pathfinding foire
 	pid_kpdepPathFinding	8
 	pid_kpdep 		30
@@ -42,46 +128,12 @@ asservissement {
 	pid_kipos 		0
 	pid_kdpos 		1
 
-	;pid vitesse moyenne
-	pid_kpV_medium 	0.1
-	pid_kiV_medium 	0.005
-	pid_kdV_medium 	0
-
-	;Ne sert plus
-	;pid vitesse faible
-	pid_kpV_low 	0.1
-	pid_kiV_low 	0.005
-	pid_kdV_low 	0
-
-	;pid vitesse haute
-	pid_kpV_high 	0.1
-	pid_kiV_high 	0.005
-	pid_kdV_high 	0
-
+	
 	; Réglages coefs déplacement
 
-	;CoeffGLong 0.2192765113974
-	;CoeffDLong 0.2188427299703
-
-	;CoeffGLong 0.2204356846473029
-	;CoeffDLong 0.2209804419608839
-
-	;24/05/2019 initiaux
-	;CoeffGLong 0.2175127805414823
-	;CoeffDLong 0.2180503145536678
-	;CoeffGLong 0,2175127805414823
-	;CoeffDLong 0,2180503145536678
-
-	;trop
-	;CoeffGLong 0.2171502592405798
-	;CoeffDLong 0.2184137317445906
-
-	;calcule un sixieme
 	CoeffGLong 0.2174523603246652
 	CoeffDLong 0.2181108840854883
 	
-	;CoefAngle Solveur
-	;CoeffAngl 0.0511967234097018
 	CoeffAngl 0.0510457284650833
 
 	CoeffAnglD 0.0518380923726007
@@ -95,4 +147,5 @@ asservissement {
 
 	;Booleen pour attendre ou non la connexion de l'électron, l'expérience et le deuxième robot: 0 non, 1 oui (tjrs 0 pour le petit)
 	WAIT_DEVICES_CONNECTIONS 1
+	
 }

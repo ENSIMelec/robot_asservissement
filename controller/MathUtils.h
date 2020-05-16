@@ -14,11 +14,11 @@ public:
 
     static float periodicmod(float x, float y);
     static float inrange(float x, float min, float max);
+    static float constrain(float value, float min, float max);
     static float deg2rad(float deg);
     static float rad2deg(float rad);
     static float micros2sec(float sec);
-    static float simple_modulo_2pi(float rad);
-    static float modulo_2pi(float rad);
+	static float millis2sec(float millis);
 };
 
 

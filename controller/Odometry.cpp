@@ -7,7 +7,7 @@ using namespace std;
  * @param codeurs
  */
 
-Odometry::Odometry(ICodeurManager &codeurs, Config& config) : m_codeurs(codeurs), m_config(config) {
+Odometry::Odometry(ICodeurManager &codeurs) : m_codeurs(codeurs){
 
 
     // nouvelle approche odométrie
@@ -26,6 +26,7 @@ Odometry::Odometry(ICodeurManager &codeurs, Config& config) : m_codeurs(codeurs)
     this->RESOLUTION = Configuration::instance().getFloat("resolution");
     this->COEF_CORRECTEUR = Configuration::instance().getFloat("coeff_correcteur");
     this->ENTRAXE = Configuration::instance().getFloat("entraxe");
+
     // init
     this->m_pos.theta = 0;
 
@@ -158,5 +159,3 @@ void Odometry::distance_total_update(int long ticksLeft, int long ticksRight) {
     m_totalDistance += m_dDistance;
     m_totalAngle += m_dTheta;
 }
-
-

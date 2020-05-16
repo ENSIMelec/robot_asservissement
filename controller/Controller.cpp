@@ -18,8 +18,7 @@
 
 using namespace std;
 
-Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config):
-        m_odometry(codeurs,config),m_motor(motor), m_config(config)
+Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config): m_odometry(codeurs), m_motor(motor), m_config(config)
 {
     // Init PID Controllers
 
@@ -39,21 +38,11 @@ Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& co
             m_config.getPIDkpA(),
             m_config.getPIDkiA(),
             m_config.getPIDkdA(),
-            -m_maxPWM,
-            m_maxPWM
+            -m_maxPWMR,
+            m_maxPWMR
     );
 
-
-    // Speed PID
-    //this->m_maxTranslationSpeed = 500; // mm/s
-    //this->m_maxRotationSpeed = 2*M_PI;
-
-    //this->m_maxTranslationSpeed = 10; // mm/s
-    //this->m_maxRotationSpeed = M_PI/4; // rad / s
-
-    //this->m_leftSpeedPID = PID(1,0,0, 0, m_maxTranslationSpeed);
-    //this->m_rightSpeedPID = PID(1,0,0, 0, m_maxRotationSpeed);
-
+    // Filtre pour Rampe
     this->m_rampfilterDistance = QuadrampDerivate(true);
     this->m_rampfilterAngle = QuadrampDerivate(false);
 
@@ -196,8 +185,8 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
     // un mouvement en distance
     // PID distance activé
     if(m_controlDistance) {
-        m_speedDistance = m_distancePID.compute(m_odometry.getTotalDistance(), ramped_consign_distance);
-        //m_speedDistance = m_distancePID.compute(m_odometry.getDeltaDistance(), consigne_distance);
+        //m_speedDistance = m_distancePID.compute(m_odometry.getTotalDistance(), ramped_consign_distance);
+        m_speedDistance = m_distancePID.compute(m_odometry.getDeltaDistance(), consigne_distance);
         // borner la distance (pas nécessaire, la vitesse est déjà borner dans le PID)
         m_speedDistance = max(-m_maxPWM, min(m_maxPWM, m_speedDistance));
     }
@@ -210,20 +199,6 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
         // Borner (pas nécessaire, la vitesse est déjà borner dans le PID)
         m_speedAngle = max(-m_maxPWMR, min(m_maxPWMR, m_speedAngle));
     }
-
-    //float consignLinearSpeed = quadramp_filter(consigne_distance, m_odometry.getLinVel(), m_maxTranslationSpeed);
-    //float consignAngularSpeed = quadramp_filter(consigne_theta, m_odometry.getAngVel(), m_maxRotationSpeed);
-
-
-    //int rampLinearSpeed = m_leftSpeedPID.compute(m_speedDistance, consigne_speed);
-    //int rampAngularSpeed = m_rightSpeedPID.compute(m_speedAngle, );
-
-    // Convertir vitesse angulaire et vitesse linéaire en vitesse pour les roues
-    //float speedLeftWheel = rampLinearSpeed - rampAngularSpeed * m_odometry.ENTRAXE / 2;
-    //float speedRightWheel = rampLinearSpeed + rampAngularSpeed * m_odometry.ENTRAXE / 2;
-
-    //int leftPWM = m_speedDistance - m_speedAngle;
-    //int rightPWM = m_speedDistance + m_speedAngle;
 
     int leftPWM = m_speedDistance-m_speedAngle;
     int rightPWM = m_speedDistance+m_speedAngle;

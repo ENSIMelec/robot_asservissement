@@ -9,7 +9,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 
-add_executable(robot main.cpp
+add_executable(robot
         controller/ICodeurManager.cpp controller/ICodeurManager.h
         controller/MoteurManager.cpp controller/MoteurManager.h
         #Point.cpp Point.h
