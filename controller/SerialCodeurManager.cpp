@@ -93,7 +93,7 @@ void SerialCodeurManager::readAndReset() {
 
             leftTicks = atoi(left_tics);
             rightTicks = atoi(right_tics);
-            tempsLast = atoi(temps);
+            tempsLast = atoi(time);
 
             // save old vars
             oldLeftTicks = leftTicks;
