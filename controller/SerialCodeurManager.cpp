@@ -1,13 +1,10 @@
 #include "SerialCodeurManager.h"
 
 using namespace std;
-
-
-int arduino;
-unsigned int nextTime ;
-int count = 1;
+unsigned int nextTime;
 int fd ;
-
+// time en ms boucle asservissement
+unsigned int waitMs = 20;
 
 SerialCodeurManager::SerialCodeurManager(int init) : initCodeur(init)
 { }
@@ -15,114 +12,105 @@ SerialCodeurManager::SerialCodeurManager(int init) : initCodeur(init)
 void SerialCodeurManager::Closes()
 {
 	serialClose(fd);
-	cout << "Close serial" << endl;
+	cout << "Fermer codeur" << endl;
 }
 
 void SerialCodeurManager::Initialisation()
 {
 	cout << "Initialisation codeur" << endl;
 
-	if ((fd = serialOpen ("/dev/ttyUSB0", 115200)) < 0) //A REMETTRE A 1 PLUS TARD
+	if ((fd = serialOpen ("/dev/ttyCODEUR", 115200)) < 0)
 	{
     	fprintf(stderr, "Unable to open serial device: %s\n", strerror (errno));
-		exit(3);
-		//return 1 ;
+		exit(1);
+
 	} else {
-		cout << "Serial device is Open" << endl;
-	}
-
-	/*if (wiringPiSetup () == -1)
-		{
-		   		fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
-		    	//return 1 ;
-		}*/
-
-	nextTime = millis () + 10 ;
+        printf("Codeur serial device : open ok");
+    }
+    nextTime = millis() + waitMs;
 }
 
-void SerialCodeurManager::readAndReset()
-{
+void SerialCodeurManager::readAndReset() {
 
-		char SerieData = ' ';
-		char tickd [10000];
-		char tickg [10000];
-		char temps [100000];
-		int g = 0;
-		int d = 0;
-		int t = 0;
+        char data = ' ';
+        char left_tics[10000];
+        char right_tics[10000];
+        char time[10000];
+        int g = 0;
+        int d = 0;
+        int t = 0;
 
-		memset(tickd, ' ', 10000);
-		memset(tickg, ' ', 10000);
-		memset(temps, ' ', 100000);
+        memset(left_tics, ' ', 10000);
+        memset(right_tics, ' ', 10000);
+        memset(time, ' ', 10000);
 
 
-	  	if (millis () > nextTime)
-		{
-			//Debuguer
-			//printf ("\nOut: %3d: ", count) ;
-		    fflush (stdout);
-		    serialPutchar (fd, 'C');
-		    nextTime += 10 ;
-		    ++count ;
-		}
+        // récupérer les infos du codeur
+        if (millis() > nextTime)
+        {
+            serialPutchar (fd, 'C') ;
+            nextTime += waitMs;
+        }
 
-		//delay (10) ;
+        // attendre 20ms
+        delay(waitMs) ;
 
-		while(serialDataAvail(fd)<=0 || (SerieData = serialGetchar(fd))!='?'){
-			serialPutchar (fd, 'C');
-			std::this_thread::sleep_for(std::chrono::milliseconds(5));
-			//cout<<"Attente réception codeurs"<<endl;
-		}
-		//cout << "reception[";
-		//SerieData = serialGetchar (fd);
-		//cout << SerieData;
-		if(SerieData=='?'){
-			SerieData = serialGetchar (fd);
-			//cout << SerieData;
-			while(SerieData !=','){
-				tickd[d]=SerieData;
-				SerieData = serialGetchar (fd);
-				//cout << SerieData;
-				d++;
-			}
-			SerieData = serialGetchar (fd);
-			//cout << SerieData;
-			while(SerieData !=':'){
-				tickg[g]=SerieData;
-				SerieData = serialGetchar (fd);
-				//cout << SerieData;
-				g++;
-			}
-			SerieData = serialGetchar (fd);
-			//cout << SerieData;
-			while(SerieData !=';'){
-				temps[t]=SerieData;
-				SerieData = serialGetchar(fd);
-				//cout << SerieData;
-				t++;
-			}
-		}
-		//cout << "]"<<endl;
-		serialFlush(fd);
+        while(serialDataAvail(fd))
+        {
+            data = serialGetchar(fd);
+            //printf("%c", data);
+            if(data == '?') {
 
-		oldLeftTicks = leftTicks;
-		oldRightTicks = rightTicks;
-		oldTempsLast = tempsLast;
-		leftTicks = atoi(tickg);
-		rightTicks = atoi(tickd);
-		tempsLast = atoi(temps);
-		//cout <<"leftTicks :"<<leftTicks <<endl;
-		//cout <<"rightTicks :"<<rightTicks <<endl;
-		//cout <<"tempsLast :"<<tempsLast <<endl;
-		if(isnan(leftTicks)){
-			leftTicks=0;
-		}
-		if(isnan(rightTicks)){
-			rightTicks=0;
-		}
-		if(isnan(tempsLast)){
-			tempsLast=0;
-		}
+                // left tics
+                data = serialGetchar(fd);
+                while(data !=','){
+                    left_tics[g++] = data;
+                    data = serialGetchar(fd);
+                }
+
+                // right tics
+                data = serialGetchar(fd);
+                while(data !=':'){
+                    right_tics[d++] = data;
+                    data = serialGetchar(fd);
+                }
+
+                // time
+                data = serialGetchar(fd);
+                while(data !=';'){
+                    time[t++] = data;
+                    data = serialGetchar(fd);
+                }
+            }
+            serialFlush(fd);
+
+            // debug
+//            printf("d = %d, g = %d, t= %d \n", d,g,t);
+//            printf("Time : %d - ", atoi(time));
+//            printf("Time Diff : %d - ", atoi(time) - oldTempsLast);
+//            printf("Left Tick : %d -" , atoi(left_tics));
+//            printf("Right Tick : %d \n",  atoi(right_tics));
+
+            leftTicks = atoi(left_tics);
+            rightTicks = atoi(right_tics);
+            tempsLast = atoi(temps);
+
+            // save old vars
+            oldLeftTicks = leftTicks;
+            oldRightTicks = rightTicks;
+            oldTempsLast = tempsLast;
+
+            // sanity check
+            if(isnan(leftTicks)){
+                leftTicks=0;
+            }
+            if(isnan(rightTicks)){
+                rightTicks=0;
+            }
+            if(isnan(tempsLast)){
+                tempsLast=0;
+            }
+        }
 }
 
 void SerialCodeurManager::reset()
