@@ -1,0 +1,1572 @@
+Debut du programme
+
+--- CONFIGURATION ---
+Temps du match : 100
+Ip serveur : 127.0.0.1
+Port serveur : 1111
+Temps minimum entre deux appels d'asservissement : 10
+
+Nombre d'AX12 à connecter : 4
+Coefficients : 
+-Longueur :
+	Gauche : 0.217452
+	Droite : 0.218111
+-Angle : 0.0510457
+PID : 
+-Vitesse faible:
+	P = 0.1
+	I = 0.005
+	D = 0
+-Vitesse moyenne:
+	P = 0.1
+	I = 0.005
+	D = 0
+-Vitesse haute:
+	P = 0.1
+	I = 0.005
+	D = 0
+-Angle :
+	P = 80
+	I = 0.08
+	D = 15
+-Deplacement :
+	P = 1
+	I = 0
+	D = 0.5
+-Position :
+	P = 2
+	I = 0
+	D = 1
+I2C :
+	SERVOS : 6
+	LANCEUR : 7
+	MOTEURS : 8
+--- FIN DE LA CONFIGURATION ---
+Déclaration et initialisation des variables
+Close serial
+Initialisation codeur
+Serial device is Open
+Setup des infos Serveur :127.0.0.1:80
+Succeeded to open the port!
+Succeeded to change the baudrate!
+Erreur COMM init Dyna 1
+Erreur COMM init Dyna 2
+Erreur COMM init Dyna 3
+Erreur COMM init Dyna 4
+Constructeur actionDepart du robot
+Codeur reset
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : -488253760 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 2
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 3[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 3 RIGHT: 3
+ ======================== 
+ ----- REACHED target :o
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16276 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 4
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 5[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 5 RIGHT: 5
+ ======================== 
+ ----- REACHED target :o
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 6
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 7[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 7 RIGHT: 7
+ ======================== 
+ ----- REACHED target :o
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 8
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 9[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 9 RIGHT: 9
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15988 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 10
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 11[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 11 RIGHT: 11
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15924 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 12
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 13[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 13 RIGHT: 13
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15920 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 14
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 15[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 15 RIGHT: 15
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15920 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 16
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 17[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 17 RIGHT: 17
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15932 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 18
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 19[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 19 RIGHT: 19
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16004 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 20
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 21[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 21 RIGHT: 21
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 22
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 23[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 23 RIGHT: 23
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 24
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 25[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 25 RIGHT: 25
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15912 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 26
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 27[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 27 RIGHT: 27
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15932 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 28
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 29[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 29 RIGHT: 29
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16024 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 30
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 31[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 31 RIGHT: 31
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 32
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 33[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 33 RIGHT: 33
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16000 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 34
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 35[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 35 RIGHT: 35
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16076 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 36
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 37[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 37 RIGHT: 37
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15956 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 38
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 39[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 39 RIGHT: 39
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16060 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 40
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 41[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 41 RIGHT: 41
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 42
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 43[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 43 RIGHT: 43
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15956 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 44
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 45[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 45 RIGHT: 45
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 46
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 47[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 47 RIGHT: 47
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 48
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 49[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 49 RIGHT: 49
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16016 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 50
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 51[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 51 RIGHT: 51
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 52
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 53[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 53 RIGHT: 53
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 54
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 55[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 55 RIGHT: 55
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 56
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 57[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 57 RIGHT: 57
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 58
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 59[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 59 RIGHT: 59
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15976 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 60
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 61[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 61 RIGHT: 61
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 62
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 63[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 63 RIGHT: 63
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 64
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 65[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 65 RIGHT: 65
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 66
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 67[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 67 RIGHT: 67
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 68
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 69[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 69 RIGHT: 69
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 70
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 71[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 71 RIGHT: 71
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15972 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 72
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 73[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 73 RIGHT: 73
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 74
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 75[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 75 RIGHT: 75
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 76
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 77[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 77 RIGHT: 77
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 78
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 79[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 79 RIGHT: 79
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 80
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 81[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 81 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15976 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 82
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 83[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 83 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 84
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 85[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 85 RIGHT: 85
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 86
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 87[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 87 RIGHT: 87
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 88
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 89[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 89 RIGHT: 89
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 90
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 91[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 91 RIGHT: 91
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15976 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 92
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 93[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 93 RIGHT: 93
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 94
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 95[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 95 RIGHT: 95
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 96
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 97[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 97 RIGHT: 97
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 98
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 99[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 99 RIGHT: 99
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 100
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15972 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 102
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 104
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 106
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 108
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 110
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15972 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 112
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 114
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 116
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15944 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 118
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 120
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15964 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 122
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 124
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 126
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 128
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 130
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15964 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 132
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16008 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 134
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 136
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15940 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 138
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 140
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15992 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 142
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16040 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 144
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 146
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15972 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 148
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 150
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15980 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 152
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 16008 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 154
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15948 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 156
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+CTRL+C détecté
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 15936 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+[ERROR DISTANCE] Error distance : 158
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 100[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 100 RIGHT: 100
+ ======================== 
+Forcing stop
+Liberation de la memoire
+Arrêt du lanceur
+Erreur COMM close 1
+Erreur COMM close 2
+Erreur COMM close 3
+Erreur COMM close 4
+Close port AX12
+Close serial
+Fin du programme

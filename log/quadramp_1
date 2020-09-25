@@ -1,0 +1,4448 @@
+Debut du programme
+
+--- CONFIGURATION ---
+Temps du match : 100
+Ip serveur : 127.0.0.1
+Port serveur : 1111
+Temps minimum entre deux appels d'asservissement : 10
+
+Nombre d'AX12 à connecter : 4
+Coefficients : 
+-Longueur :
+	Gauche : 0.217452
+	Droite : 0.218111
+-Angle : 0.0510457
+PID : 
+-Vitesse faible:
+	P = 0.1
+	I = 0.005
+	D = 0
+-Vitesse moyenne:
+	P = 0.1
+	I = 0.005
+	D = 0
+-Vitesse haute:
+	P = 0.1
+	I = 0.005
+	D = 0
+-Angle :
+	P = 120
+	I = 0.08
+	D = 20
+-Deplacement :
+	P = 1
+	I = 0
+	D = 0.5
+-Position :
+	P = 2
+	I = 0
+	D = 1
+I2C :
+	SERVOS : 6
+	LANCEUR : 7
+	MOTEURS : 8
+--- FIN DE LA CONFIGURATION ---
+Déclaration et initialisation des variables
+Close serial
+Initialisation codeur
+Serial device is Open
+Setup des infos Serveur :127.0.0.1:80
+Succeeded to open the port!
+Succeeded to change the baudrate!
+Erreur COMM init Dyna 1
+Erreur COMM init Dyna 2
+Erreur COMM init Dyna 3
+Erreur COMM init Dyna 4
+Numéro AX12 ID : 1
+Erreur COMM limitation couple 1
+Erreur COMM ecriture angle 1
+Numéro AX12 ID : 2
+Erreur COMM limitation couple 2
+Erreur COMM ecriture angle 2
+Numéro AX12 ID : 3
+Erreur COMM limitation couple 3
+Erreur COMM ecriture angle 3
+Numéro AX12 ID : 4
+Erreur COMM limitation couple 4
+Erreur COMM ecriture angle 4
+Constructeur actionDepart du robot
+Codeur reset = done
+jouerMatch launch
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 0.004892 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+m_prevConsigneVitesse: 0
+position_pivot: 1000
+acceleration_consign: 1000
+m_prevConsigneVitesse: 0
+consigneVitesse: 4
+ FILTER QUADRAMP DEBUG
+consigne: 1000
+position_actuelle: 0
+sens: 1
+position_pivot: 1000
+vitesse: 0
+prevConsigneVitesse: 4
+consigneVitesse: 4
+acceleration_consign: 4
+return position_actuelle + consigneVitesse: 4
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 4
+ ========= 
+[ERROR DISTANCE] Error distance : 4
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 6[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 6 RIGHT: 6
+ ======================== 
+ ----- REACHED target :o
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 0.352752 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+m_prevConsigneVitesse: 4
+position_pivot: 1000
+acceleration_consign: 1000
+m_prevConsigneVitesse: 4
+consigneVitesse: 8
+ FILTER QUADRAMP DEBUG
+consigne: 1000
+position_actuelle: 0
+sens: 1
+position_pivot: 1000
+vitesse: 0
+prevConsigneVitesse: 8
+consigneVitesse: 8
+acceleration_consign: 8
+return position_actuelle + consigneVitesse: 8
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 8
+ ========= 
+[ERROR DISTANCE] Error distance : 8
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 10[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 10 RIGHT: 10
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 0.016612 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+m_prevConsigneVitesse: 8
+position_pivot: 1000
+acceleration_consign: 1000
+m_prevConsigneVitesse: 8
+consigneVitesse: 12
+ FILTER QUADRAMP DEBUG
+consigne: 1000
+position_actuelle: 0
+sens: 1
+position_pivot: 1000
+vitesse: 0
+prevConsigneVitesse: 12
+consigneVitesse: 12
+acceleration_consign: 12
+return position_actuelle + consigneVitesse: 12
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 12
+ ========= 
+[ERROR DISTANCE] Error distance : 12
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 14[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 14 RIGHT: 14
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 0.016652 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+m_prevConsigneVitesse: 12
+position_pivot: 1000
+acceleration_consign: 1000
+m_prevConsigneVitesse: 12
+consigneVitesse: 16
+ FILTER QUADRAMP DEBUG
+consigne: 1000
+position_actuelle: 0
+sens: 1
+position_pivot: 1000
+vitesse: 0
+prevConsigneVitesse: 16
+consigneVitesse: 16
+acceleration_consign: 16
+return position_actuelle + consigneVitesse: 16
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 16
+ ========= 
+[ERROR DISTANCE] Error distance : 16
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 18[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 18 RIGHT: 18
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][TOTAL TICS] : Gauche:0 Droit: 0
+[DATA CODEUR][LAST TIME] : 0.016608 (s)
+[ODOMETRY][POSITION] : X:0 Y: 0 Theta: 0 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0 Vitesse Linéaire (mm/s) : 0
+[ODOMETRY][TOTAL DISTANCE] (cm): 0
+=======================
+[CONSIGNE] X_DIFF = 1000 | Y_DIFF = 0
+[CONSIGNE] TARGET ANGLE (°): 0
+[CONSIGNE] TARGET DISTANCE (mm) : 1000
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 1000 - | CONSIGNE THETA:  0
+m_prevConsigneVitesse: 16
+position_pivot: 1000
+acceleration_consign: 1000
+m_prevConsigneVitesse: 16
+consigneVitesse: 20
+ FILTER QUADRAMP DEBUG
+consigne: 1000
+position_actuelle: 0
+sens: 1
+position_pivot: 1000
+vitesse: 0
+prevConsigneVitesse: 20
+consigneVitesse: 20
+acceleration_consign: 20
+return position_actuelle + consigneVitesse: 20
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 20
+ ========= 
+[ERROR DISTANCE] Error distance : 20
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 22[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 22 RIGHT: 22
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:2 Droit: 5
+[DATA CODEUR][TOTAL TICS] : Gauche:2 Droit: 5
+[DATA CODEUR][LAST TIME] : 0.0166 (s)
+[ODOMETRY][POSITION] : X:0.679631 Y: -0.000679576 Theta: -0.114582 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 0.679631
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.120472 Vitesse Linéaire (mm/s) : 40.9416
+[ODOMETRY][TOTAL DISTANCE] (cm): 0.0679631
+=======================
+[CONSIGNE] X_DIFF = 999.32 | Y_DIFF = 0.000679576
+[CONSIGNE] TARGET ANGLE (°): 0.114624
+[CONSIGNE] TARGET DISTANCE (mm) : 999.32
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 999.32 - | CONSIGNE THETA:  0.114624
+m_prevConsigneVitesse: 20
+position_pivot: 999.059
+acceleration_consign: 999.059
+m_prevConsigneVitesse: 20
+consigneVitesse: 24
+ FILTER QUADRAMP DEBUG
+consigne: 999.32
+position_actuelle: 0.679631
+sens: 1
+position_pivot: 999.059
+vitesse: 0.679631
+prevConsigneVitesse: 24
+consigneVitesse: 24
+acceleration_consign: 24
+return position_actuelle + consigneVitesse: 24.6796
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 24.6796
+ ========= 
+[ERROR DISTANCE] Error distance : 24
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 26[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 26 RIGHT: 26
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:4 Droit: 9
+[DATA CODEUR][TOTAL TICS] : Gauche:6 Droit: 14
+[DATA CODEUR][LAST TIME] : 0.016664 (s)
+[ODOMETRY][POSITION] : X:1.94192 Y: -0.00530631 Theta: -0.305433 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 1.2623
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.199891 Vitesse Linéaire (mm/s) : 75.7502
+[ODOMETRY][TOTAL DISTANCE] (cm): 0.194193
+=======================
+[CONSIGNE] X_DIFF = 998.058 | Y_DIFF = 0.00530631
+[CONSIGNE] TARGET ANGLE (°): 0.305733
+[CONSIGNE] TARGET DISTANCE (mm) : 998.058
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 998.058 - | CONSIGNE THETA:  0.305733
+m_prevConsigneVitesse: 24
+position_pivot: 997.48
+acceleration_consign: 997.48
+m_prevConsigneVitesse: 24
+consigneVitesse: 28
+ FILTER QUADRAMP DEBUG
+consigne: 998.058
+position_actuelle: 1.94193
+sens: 1
+position_pivot: 997.48
+vitesse: 1.2623
+prevConsigneVitesse: 28
+consigneVitesse: 28
+acceleration_consign: 28
+return position_actuelle + consigneVitesse: 29.9419
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 29.9419
+ ========= 
+[ERROR DISTANCE] Error distance : 28
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 31[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 30 RIGHT: 32
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:5 Droit: 9
+[DATA CODEUR][TOTAL TICS] : Gauche:11 Droit: 23
+[DATA CODEUR][LAST TIME] : 0.016116 (s)
+[ODOMETRY][POSITION] : X:3.30161 Y: -0.0143625 Theta: -0.457792 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 1.35972
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.165001 Vitesse Linéaire (mm/s) : 84.3705
+[ODOMETRY][TOTAL DISTANCE] (cm): 0.330165
+=======================
+[CONSIGNE] X_DIFF = 996.698 | Y_DIFF = 0.0143625
+[CONSIGNE] TARGET ANGLE (°): 0.45862
+[CONSIGNE] TARGET DISTANCE (mm) : 996.698
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 996.698 - | CONSIGNE THETA:  0.45862
+m_prevConsigneVitesse: 28
+position_pivot: 996.059
+acceleration_consign: 996.059
+m_prevConsigneVitesse: 28
+consigneVitesse: 32
+ FILTER QUADRAMP DEBUG
+consigne: 996.698
+position_actuelle: 3.30165
+sens: 1
+position_pivot: 996.059
+vitesse: 1.35972
+prevConsigneVitesse: 32
+consigneVitesse: 32
+acceleration_consign: 32
+return position_actuelle + consigneVitesse: 35.3016
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 35.3016
+ ========= 
+[ERROR DISTANCE] Error distance : 33
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 36[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 35 RIGHT: 37
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:6 Droit: 9
+[DATA CODEUR][TOTAL TICS] : Gauche:17 Droit: 32
+[DATA CODEUR][LAST TIME] : 0.016116 (s)
+[ODOMETRY][POSITION] : X:4.75868 Y: -0.0274526 Theta: -0.571658 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 1.45713
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.123315 Vitesse Linéaire (mm/s) : 90.4151
+[ODOMETRY][TOTAL DISTANCE] (cm): 0.475878
+=======================
+[CONSIGNE] X_DIFF = 995.241 | Y_DIFF = 0.0274526
+[CONSIGNE] TARGET ANGLE (°): 0.573244
+[CONSIGNE] TARGET DISTANCE (mm) : 995.241
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 995.241 - | CONSIGNE THETA:  0.573244
+m_prevConsigneVitesse: 32
+position_pivot: 994.539
+acceleration_consign: 994.539
+m_prevConsigneVitesse: 32
+consigneVitesse: 36
+ FILTER QUADRAMP DEBUG
+consigne: 995.241
+position_actuelle: 4.75878
+sens: 1
+position_pivot: 994.539
+vitesse: 1.45713
+prevConsigneVitesse: 36
+consigneVitesse: 36
+acceleration_consign: 36
+return position_actuelle + consigneVitesse: 40.7588
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 40.7588
+ ========= 
+[ERROR DISTANCE] Error distance : 39
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 41[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 40 RIGHT: 42
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:9 Droit: 13
+[DATA CODEUR][TOTAL TICS] : Gauche:26 Droit: 45
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:6.89576 Y: -0.051604 Theta: -0.723301 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 2.13721
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.164063 Vitesse Linéaire (mm/s) : 132.483
+[ODOMETRY][TOTAL DISTANCE] (cm): 0.689599
+=======================
+[CONSIGNE] X_DIFF = 993.104 | Y_DIFF = 0.051604
+[CONSIGNE] TARGET ANGLE (°): 0.726281
+[CONSIGNE] TARGET DISTANCE (mm) : 993.104
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 993.104 - | CONSIGNE THETA:  0.726281
+m_prevConsigneVitesse: 36
+position_pivot: 991.892
+acceleration_consign: 991.892
+m_prevConsigneVitesse: 36
+consigneVitesse: 40
+ FILTER QUADRAMP DEBUG
+consigne: 993.104
+position_actuelle: 6.89599
+sens: 1
+position_pivot: 991.892
+vitesse: 2.13721
+prevConsigneVitesse: 40
+consigneVitesse: 40
+acceleration_consign: 40
+return position_actuelle + consigneVitesse: 46.896
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 46.896
+ ========= 
+[ERROR DISTANCE] Error distance : 44
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 47[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 46 RIGHT: 48
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:12 Droit: 16
+[DATA CODEUR][TOTAL TICS] : Gauche:38 Droit: 61
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:9.61583 Y: -0.0895314 Theta: -0.874406 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 2.72034
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.16332 Vitesse Linéaire (mm/s) : 168.463
+[ODOMETRY][TOTAL DISTANCE] (cm): 0.961633
+=======================
+[CONSIGNE] X_DIFF = 990.384 | Y_DIFF = 0.0895314
+[CONSIGNE] TARGET ANGLE (°): 0.879592
+[CONSIGNE] TARGET DISTANCE (mm) : 990.384
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 990.384 - | CONSIGNE THETA:  0.879592
+m_prevConsigneVitesse: 40
+position_pivot: 988.643
+acceleration_consign: 988.643
+m_prevConsigneVitesse: 40
+consigneVitesse: 44
+ FILTER QUADRAMP DEBUG
+consigne: 990.384
+position_actuelle: 9.61633
+sens: 1
+position_pivot: 988.643
+vitesse: 2.72034
+prevConsigneVitesse: 44
+consigneVitesse: 44
+acceleration_consign: 44
+return position_actuelle + consigneVitesse: 53.6163
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 53.6163
+ ========= 
+[ERROR DISTANCE] Error distance : 50
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 53[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 51 RIGHT: 55
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:19 Droit: 23
+[DATA CODEUR][TOTAL TICS] : Gauche:57 Droit: 84
+[DATA CODEUR][LAST TIME] : 0.0212 (s)
+[ODOMETRY][POSITION] : X:13.6962 Y: -0.157146 Theta: -1.02426 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 4.08096
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.123369 Vitesse Linéaire (mm/s) : 192.498
+[ODOMETRY][TOTAL DISTANCE] (cm): 1.36973
+=======================
+[CONSIGNE] X_DIFF = 986.304 | Y_DIFF = 0.157146
+[CONSIGNE] TARGET ANGLE (°): 1.03339
+[CONSIGNE] TARGET DISTANCE (mm) : 986.304
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 986.304 - | CONSIGNE THETA:  1.03339
+m_prevConsigneVitesse: 44
+position_pivot: 982.998
+acceleration_consign: 982.998
+m_prevConsigneVitesse: 44
+consigneVitesse: 48
+ FILTER QUADRAMP DEBUG
+consigne: 986.304
+position_actuelle: 13.6973
+sens: 1
+position_pivot: 982.998
+vitesse: 4.08096
+prevConsigneVitesse: 48
+consigneVitesse: 48
+acceleration_consign: 48
+return position_actuelle + consigneVitesse: 61.6973
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 61.6973
+ ========= 
+[ERROR DISTANCE] Error distance : 57
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 60[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 58 RIGHT: 62
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:24 Droit: 26
+[DATA CODEUR][TOTAL TICS] : Gauche:81 Droit: 110
+[DATA CODEUR][LAST TIME] : 0.021196 (s)
+[ODOMETRY][POSITION] : X:18.5543 Y: -0.247069 Theta: -1.09659 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 4.85891
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0595591 Vitesse Linéaire (mm/s) : 229.237
+[ODOMETRY][TOTAL DISTANCE] (cm): 1.85562
+=======================
+[CONSIGNE] X_DIFF = 981.446 | Y_DIFF = 0.247069
+[CONSIGNE] TARGET ANGLE (°): 1.11101
+[CONSIGNE] TARGET DISTANCE (mm) : 981.446
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 981.446 - | CONSIGNE THETA:  1.11101
+m_prevConsigneVitesse: 48
+position_pivot: 977.037
+acceleration_consign: 977.037
+m_prevConsigneVitesse: 48
+consigneVitesse: 52
+ FILTER QUADRAMP DEBUG
+consigne: 981.446
+position_actuelle: 18.5562
+sens: 1
+position_pivot: 977.037
+vitesse: 4.85891
+prevConsigneVitesse: 52
+consigneVitesse: 52
+acceleration_consign: 52
+return position_actuelle + consigneVitesse: 70.5562
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 70.5562
+ ========= 
+[ERROR DISTANCE] Error distance : 65
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 69[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 67 RIGHT: 71
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:27 Droit: 28
+[DATA CODEUR][TOTAL TICS] : Gauche:108 Droit: 138
+[DATA CODEUR][LAST TIME] : 0.021208 (s)
+[ODOMETRY][POSITION] : X:23.8984 Y: -0.350924 Theta: -1.13007 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.34507
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0275532 Vitesse Linéaire (mm/s) : 252.031
+[ODOMETRY][TOTAL DISTANCE] (cm): 2.39013
+=======================
+[CONSIGNE] X_DIFF = 976.102 | Y_DIFF = 0.350924
+[CONSIGNE] TARGET ANGLE (°): 1.15067
+[CONSIGNE] TARGET DISTANCE (mm) : 976.102
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 976.102 - | CONSIGNE THETA:  1.15067
+m_prevConsigneVitesse: 52
+position_pivot: 970.927
+acceleration_consign: 970.927
+m_prevConsigneVitesse: 52
+consigneVitesse: 56
+ FILTER QUADRAMP DEBUG
+consigne: 976.102
+position_actuelle: 23.9013
+sens: 1
+position_pivot: 970.927
+vitesse: 5.34507
+prevConsigneVitesse: 56
+consigneVitesse: 56
+acceleration_consign: 56
+return position_actuelle + consigneVitesse: 79.9013
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 79.9013
+ ========= 
+[ERROR DISTANCE] Error distance : 74
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 78[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 76 RIGHT: 80
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:23 Droit: 25
+[DATA CODEUR][TOTAL TICS] : Gauche:131 Droit: 163
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:28.5619 Y: -0.44587 Theta: -1.20258 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 4.66453
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.078449 Vitesse Linéaire (mm/s) : 289.148
+[ODOMETRY][TOTAL DISTANCE] (cm): 2.85658
+=======================
+[CONSIGNE] X_DIFF = 971.438 | Y_DIFF = 0.44587
+[CONSIGNE] TARGET ANGLE (°): 1.22887
+[CONSIGNE] TARGET DISTANCE (mm) : 971.438
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 971.438 - | CONSIGNE THETA:  1.22887
+m_prevConsigneVitesse: 56
+position_pivot: 967.319
+acceleration_consign: 967.319
+m_prevConsigneVitesse: 56
+consigneVitesse: 60
+ FILTER QUADRAMP DEBUG
+consigne: 971.438
+position_actuelle: 28.5658
+sens: 1
+position_pivot: 967.319
+vitesse: 4.66453
+prevConsigneVitesse: 60
+consigneVitesse: 60
+acceleration_consign: 60
+return position_actuelle + consigneVitesse: 88.5658
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 88.5658
+ ========= 
+[ERROR DISTANCE] Error distance : 83
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:26 Droit: 27
+[DATA CODEUR][TOTAL TICS] : Gauche:157 Droit: 190
+[DATA CODEUR][LAST TIME] : 0.01614 (s)
+[ODOMETRY][POSITION] : X:33.7115 Y: -0.555482 Theta: -1.23624 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.1507
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0363986 Vitesse Linéaire (mm/s) : 319.126
+[ODOMETRY][TOTAL DISTANCE] (cm): 3.37165
+=======================
+[CONSIGNE] X_DIFF = 966.289 | Y_DIFF = 0.555482
+[CONSIGNE] TARGET ANGLE (°): 1.26917
+[CONSIGNE] TARGET DISTANCE (mm) : 966.289
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 966.289 - | CONSIGNE THETA:  1.26917
+m_prevConsigneVitesse: 60
+position_pivot: 961.427
+acceleration_consign: 961.427
+m_prevConsigneVitesse: 60
+consigneVitesse: 64
+ FILTER QUADRAMP DEBUG
+consigne: 966.289
+position_actuelle: 33.7165
+sens: 1
+position_pivot: 961.427
+vitesse: 5.1507
+prevConsigneVitesse: 64
+consigneVitesse: 64
+acceleration_consign: 64
+return position_actuelle + consigneVitesse: 97.7165
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 97.7165
+ ========= 
+[ERROR DISTANCE] Error distance : 92
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:29 Droit: 30
+[DATA CODEUR][TOTAL TICS] : Gauche:186 Droit: 220
+[DATA CODEUR][LAST TIME] : 0.016128 (s)
+[ODOMETRY][POSITION] : X:39.4439 Y: -0.680845 Theta: -1.26936 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.73382
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0358444 Vitesse Linéaire (mm/s) : 355.52
+[ODOMETRY][TOTAL DISTANCE] (cm): 3.94503
+=======================
+[CONSIGNE] X_DIFF = 960.556 | Y_DIFF = 0.680845
+[CONSIGNE] TARGET ANGLE (°): 1.30998
+[CONSIGNE] TARGET DISTANCE (mm) : 960.556
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 960.556 - | CONSIGNE THETA:  1.30998
+m_prevConsigneVitesse: 64
+position_pivot: 954.727
+acceleration_consign: 954.727
+m_prevConsigneVitesse: 64
+consigneVitesse: 68
+ FILTER QUADRAMP DEBUG
+consigne: 960.556
+position_actuelle: 39.4503
+sens: 1
+position_pivot: 954.727
+vitesse: 5.73382
+prevConsigneVitesse: 68
+consigneVitesse: 68
+acceleration_consign: 68
+return position_actuelle + consigneVitesse: 107.45
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 107.45
+ ========= 
+[ERROR DISTANCE] Error distance : 101
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:29 Droit: 28
+[DATA CODEUR][TOTAL TICS] : Gauche:215 Droit: 248
+[DATA CODEUR][LAST TIME] : 0.016124 (s)
+[ODOMETRY][POSITION] : X:44.9825 Y: -0.801467 Theta: -1.22586 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.5399
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0470907 Vitesse Linéaire (mm/s) : 343.581
+[ODOMETRY][TOTAL DISTANCE] (cm): 4.49902
+=======================
+[CONSIGNE] X_DIFF = 955.018 | Y_DIFF = 0.801467
+[CONSIGNE] TARGET ANGLE (°): 1.27394
+[CONSIGNE] TARGET DISTANCE (mm) : 955.018
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 955.018 - | CONSIGNE THETA:  1.27394
+m_prevConsigneVitesse: 68
+position_pivot: 949.52
+acceleration_consign: 949.52
+m_prevConsigneVitesse: 68
+consigneVitesse: 72
+ FILTER QUADRAMP DEBUG
+consigne: 955.018
+position_actuelle: 44.9902
+sens: 1
+position_pivot: 949.52
+vitesse: 5.5399
+prevConsigneVitesse: 72
+consigneVitesse: 72
+acceleration_consign: 72
+return position_actuelle + consigneVitesse: 116.99
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 116.99
+ ========= 
+[ERROR DISTANCE] Error distance : 111
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:30 Droit: 29
+[DATA CODEUR][TOTAL TICS] : Gauche:245 Droit: 277
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:50.7155 Y: -0.921958 Theta: -1.18218 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.73427
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0472609 Vitesse Linéaire (mm/s) : 355.46
+[ODOMETRY][TOTAL DISTANCE] (cm): 5.07245
+=======================
+[CONSIGNE] X_DIFF = 949.284 | Y_DIFF = 0.921958
+[CONSIGNE] TARGET ANGLE (°): 1.23782
+[CONSIGNE] TARGET DISTANCE (mm) : 949.285
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 949.285 - | CONSIGNE THETA:  1.23782
+m_prevConsigneVitesse: 72
+position_pivot: 943.454
+acceleration_consign: 943.454
+m_prevConsigneVitesse: 72
+consigneVitesse: 76
+ FILTER QUADRAMP DEBUG
+consigne: 949.285
+position_actuelle: 50.7245
+sens: 1
+position_pivot: 943.454
+vitesse: 5.73427
+prevConsigneVitesse: 76
+consigneVitesse: 76
+acceleration_consign: 76
+return position_actuelle + consigneVitesse: 126.724
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 126.724
+ ========= 
+[ERROR DISTANCE] Error distance : 120
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 29
+[DATA CODEUR][TOTAL TICS] : Gauche:276 Droit: 306
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:56.546 Y: -1.03809 Theta: -1.1 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.83169
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.088906 Vitesse Linéaire (mm/s) : 361.498
+[ODOMETRY][TOTAL DISTANCE] (cm): 5.65562
+=======================
+[CONSIGNE] X_DIFF = 943.454 | Y_DIFF = 1.03809
+[CONSIGNE] TARGET ANGLE (°): 1.16304
+[CONSIGNE] TARGET DISTANCE (mm) : 943.455
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 943.455 - | CONSIGNE THETA:  1.16304
+m_prevConsigneVitesse: 76
+position_pivot: 937.454
+acceleration_consign: 937.454
+m_prevConsigneVitesse: 76
+consigneVitesse: 80
+ FILTER QUADRAMP DEBUG
+consigne: 943.455
+position_actuelle: 56.5562
+sens: 1
+position_pivot: 937.454
+vitesse: 5.83169
+prevConsigneVitesse: 80
+consigneVitesse: 80
+acceleration_consign: 80
+return position_actuelle + consigneVitesse: 136.556
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 136.556
+ ========= 
+[ERROR DISTANCE] Error distance : 130
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:309 Droit: 337
+[DATA CODEUR][LAST TIME] : 0.016124 (s)
+[ODOMETRY][POSITION] : X:62.7654 Y: -1.15303 Theta: -1.01747 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.22044
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0893377 Vitesse Linéaire (mm/s) : 385.787
+[ODOMETRY][TOTAL DISTANCE] (cm): 6.27766
+=======================
+[CONSIGNE] X_DIFF = 937.235 | Y_DIFF = 1.15303
+[CONSIGNE] TARGET ANGLE (°): 1.08795
+[CONSIGNE] TARGET DISTANCE (mm) : 937.235
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 937.235 - | CONSIGNE THETA:  1.08795
+m_prevConsigneVitesse: 80
+position_pivot: 930.532
+acceleration_consign: 930.532
+m_prevConsigneVitesse: 80
+consigneVitesse: 84
+ FILTER QUADRAMP DEBUG
+consigne: 937.235
+position_actuelle: 62.7766
+sens: 1
+position_pivot: 930.532
+vitesse: 6.22044
+prevConsigneVitesse: 84
+consigneVitesse: 84
+acceleration_consign: 84
+return position_actuelle + consigneVitesse: 146.777
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 146.777
+ ========= 
+[ERROR DISTANCE] Error distance : 140
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:35 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:344 Droit: 368
+[DATA CODEUR][LAST TIME] : 0.01614 (s)
+[ODOMETRY][POSITION] : X:69.1798 Y: -1.25802 Theta: -0.857949 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41526
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.172498 Vitesse Linéaire (mm/s) : 397.476
+[ODOMETRY][TOTAL DISTANCE] (cm): 6.91919
+=======================
+[CONSIGNE] X_DIFF = 930.82 | Y_DIFF = 1.25802
+[CONSIGNE] TARGET ANGLE (°): 0.935381
+[CONSIGNE] TARGET DISTANCE (mm) : 930.821
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 930.821 - | CONSIGNE THETA:  0.935381
+m_prevConsigneVitesse: 84
+position_pivot: 923.752
+acceleration_consign: 923.752
+m_prevConsigneVitesse: 84
+consigneVitesse: 88
+ FILTER QUADRAMP DEBUG
+consigne: 930.821
+position_actuelle: 69.1919
+sens: 1
+position_pivot: 923.752
+vitesse: 6.41526
+prevConsigneVitesse: 88
+consigneVitesse: 88
+acceleration_consign: 88
+return position_actuelle + consigneVitesse: 157.192
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 157.192
+ ========= 
+[ERROR DISTANCE] Error distance : 150
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:35 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:379 Droit: 400
+[DATA CODEUR][LAST TIME] : 0.016124 (s)
+[ODOMETRY][POSITION] : X:75.6914 Y: -1.34864 Theta: -0.736744 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51222
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.131197 Vitesse Linéaire (mm/s) : 403.884
+[ODOMETRY][TOTAL DISTANCE] (cm): 7.57041
+=======================
+[CONSIGNE] X_DIFF = 924.309 | Y_DIFF = 1.34864
+[CONSIGNE] TARGET ANGLE (°): 0.820347
+[CONSIGNE] TARGET DISTANCE (mm) : 924.31
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 924.31 - | CONSIGNE THETA:  0.820347
+m_prevConsigneVitesse: 88
+position_pivot: 917.055
+acceleration_consign: 917.055
+m_prevConsigneVitesse: 88
+consigneVitesse: 92
+ FILTER QUADRAMP DEBUG
+consigne: 924.31
+position_actuelle: 75.7041
+sens: 1
+position_pivot: 917.055
+vitesse: 6.51222
+prevConsigneVitesse: 92
+consigneVitesse: 92
+acceleration_consign: 92
+return position_actuelle + consigneVitesse: 167.704
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 167.704
+ ========= 
+[ERROR DISTANCE] Error distance : 161
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:413 Droit: 432
+[DATA CODEUR][LAST TIME] : 0.016124 (s)
+[ODOMETRY][POSITION] : X:82.1058 Y: -1.42649 Theta: -0.654032 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41481
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0895314 Vitesse Linéaire (mm/s) : 397.842
+[ODOMETRY][TOTAL DISTANCE] (cm): 8.21189
+=======================
+[CONSIGNE] X_DIFF = 917.894 | Y_DIFF = 1.42649
+[CONSIGNE] TARGET ANGLE (°): 0.74307
+[CONSIGNE] TARGET DISTANCE (mm) : 917.895
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 917.895 - | CONSIGNE THETA:  0.74307
+m_prevConsigneVitesse: 92
+position_pivot: 910.827
+acceleration_consign: 910.827
+m_prevConsigneVitesse: 92
+consigneVitesse: 96
+ FILTER QUADRAMP DEBUG
+consigne: 917.895
+position_actuelle: 82.1189
+sens: 1
+position_pivot: 910.827
+vitesse: 6.41481
+prevConsigneVitesse: 96
+consigneVitesse: 96
+acceleration_consign: 96
+return position_actuelle + consigneVitesse: 178.119
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 178.119
+ ========= 
+[ERROR DISTANCE] Error distance : 171
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:35 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:448 Droit: 465
+[DATA CODEUR][LAST TIME] : 0.016144 (s)
+[ODOMETRY][POSITION] : X:88.7146 Y: -1.49716 Theta: -0.57114 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60919
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0896139 Vitesse Linéaire (mm/s) : 409.39
+[ODOMETRY][TOTAL DISTANCE] (cm): 8.87281
+=======================
+[CONSIGNE] X_DIFF = 911.285 | Y_DIFF = 1.49716
+[CONSIGNE] TARGET ANGLE (°): 0.665274
+[CONSIGNE] TARGET DISTANCE (mm) : 911.287
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 911.287 - | CONSIGNE THETA:  0.665274
+m_prevConsigneVitesse: 96
+position_pivot: 903.844
+acceleration_consign: 903.844
+m_prevConsigneVitesse: 96
+consigneVitesse: 100
+ FILTER QUADRAMP DEBUG
+consigne: 911.287
+position_actuelle: 88.7281
+sens: 1
+position_pivot: 903.844
+vitesse: 6.60919
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 188.728
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 188.728
+ ========= 
+[ERROR DISTANCE] Error distance : 182
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:482 Droit: 498
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:95.226 Y: -1.55954 Theta: -0.526741 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51177
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0480356 Vitesse Linéaire (mm/s) : 403.656
+[ODOMETRY][TOTAL DISTANCE] (cm): 9.52399
+=======================
+[CONSIGNE] X_DIFF = 904.774 | Y_DIFF = 1.55954
+[CONSIGNE] TARGET ANGLE (°): 0.625495
+[CONSIGNE] TARGET DISTANCE (mm) : 904.775
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 904.775 - | CONSIGNE THETA:  0.625495
+m_prevConsigneVitesse: 100
+position_pivot: 897.521
+acceleration_consign: 897.521
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 904.775
+position_actuelle: 95.2399
+sens: 1
+position_pivot: 897.521
+vitesse: 6.51177
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 195.24
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 195.24
+ ========= 
+[ERROR DISTANCE] Error distance : 188
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:516 Droit: 532
+[DATA CODEUR][LAST TIME] : 0.016136 (s)
+[ODOMETRY][POSITION] : X:101.834 Y: -1.61995 Theta: -0.520656 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60873
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00658247 Vitesse Linéaire (mm/s) : 409.564
+[ODOMETRY][TOTAL DISTANCE] (cm): 10.1849
+=======================
+[CONSIGNE] X_DIFF = 898.166 | Y_DIFF = 1.61995
+[CONSIGNE] TARGET ANGLE (°): 0.623992
+[CONSIGNE] TARGET DISTANCE (mm) : 898.167
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 898.167 - | CONSIGNE THETA:  0.623992
+m_prevConsigneVitesse: 100
+position_pivot: 890.725
+acceleration_consign: 890.725
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 898.167
+position_actuelle: 101.849
+sens: 1
+position_pivot: 890.725
+vitesse: 6.60873
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 201.849
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 201.849
+ ========= 
+[ERROR DISTANCE] Error distance : 195
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:550 Droit: 567
+[DATA CODEUR][LAST TIME] : 0.016136 (s)
+[ODOMETRY][POSITION] : X:108.54 Y: -1.68277 Theta: -0.552884 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.70569
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0348587 Vitesse Linéaire (mm/s) : 415.573
+[ODOMETRY][TOTAL DISTANCE] (cm): 10.8554
+=======================
+[CONSIGNE] X_DIFF = 891.46 | Y_DIFF = 1.68277
+[CONSIGNE] TARGET ANGLE (°): 0.661039
+[CONSIGNE] TARGET DISTANCE (mm) : 891.462
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 891.462 - | CONSIGNE THETA:  0.661039
+m_prevConsigneVitesse: 100
+position_pivot: 883.829
+acceleration_consign: 883.829
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 891.462
+position_actuelle: 108.554
+sens: 1
+position_pivot: 883.829
+vitesse: 6.70569
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 208.554
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 208.554
+ ========= 
+[ERROR DISTANCE] Error distance : 201
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:583 Droit: 602
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:115.148 Y: -1.75061 Theta: -0.623604 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60828
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0765125 Vitesse Linéaire (mm/s) : 409.638
+[ODOMETRY][TOTAL DISTANCE] (cm): 11.5163
+=======================
+[CONSIGNE] X_DIFF = 884.852 | Y_DIFF = 1.75061
+[CONSIGNE] TARGET ANGLE (°): 0.736964
+[CONSIGNE] TARGET DISTANCE (mm) : 884.854
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 884.854 - | CONSIGNE THETA:  0.736964
+m_prevConsigneVitesse: 100
+position_pivot: 877.413
+acceleration_consign: 877.413
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 884.854
+position_actuelle: 115.163
+sens: 1
+position_pivot: 877.413
+vitesse: 6.60828
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 215.163
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 215.163
+ ========= 
+[ERROR DISTANCE] Error distance : 208
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:616 Droit: 636
+[DATA CODEUR][LAST TIME] : 0.01618 (s)
+[ODOMETRY][POSITION] : X:121.659 Y: -1.82332 Theta: -0.65601 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51132
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.034957 Vitesse Linéaire (mm/s) : 402.43
+[ODOMETRY][TOTAL DISTANCE] (cm): 12.1674
+=======================
+[CONSIGNE] X_DIFF = 878.341 | Y_DIFF = 1.82332
+[CONSIGNE] TARGET ANGLE (°): 0.774953
+[CONSIGNE] TARGET DISTANCE (mm) : 878.343
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 878.343 - | CONSIGNE THETA:  0.774953
+m_prevConsigneVitesse: 100
+position_pivot: 871.09
+acceleration_consign: 871.09
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 878.343
+position_actuelle: 121.674
+sens: 1
+position_pivot: 871.09
+vitesse: 6.51132
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 221.674
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 221.674
+ ========= 
+[ERROR DISTANCE] Error distance : 215
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:649 Droit: 671
+[DATA CODEUR][LAST TIME] : 0.016288 (s)
+[ODOMETRY][POSITION] : X:128.267 Y: -1.90306 Theta: -0.726731 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60828
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0757797 Vitesse Linéaire (mm/s) : 405.715
+[ODOMETRY][TOTAL DISTANCE] (cm): 12.8282
+=======================
+[CONSIGNE] X_DIFF = 871.733 | Y_DIFF = 1.90306
+[CONSIGNE] TARGET ANGLE (°): 0.851807
+[CONSIGNE] TARGET DISTANCE (mm) : 871.736
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 871.736 - | CONSIGNE THETA:  0.851807
+m_prevConsigneVitesse: 100
+position_pivot: 864.294
+acceleration_consign: 864.294
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 871.736
+position_actuelle: 128.282
+sens: 1
+position_pivot: 864.294
+vitesse: 6.60828
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 228.282
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 228.282
+ ========= 
+[ERROR DISTANCE] Error distance : 221
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:680 Droit: 705
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:134.582 Y: -1.98921 Theta: -0.836122 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.31649
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.118234 Vitesse Linéaire (mm/s) : 391.162
+[ODOMETRY][TOTAL DISTANCE] (cm): 13.4599
+=======================
+[CONSIGNE] X_DIFF = 865.418 | Y_DIFF = 1.98921
+[CONSIGNE] TARGET ANGLE (°): 0.967824
+[CONSIGNE] TARGET DISTANCE (mm) : 865.42
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 865.42 - | CONSIGNE THETA:  0.967824
+m_prevConsigneVitesse: 100
+position_pivot: 858.538
+acceleration_consign: 858.538
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 865.42
+position_actuelle: 134.599
+sens: 1
+position_pivot: 858.538
+vitesse: 6.31649
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 234.599
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 234.599
+ ========= 
+[ERROR DISTANCE] Error distance : 228
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:712 Droit: 738
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:140.899 Y: -2.08318 Theta: -0.868708 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.31694
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.035211 Vitesse Linéaire (mm/s) : 391.094
+[ODOMETRY][TOTAL DISTANCE] (cm): 14.0916
+=======================
+[CONSIGNE] X_DIFF = 859.101 | Y_DIFF = 2.08318
+[CONSIGNE] TARGET ANGLE (°): 1.00764
+[CONSIGNE] TARGET DISTANCE (mm) : 859.104
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 859.104 - | CONSIGNE THETA:  1.00764
+m_prevConsigneVitesse: 100
+position_pivot: 852.221
+acceleration_consign: 852.221
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 859.104
+position_actuelle: 140.916
+sens: 1
+position_pivot: 852.221
+vitesse: 6.31694
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 240.916
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 240.916
+ ========= 
+[ERROR DISTANCE] Error distance : 234
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:743 Droit: 771
+[DATA CODEUR][LAST TIME] : 0.016156 (s)
+[ODOMETRY][POSITION] : X:147.117 Y: -2.18133 Theta: -0.939786 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.21953
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0767856 Vitesse Linéaire (mm/s) : 384.967
+[ODOMETRY][TOTAL DISTANCE] (cm): 14.7135
+=======================
+[CONSIGNE] X_DIFF = 852.883 | Y_DIFF = 2.18133
+[CONSIGNE] TARGET ANGLE (°): 1.08633
+[CONSIGNE] TARGET DISTANCE (mm) : 852.885
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 852.885 - | CONSIGNE THETA:  1.08633
+m_prevConsigneVitesse: 100
+position_pivot: 846.184
+acceleration_consign: 846.184
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 852.885
+position_actuelle: 147.135
+sens: 1
+position_pivot: 846.184
+vitesse: 6.21953
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 247.135
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 247.135
+ ========= 
+[ERROR DISTANCE] Error distance : 240
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:774 Droit: 804
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:153.336 Y: -2.2872 Theta: -1.01086 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.21953
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0768046 Vitesse Linéaire (mm/s) : 385.063
+[ODOMETRY][TOTAL DISTANCE] (cm): 15.3355
+=======================
+[CONSIGNE] X_DIFF = 846.664 | Y_DIFF = 2.2872
+[CONSIGNE] TARGET ANGLE (°): 1.16564
+[CONSIGNE] TARGET DISTANCE (mm) : 846.667
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 846.667 - | CONSIGNE THETA:  1.16564
+m_prevConsigneVitesse: 100
+position_pivot: 839.966
+acceleration_consign: 839.966
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 846.667
+position_actuelle: 153.355
+sens: 1
+position_pivot: 839.966
+vitesse: 6.21953
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 253.355
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 253.355
+ ========= 
+[ERROR DISTANCE] Error distance : 247
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:806 Droit: 837
+[DATA CODEUR][LAST TIME] : 0.01614 (s)
+[ODOMETRY][POSITION] : X:159.652 Y: -2.40044 Theta: -1.04345 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.31694
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0352372 Vitesse Linéaire (mm/s) : 391.384
+[ODOMETRY][TOTAL DISTANCE] (cm): 15.9672
+=======================
+[CONSIGNE] X_DIFF = 840.348 | Y_DIFF = 2.40044
+[CONSIGNE] TARGET ANGLE (°): 1.20711
+[CONSIGNE] TARGET DISTANCE (mm) : 840.351
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 840.351 - | CONSIGNE THETA:  1.20711
+m_prevConsigneVitesse: 100
+position_pivot: 833.468
+acceleration_consign: 833.468
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 840.351
+position_actuelle: 159.672
+sens: 1
+position_pivot: 833.468
+vitesse: 6.31694
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 259.672
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 259.672
+ ========= 
+[ERROR DISTANCE] Error distance : 253
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:839 Droit: 870
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:166.065 Y: -2.51692 Theta: -1.03754 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41436
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00637937 Vitesse Linéaire (mm/s) : 396.928
+[ODOMETRY][TOTAL DISTANCE] (cm): 16.6086
+=======================
+[CONSIGNE] X_DIFF = 833.935 | Y_DIFF = 2.51692
+[CONSIGNE] TARGET ANGLE (°): 1.21047
+[CONSIGNE] TARGET DISTANCE (mm) : 833.938
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 833.938 - | CONSIGNE THETA:  1.21047
+m_prevConsigneVitesse: 100
+position_pivot: 826.871
+acceleration_consign: 826.871
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 833.938
+position_actuelle: 166.086
+sens: 1
+position_pivot: 826.871
+vitesse: 6.41436
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 266.086
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 266.086
+ ========= 
+[ERROR DISTANCE] Error distance : 259
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:872 Droit: 903
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:172.479 Y: -2.63274 Theta: -1.03164 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41436
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00638411 Vitesse Linéaire (mm/s) : 397.223
+[ODOMETRY][TOTAL DISTANCE] (cm): 17.25
+=======================
+[CONSIGNE] X_DIFF = 827.521 | Y_DIFF = 2.63274
+[CONSIGNE] TARGET ANGLE (°): 1.21392
+[CONSIGNE] TARGET DISTANCE (mm) : 827.526
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 827.526 - | CONSIGNE THETA:  1.21392
+m_prevConsigneVitesse: 100
+position_pivot: 820.458
+acceleration_consign: 820.458
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 827.526
+position_actuelle: 172.5
+sens: 1
+position_pivot: 820.458
+vitesse: 6.41436
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 272.5
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 272.5
+ ========= 
+[ERROR DISTANCE] Error distance : 266
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:906 Droit: 935
+[DATA CODEUR][LAST TIME] : 0.016144 (s)
+[ODOMETRY][POSITION] : X:178.892 Y: -2.7436 Theta: -0.948924 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41481
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0894205 Vitesse Linéaire (mm/s) : 397.35
+[ODOMETRY][TOTAL DISTANCE] (cm): 17.8915
+=======================
+[CONSIGNE] X_DIFF = 821.108 | Y_DIFF = 2.7436
+[CONSIGNE] TARGET ANGLE (°): 1.14037
+[CONSIGNE] TARGET DISTANCE (mm) : 821.112
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 821.112 - | CONSIGNE THETA:  1.14037
+m_prevConsigneVitesse: 100
+position_pivot: 814.044
+acceleration_consign: 814.044
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 821.112
+position_actuelle: 178.915
+sens: 1
+position_pivot: 814.044
+vitesse: 6.41481
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 278.915
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 278.915
+ ========= 
+[ERROR DISTANCE] Error distance : 272
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 30
+[DATA CODEUR][TOTAL TICS] : Gauche:939 Droit: 965
+[DATA CODEUR][LAST TIME] : 0.016156 (s)
+[ODOMETRY][POSITION] : X:185.015 Y: -2.83856 Theta: -0.828077 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.12348
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.130551 Vitesse Linéaire (mm/s) : 379.022
+[ODOMETRY][TOTAL DISTANCE] (cm): 18.5039
+=======================
+[CONSIGNE] X_DIFF = 814.985 | Y_DIFF = 2.83856
+[CONSIGNE] TARGET ANGLE (°): 1.02763
+[CONSIGNE] TARGET DISTANCE (mm) : 814.99
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 814.99 - | CONSIGNE THETA:  1.02763
+m_prevConsigneVitesse: 100
+position_pivot: 808.466
+acceleration_consign: 808.466
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 814.99
+position_actuelle: 185.039
+sens: 1
+position_pivot: 808.466
+vitesse: 6.12348
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 285.039
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 285.039
+ ========= 
+[ERROR DISTANCE] Error distance : 278
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:972 Droit: 996
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:191.235 Y: -2.92398 Theta: -0.745544 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.22044
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0891387 Vitesse Linéaire (mm/s) : 384.928
+[ODOMETRY][TOTAL DISTANCE] (cm): 19.1259
+=======================
+[CONSIGNE] X_DIFF = 808.765 | Y_DIFF = 2.92398
+[CONSIGNE] TARGET ANGLE (°): 0.952688
+[CONSIGNE] TARGET DISTANCE (mm) : 808.77
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 808.77 - | CONSIGNE THETA:  0.952688
+m_prevConsigneVitesse: 100
+position_pivot: 802.067
+acceleration_consign: 802.067
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 808.77
+position_actuelle: 191.259
+sens: 1
+position_pivot: 802.067
+vitesse: 6.22044
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 291.259
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 291.259
+ ========= 
+[ERROR DISTANCE] Error distance : 285
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:1006 Droit: 1030
+[DATA CODEUR][LAST TIME] : 0.016132 (s)
+[ODOMETRY][POSITION] : X:197.843 Y: -3.00962 Theta: -0.739458 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60873
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0065841 Vitesse Linéaire (mm/s) : 409.666
+[ODOMETRY][TOTAL DISTANCE] (cm): 19.7868
+=======================
+[CONSIGNE] X_DIFF = 802.157 | Y_DIFF = 3.00962
+[CONSIGNE] TARGET ANGLE (°): 0.954423
+[CONSIGNE] TARGET DISTANCE (mm) : 802.162
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 802.162 - | CONSIGNE THETA:  0.954423
+m_prevConsigneVitesse: 100
+position_pivot: 794.72
+acceleration_consign: 794.72
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 802.162
+position_actuelle: 197.868
+sens: 1
+position_pivot: 794.72
+vitesse: 6.60873
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 297.868
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 297.868
+ ========= 
+[ERROR DISTANCE] Error distance : 291
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:45 Droit: 47
+[DATA CODEUR][TOTAL TICS] : Gauche:1051 Droit: 1077
+[DATA CODEUR][LAST TIME] : 0.021252 (s)
+[ODOMETRY][POSITION] : X:206.783 Y: -3.13035 Theta: -0.808031 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 8.94077
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0563153 Vitesse Linéaire (mm/s) : 420.703
+[ODOMETRY][TOTAL DISTANCE] (cm): 20.6809
+=======================
+[CONSIGNE] X_DIFF = 793.217 | Y_DIFF = 3.13035
+[CONSIGNE] TARGET ANGLE (°): 1.03415
+[CONSIGNE] TARGET DISTANCE (mm) : 793.223
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 793.223 - | CONSIGNE THETA:  1.03415
+m_prevConsigneVitesse: 100
+position_pivot: 780.549
+acceleration_consign: 780.549
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 793.223
+position_actuelle: 206.809
+sens: 1
+position_pivot: 780.549
+vitesse: 8.94077
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 306.809
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 306.809
+ ========= 
+[ERROR DISTANCE] Error distance : 297
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:1085 Droit: 1112
+[DATA CODEUR][LAST TIME] : 0.01614 (s)
+[ODOMETRY][POSITION] : X:213.488 Y: -3.22681 Theta: -0.840258 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.70569
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0348501 Vitesse Linéaire (mm/s) : 415.47
+[ODOMETRY][TOTAL DISTANCE] (cm): 21.3514
+=======================
+[CONSIGNE] X_DIFF = 786.512 | Y_DIFF = 3.22681
+[CONSIGNE] TARGET ANGLE (°): 1.07532
+[CONSIGNE] TARGET DISTANCE (mm) : 786.518
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 786.518 - | CONSIGNE THETA:  1.07532
+m_prevConsigneVitesse: 100
+position_pivot: 778.886
+acceleration_consign: 778.886
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 786.518
+position_actuelle: 213.514
+sens: 1
+position_pivot: 778.886
+vitesse: 6.70569
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 313.514
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 313.514
+ ========= 
+[ERROR DISTANCE] Error distance : 306
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:85 Droit: 90
+[DATA CODEUR][TOTAL TICS] : Gauche:1170 Droit: 1202
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:230.493 Y: -3.50237 Theta: -1.01661 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 17.0066
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0741315 Vitesse Linéaire (mm/s) : 409.601
+[ODOMETRY][TOTAL DISTANCE] (cm): 23.0521
+=======================
+[CONSIGNE] X_DIFF = 769.507 | Y_DIFF = 3.50237
+[CONSIGNE] TARGET ANGLE (°): 1.27738
+[CONSIGNE] TARGET DISTANCE (mm) : 769.515
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 769.515 - | CONSIGNE THETA:  1.27738
+m_prevConsigneVitesse: 100
+position_pivot: 728.26
+acceleration_consign: 728.26
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 769.515
+position_actuelle: 230.521
+sens: 1
+position_pivot: 728.26
+vitesse: 17.0066
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 330.521
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 330.521
+ ========= 
+[ERROR DISTANCE] Error distance : 313
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:1202 Droit: 1236
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:236.905 Y: -3.62014 Theta: -1.08751 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41391
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0765732 Vitesse Linéaire (mm/s) : 396.9
+[ODOMETRY][TOTAL DISTANCE] (cm): 23.6935
+=======================
+[CONSIGNE] X_DIFF = 763.095 | Y_DIFF = 3.62014
+[CONSIGNE] TARGET ANGLE (°): 1.35932
+[CONSIGNE] TARGET DISTANCE (mm) : 763.103
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 763.103 - | CONSIGNE THETA:  1.35932
+m_prevConsigneVitesse: 100
+position_pivot: 756.037
+acceleration_consign: 756.037
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 763.103
+position_actuelle: 236.935
+sens: 1
+position_pivot: 756.037
+vitesse: 6.41391
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 336.935
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 336.935
+ ========= 
+[ERROR DISTANCE] Error distance : 330
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:81 Droit: 84
+[DATA CODEUR][TOTAL TICS] : Gauche:1283 Droit: 1320
+[DATA CODEUR][LAST TIME] : 0.041528 (s)
+[ODOMETRY][POSITION] : X:252.937 Y: -3.93853 Theta: -1.18795 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.0352
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0422135 Vitesse Linéaire (mm/s) : 386.13
+[ODOMETRY][TOTAL DISTANCE] (cm): 25.297
+=======================
+[CONSIGNE] X_DIFF = 747.062 | Y_DIFF = 3.93853
+[CONSIGNE] TARGET ANGLE (°): 1.49002
+[CONSIGNE] TARGET DISTANCE (mm) : 747.073
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 747.073 - | CONSIGNE THETA:  1.49002
+m_prevConsigneVitesse: 100
+position_pivot: 710.121
+acceleration_consign: 710.121
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 747.073
+position_actuelle: 252.97
+sens: 1
+position_pivot: 710.121
+vitesse: 16.0352
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 352.97
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 352.97
+ ========= 
+[ERROR DISTANCE] Error distance : 336
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:1314 Droit: 1351
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:258.962 Y: -4.06316 Theta: -1.1824 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.02561
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00599717 Vitesse Linéaire (mm/s) : 373.149
+[ODOMETRY][TOTAL DISTANCE] (cm): 25.8996
+=======================
+[CONSIGNE] X_DIFF = 741.038 | Y_DIFF = 4.06316
+[CONSIGNE] TARGET ANGLE (°): 1.49656
+[CONSIGNE] TARGET DISTANCE (mm) : 741.049
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 741.049 - | CONSIGNE THETA:  1.49656
+m_prevConsigneVitesse: 100
+position_pivot: 734.703
+acceleration_consign: 734.703
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 741.049
+position_actuelle: 258.996
+sens: 1
+position_pivot: 734.703
+vitesse: 6.02561
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 358.996
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 358.996
+ ========= 
+[ERROR DISTANCE] Error distance : 352
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:87 Droit: 84
+[DATA CODEUR][TOTAL TICS] : Gauche:1401 Droit: 1435
+[DATA CODEUR][LAST TIME] : 0.041548 (s)
+[ODOMETRY][POSITION] : X:275.578 Y: -4.38719 Theta: -1.05189 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.6197
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.054825 Vitesse Linéaire (mm/s) : 400.012
+[ODOMETRY][TOTAL DISTANCE] (cm): 27.5615
+=======================
+[CONSIGNE] X_DIFF = 724.422 | Y_DIFF = 4.38719
+[CONSIGNE] TARGET ANGLE (°): 1.39888
+[CONSIGNE] TARGET DISTANCE (mm) : 724.435
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 724.435 - | CONSIGNE THETA:  1.39888
+m_prevConsigneVitesse: 100
+position_pivot: 684.922
+acceleration_consign: 684.922
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 724.435
+position_actuelle: 275.615
+sens: 1
+position_pivot: 684.922
+vitesse: 16.6197
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 375.615
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 375.615
+ ========= 
+[ERROR DISTANCE] Error distance : 358
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:1435 Droit: 1467
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:281.992 Y: -4.50033 Theta: -0.969179 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41481
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0893762 Vitesse Linéaire (mm/s) : 397.153
+[ODOMETRY][TOTAL DISTANCE] (cm): 28.203
+=======================
+[CONSIGNE] X_DIFF = 718.008 | Y_DIFF = 4.50033
+[CONSIGNE] TARGET ANGLE (°): 1.32829
+[CONSIGNE] TARGET DISTANCE (mm) : 718.022
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 718.022 - | CONSIGNE THETA:  1.32829
+m_prevConsigneVitesse: 100
+position_pivot: 710.954
+acceleration_consign: 710.954
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 718.022
+position_actuelle: 282.03
+sens: 1
+position_pivot: 710.954
+vitesse: 6.41481
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 382.03
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 382.03
+ ========= 
+[ERROR DISTANCE] Error distance : 375
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:84 Droit: 75
+[DATA CODEUR][TOTAL TICS] : Gauche:1519 Droit: 1542
+[DATA CODEUR][LAST TIME] : 0.041516 (s)
+[ODOMETRY][POSITION] : X:297.445 Y: -4.71321 Theta: -0.609324 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 15.4548
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.151283 Vitesse Linéaire (mm/s) : 372.262
+[ODOMETRY][TOTAL DISTANCE] (cm): 29.7485
+=======================
+[CONSIGNE] X_DIFF = 702.555 | Y_DIFF = 4.71321
+[CONSIGNE] TARGET ANGLE (°): 0.993697
+[CONSIGNE] TARGET DISTANCE (mm) : 702.57
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 702.57 - | CONSIGNE THETA:  0.993697
+m_prevConsigneVitesse: 100
+position_pivot: 668.077
+acceleration_consign: 668.077
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 702.57
+position_actuelle: 297.485
+sens: 1
+position_pivot: 668.077
+vitesse: 15.4548
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 397.485
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 397.485
+ ========= 
+[ERROR DISTANCE] Error distance : 382
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 30
+[DATA CODEUR][TOTAL TICS] : Gauche:1553 Droit: 1572
+[DATA CODEUR][LAST TIME] : 0.016176 (s)
+[ODOMETRY][POSITION] : X:303.666 Y: -4.77072 Theta: -0.449984 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.22089
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.171921 Vitesse Linéaire (mm/s) : 384.575
+[ODOMETRY][TOTAL DISTANCE] (cm): 30.3706
+=======================
+[CONSIGNE] X_DIFF = 696.334 | Y_DIFF = 4.77072
+[CONSIGNE] TARGET ANGLE (°): 0.842517
+[CONSIGNE] TARGET DISTANCE (mm) : 696.35
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 696.35 - | CONSIGNE THETA:  0.842517
+m_prevConsigneVitesse: 100
+position_pivot: 689.647
+acceleration_consign: 689.647
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 696.35
+position_actuelle: 303.706
+sens: 1
+position_pivot: 689.647
+vitesse: 6.22089
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 403.706
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 403.706
+ ========= 
+[ERROR DISTANCE] Error distance : 397
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:90 Droit: 90
+[DATA CODEUR][TOTAL TICS] : Gauche:1643 Droit: 1662
+[DATA CODEUR][LAST TIME] : 0.041524 (s)
+[ODOMETRY][POSITION] : X:321.159 Y: -4.90565 Theta: -0.433875 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 17.4937
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00677094 Vitesse Linéaire (mm/s) : 421.291
+[ODOMETRY][TOTAL DISTANCE] (cm): 32.12
+=======================
+[CONSIGNE] X_DIFF = 678.841 | Y_DIFF = 4.90565
+[CONSIGNE] TARGET ANGLE (°): 0.847913
+[CONSIGNE] TARGET DISTANCE (mm) : 678.858
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 678.858 - | CONSIGNE THETA:  0.847913
+m_prevConsigneVitesse: 100
+position_pivot: 635.357
+acceleration_consign: 635.357
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 678.858
+position_actuelle: 321.2
+sens: 1
+position_pivot: 635.357
+vitesse: 17.4937
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 421.2
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 421.2
+ ========= 
+[ERROR DISTANCE] Error distance : 403
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:1677 Droit: 1695
+[DATA CODEUR][LAST TIME] : 0.016156 (s)
+[ODOMETRY][POSITION] : X:327.671 Y: -4.95243 Theta: -0.389476 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51177
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0479642 Vitesse Linéaire (mm/s) : 403.056
+[ODOMETRY][TOTAL DISTANCE] (cm): 32.7711
+=======================
+[CONSIGNE] X_DIFF = 672.329 | Y_DIFF = 4.95243
+[CONSIGNE] TARGET ANGLE (°): 0.811508
+[CONSIGNE] TARGET DISTANCE (mm) : 672.347
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 672.347 - | CONSIGNE THETA:  0.811508
+m_prevConsigneVitesse: 100
+position_pivot: 665.093
+acceleration_consign: 665.093
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 672.347
+position_actuelle: 327.711
+sens: 1
+position_pivot: 665.093
+vitesse: 6.51177
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 427.711
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 427.711
+ ========= 
+[ERROR DISTANCE] Error distance : 421
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:81 Droit: 84
+[DATA CODEUR][TOTAL TICS] : Gauche:1758 Droit: 1779
+[DATA CODEUR][LAST TIME] : 0.041528 (s)
+[ODOMETRY][POSITION] : X:343.706 Y: -5.07549 Theta: -0.489918 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.0352
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0422135 Vitesse Linéaire (mm/s) : 386.13
+[ODOMETRY][TOTAL DISTANCE] (cm): 34.3747
+=======================
+[CONSIGNE] X_DIFF = 656.294 | Y_DIFF = 5.07549
+[CONSIGNE] TARGET ANGLE (°): 0.933004
+[CONSIGNE] TARGET DISTANCE (mm) : 656.314
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 656.314 - | CONSIGNE THETA:  0.933004
+m_prevConsigneVitesse: 100
+position_pivot: 619.362
+acceleration_consign: 619.362
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 656.314
+position_actuelle: 343.747
+sens: 1
+position_pivot: 619.362
+vitesse: 16.0352
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 443.747
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 443.747
+ ========= 
+[ERROR DISTANCE] Error distance : 427
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:30 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:1788 Droit: 1810
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:349.634 Y: -5.12788 Theta: -0.522862 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 5.92819
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0355803 Vitesse Linéaire (mm/s) : 366.844
+[ODOMETRY][TOTAL DISTANCE] (cm): 34.9675
+=======================
+[CONSIGNE] X_DIFF = 650.366 | Y_DIFF = 5.12788
+[CONSIGNE] TARGET ANGLE (°): 0.974613
+[CONSIGNE] TARGET DISTANCE (mm) : 650.387
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 650.387 - | CONSIGNE THETA:  0.974613
+m_prevConsigneVitesse: 100
+position_pivot: 644.215
+acceleration_consign: 644.215
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 650.387
+position_actuelle: 349.675
+sens: 1
+position_pivot: 644.215
+vitesse: 5.92819
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 449.675
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 449.675
+ ========= 
+[ERROR DISTANCE] Error distance : 443
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:84 Droit: 85
+[DATA CODEUR][TOTAL TICS] : Gauche:1872 Droit: 1895
+[DATA CODEUR][LAST TIME] : 0.041512 (s)
+[ODOMETRY][POSITION] : X:366.057 Y: -5.2811 Theta: -0.54614 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.4244
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.00978717 Vitesse Linéaire (mm/s) : 395.655
+[ODOMETRY][TOTAL DISTANCE] (cm): 36.6099
+=======================
+[CONSIGNE] X_DIFF = 633.943 | Y_DIFF = 5.2811
+[CONSIGNE] TARGET ANGLE (°): 1.02344
+[CONSIGNE] TARGET DISTANCE (mm) : 633.965
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 633.965 - | CONSIGNE THETA:  1.02344
+m_prevConsigneVitesse: 100
+position_pivot: 595.317
+acceleration_consign: 595.317
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 633.965
+position_actuelle: 366.099
+sens: 1
+position_pivot: 595.317
+vitesse: 16.4244
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 466.099
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 466.099
+ ========= 
+[ERROR DISTANCE] Error distance : 449
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:35 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:1907 Droit: 1930
+[DATA CODEUR][LAST TIME] : 0.016168 (s)
+[ODOMETRY][POSITION] : X:372.86 Y: -5.34557 Theta: -0.539876 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.80311
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00676256 Vitesse Linéaire (mm/s) : 420.776
+[ODOMETRY][TOTAL DISTANCE] (cm): 37.2902
+=======================
+[CONSIGNE] X_DIFF = 627.14 | Y_DIFF = 5.34557
+[CONSIGNE] TARGET ANGLE (°): 1.02824
+[CONSIGNE] TARGET DISTANCE (mm) : 627.163
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 627.163 - | CONSIGNE THETA:  1.02824
+m_prevConsigneVitesse: 100
+position_pivot: 619.336
+acceleration_consign: 619.336
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 627.163
+position_actuelle: 372.902
+sens: 1
+position_pivot: 619.336
+vitesse: 6.80311
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 472.902
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 472.902
+ ========= 
+[ERROR DISTANCE] Error distance : 466
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:85 Droit: 82
+[DATA CODEUR][TOTAL TICS] : Gauche:1992 Droit: 2012
+[DATA CODEUR][LAST TIME] : 0.041508 (s)
+[ODOMETRY][POSITION] : X:389.091 Y: -5.48008 Theta: -0.409721 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.2309
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0547273 Vitesse Linéaire (mm/s) : 391.032
+[ODOMETRY][TOTAL DISTANCE] (cm): 38.9133
+=======================
+[CONSIGNE] X_DIFF = 610.909 | Y_DIFF = 5.48008
+[CONSIGNE] TARGET ANGLE (°): 0.923674
+[CONSIGNE] TARGET DISTANCE (mm) : 610.934
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 610.934 - | CONSIGNE THETA:  0.923674
+m_prevConsigneVitesse: 100
+position_pivot: 573.134
+acceleration_consign: 573.134
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 610.934
+position_actuelle: 389.133
+sens: 1
+position_pivot: 573.134
+vitesse: 16.2309
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 489.133
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 489.133
+ ========= 
+[ERROR DISTANCE] Error distance : 472
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:2025 Droit: 2043
+[DATA CODEUR][LAST TIME] : 0.016164 (s)
+[ODOMETRY][POSITION] : X:395.311 Y: -5.52008 Theta: -0.327188 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.22044
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0891166 Vitesse Linéaire (mm/s) : 384.833
+[ODOMETRY][TOTAL DISTANCE] (cm): 39.5354
+=======================
+[CONSIGNE] X_DIFF = 604.689 | Y_DIFF = 5.52008
+[CONSIGNE] TARGET ANGLE (°): 0.850208
+[CONSIGNE] TARGET DISTANCE (mm) : 604.714
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 604.714 - | CONSIGNE THETA:  0.850208
+m_prevConsigneVitesse: 100
+position_pivot: 598.012
+acceleration_consign: 598.012
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 604.714
+position_actuelle: 395.354
+sens: 1
+position_pivot: 598.012
+vitesse: 6.22044
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 495.354
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 495.354
+ ========= 
+[ERROR DISTANCE] Error distance : 489
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:83 Droit: 89
+[DATA CODEUR][TOTAL TICS] : Gauche:2108 Droit: 2132
+[DATA CODEUR][LAST TIME] : 0.041524 (s)
+[ODOMETRY][POSITION] : X:412.025 Y: -5.64689 Theta: -0.542212 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.7148
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0903786 Vitesse Linéaire (mm/s) : 402.535
+[ODOMETRY][TOTAL DISTANCE] (cm): 41.2068
+=======================
+[CONSIGNE] X_DIFF = 587.975 | Y_DIFF = 5.64689
+[CONSIGNE] TARGET ANGLE (°): 1.09246
+[CONSIGNE] TARGET DISTANCE (mm) : 588.002
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 588.002 - | CONSIGNE THETA:  1.09246
+m_prevConsigneVitesse: 100
+position_pivot: 548.064
+acceleration_consign: 548.064
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 588.002
+position_actuelle: 412.068
+sens: 1
+position_pivot: 548.064
+vitesse: 16.7148
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 512.068
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 512.068
+ ========= 
+[ERROR DISTANCE] Error distance : 495
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:2141 Droit: 2167
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:418.633 Y: -5.7135 Theta: -0.612932 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60828
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0764178 Vitesse Linéaire (mm/s) : 409.131
+[ODOMETRY][TOTAL DISTANCE] (cm): 41.8677
+=======================
+[CONSIGNE] X_DIFF = 581.367 | Y_DIFF = 5.7135
+[CONSIGNE] TARGET ANGLE (°): 1.17599
+[CONSIGNE] TARGET DISTANCE (mm) : 581.395
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 581.395 - | CONSIGNE THETA:  1.17599
+m_prevConsigneVitesse: 100
+position_pivot: 573.954
+acceleration_consign: 573.954
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 581.395
+position_actuelle: 418.677
+sens: 1
+position_pivot: 573.954
+vitesse: 6.60828
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 518.677
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 518.677
+ ========= 
+[ERROR DISTANCE] Error distance : 512
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:82 Droit: 90
+[DATA CODEUR][TOTAL TICS] : Gauche:2223 Droit: 2257
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:435.346 Y: -5.93487 Theta: -0.904763 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.7144
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.122673 Vitesse Linéaire (mm/s) : 402.562
+[ODOMETRY][TOTAL DISTANCE] (cm): 43.5391
+=======================
+[CONSIGNE] X_DIFF = 564.654 | Y_DIFF = 5.93487
+[CONSIGNE] TARGET ANGLE (°): 1.50696
+[CONSIGNE] TARGET DISTANCE (mm) : 564.685
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 564.685 - | CONSIGNE THETA:  1.50696
+m_prevConsigneVitesse: 100
+position_pivot: 524.749
+acceleration_consign: 524.749
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 564.685
+position_actuelle: 435.391
+sens: 1
+position_pivot: 524.749
+vitesse: 16.7144
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 535.391
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 535.391
+ ========= 
+[ERROR DISTANCE] Error distance : 518
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:2255 Droit: 2291
+[DATA CODEUR][LAST TIME] : 0.016192 (s)
+[ODOMETRY][POSITION] : X:441.759 Y: -6.04012 Theta: -0.975662 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41391
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0764219 Vitesse Linéaire (mm/s) : 396.116
+[ODOMETRY][TOTAL DISTANCE] (cm): 44.1805
+=======================
+[CONSIGNE] X_DIFF = 558.241 | Y_DIFF = 6.04012
+[CONSIGNE] TARGET ANGLE (°): 1.59557
+[CONSIGNE] TARGET DISTANCE (mm) : 558.274
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 558.274 - | CONSIGNE THETA:  1.59557
+m_prevConsigneVitesse: 100
+position_pivot: 551.207
+acceleration_consign: 551.207
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 558.274
+position_actuelle: 441.805
+sens: 1
+position_pivot: 551.207
+vitesse: 6.41391
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 541.805
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 541.805
+ ========= 
+[ERROR DISTANCE] Error distance : 535
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:83 Droit: 88
+[DATA CODEUR][TOTAL TICS] : Gauche:2338 Droit: 2379
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:458.374 Y: -6.3487 Theta: -1.15237 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.6179
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0742819 Vitesse Linéaire (mm/s) : 400.238
+[ODOMETRY][TOTAL DISTANCE] (cm): 45.8423
+=======================
+[CONSIGNE] X_DIFF = 541.626 | Y_DIFF = 6.3487
+[CONSIGNE] TARGET ANGLE (°): 1.82393
+[CONSIGNE] TARGET DISTANCE (mm) : 541.663
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 541.663 - | CONSIGNE THETA:  1.82393
+m_prevConsigneVitesse: 100
+position_pivot: 502.158
+acceleration_consign: 502.158
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 541.663
+position_actuelle: 458.423
+sens: 1
+position_pivot: 502.158
+vitesse: 16.6179
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 558.423
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 558.423
+ ========= 
+[ERROR DISTANCE] Error distance : 541
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:2372 Droit: 2412
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:464.885 Y: -6.47714 Theta: -1.10797 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51177
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0479523 Vitesse Linéaire (mm/s) : 402.956
+[ODOMETRY][TOTAL DISTANCE] (cm): 46.4935
+=======================
+[CONSIGNE] X_DIFF = 535.115 | Y_DIFF = 6.47714
+[CONSIGNE] TARGET ANGLE (°): 1.80146
+[CONSIGNE] TARGET DISTANCE (mm) : 535.155
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 535.155 - | CONSIGNE THETA:  1.80146
+m_prevConsigneVitesse: 100
+position_pivot: 527.901
+acceleration_consign: 527.901
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 535.155
+position_actuelle: 464.935
+sens: 1
+position_pivot: 527.901
+vitesse: 6.51177
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 564.935
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 564.935
+ ========= 
+[ERROR DISTANCE] Error distance : 558
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:88 Droit: 77
+[DATA CODEUR][TOTAL TICS] : Gauche:2460 Droit: 2489
+[DATA CODEUR][LAST TIME] : 0.041536 (s)
+[ODOMETRY][POSITION] : X:480.921 Y: -6.72609 Theta: -0.670775 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.0384
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.183709 Vitesse Linéaire (mm/s) : 386.132
+[ODOMETRY][TOTAL DISTANCE] (cm): 48.0973
+=======================
+[CONSIGNE] X_DIFF = 519.079 | Y_DIFF = 6.72609
+[CONSIGNE] TARGET ANGLE (°): 1.41315
+[CONSIGNE] TARGET DISTANCE (mm) : 519.122
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 519.122 - | CONSIGNE THETA:  1.41315
+m_prevConsigneVitesse: 100
+position_pivot: 482.157
+acceleration_consign: 482.157
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 519.122
+position_actuelle: 480.973
+sens: 1
+position_pivot: 482.157
+vitesse: 16.0384
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 580.973
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 580.973
+ ========= 
+[ERROR DISTANCE] Error distance : 564
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:36 Droit: 27
+[DATA CODEUR][TOTAL TICS] : Gauche:2496 Droit: 2516
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:487.046 Y: -6.77902 Theta: -0.319511 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.12483
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.379658 Vitesse Linéaire (mm/s) : 379.294
+[ODOMETRY][TOTAL DISTANCE] (cm): 48.7098
+=======================
+[CONSIGNE] X_DIFF = 512.954 | Y_DIFF = 6.77902
+[CONSIGNE] TARGET ANGLE (°): 1.07667
+[CONSIGNE] TARGET DISTANCE (mm) : 512.999
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 512.999 - | CONSIGNE THETA:  1.07667
+m_prevConsigneVitesse: 100
+position_pivot: 506.473
+acceleration_consign: 506.473
+m_prevConsigneVitesse: 100
+consigneVitesse: 104
+ FILTER QUADRAMP DEBUG
+consigne: 512.999
+position_actuelle: 487.098
+sens: 1
+position_pivot: 506.473
+vitesse: 6.12483
+prevConsigneVitesse: 100
+consigneVitesse: 100
+acceleration_consign: 100
+return position_actuelle + consigneVitesse: 587.098
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 587.098
+ ========= 
+[ERROR DISTANCE] Error distance : 580
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:92 Droit: 73
+[DATA CODEUR][TOTAL TICS] : Gauche:2588 Droit: 2589
+[DATA CODEUR][LAST TIME] : 0.041512 (s)
+[ODOMETRY][POSITION] : X:503.086 Y: -6.76426 Theta: 0.42491 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.0402
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.312984 Vitesse Linéaire (mm/s) : 386.399
+[ODOMETRY][TOTAL DISTANCE] (cm): 50.3138
+=======================
+[CONSIGNE] X_DIFF = 496.914 | Y_DIFF = 6.76426
+[CONSIGNE] TARGET ANGLE (°): 0.354979
+[CONSIGNE] TARGET DISTANCE (mm) : 496.96
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 496.96 - | CONSIGNE THETA:  0.354979
+m_prevConsigneVitesse: 100
+position_pivot: 459.987
+acceleration_consign: 459.987
+m_prevConsigneVitesse: 100
+consigneVitesse: 96
+ FILTER QUADRAMP DEBUG
+consigne: 496.96
+position_actuelle: 503.138
+sens: -1
+position_pivot: 459.987
+vitesse: 16.0402
+prevConsigneVitesse: 96
+consigneVitesse: 96
+acceleration_consign: 96
+return position_actuelle + consigneVitesse: 599.138
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 599.138
+ ========= 
+[ERROR DISTANCE] Error distance : 583
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : -1[PWM] LEFT : 81 RIGHT: 79
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:37 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:2625 Droit: 2624
+[DATA CODEUR][LAST TIME] : 0.016176 (s)
+[ODOMETRY][POSITION] : X:510.084 Y: -6.70728 Theta: 0.50816 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.99793
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0898229 Vitesse Linéaire (mm/s) : 432.612
+[ODOMETRY][TOTAL DISTANCE] (cm): 51.0136
+=======================
+[CONSIGNE] X_DIFF = 489.916 | Y_DIFF = 6.70728
+[CONSIGNE] TARGET ANGLE (°): 0.276213
+[CONSIGNE] TARGET DISTANCE (mm) : 489.962
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 489.962 - | CONSIGNE THETA:  0.276213
+m_prevConsigneVitesse: 96
+position_pivot: 481.742
+acceleration_consign: 481.742
+m_prevConsigneVitesse: 96
+consigneVitesse: 92
+ FILTER QUADRAMP DEBUG
+consigne: 489.962
+position_actuelle: 510.136
+sens: -1
+position_pivot: 481.742
+vitesse: 6.99793
+prevConsigneVitesse: 92
+consigneVitesse: 92
+acceleration_consign: 92
+return position_actuelle + consigneVitesse: 602.136
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 602.136
+ ========= 
+[ERROR DISTANCE] Error distance : 595
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 80 RIGHT: 80
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:88 Droit: 88
+[DATA CODEUR][TOTAL TICS] : Gauche:2713 Droit: 2712
+[DATA CODEUR][LAST TIME] : 0.041572 (s)
+[ODOMETRY][POSITION] : X:527.188 Y: -6.55323 Theta: 0.523911 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 17.105
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00661282 Vitesse Linéaire (mm/s) : 411.454
+[ODOMETRY][TOTAL DISTANCE] (cm): 52.7241
+=======================
+[CONSIGNE] X_DIFF = 472.812 | Y_DIFF = 6.55323
+[CONSIGNE] TARGET ANGLE (°): 0.270161
+[CONSIGNE] TARGET DISTANCE (mm) : 472.858
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 472.858 - | CONSIGNE THETA:  0.270161
+m_prevConsigneVitesse: 92
+position_pivot: 431.154
+acceleration_consign: 431.154
+m_prevConsigneVitesse: 92
+consigneVitesse: 88
+ FILTER QUADRAMP DEBUG
+consigne: 472.858
+position_actuelle: 527.241
+sens: -1
+position_pivot: 431.154
+vitesse: 17.105
+prevConsigneVitesse: 88
+consigneVitesse: 88
+acceleration_consign: 88
+return position_actuelle + consigneVitesse: 615.241
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 615.241
+ ========= 
+[ERROR DISTANCE] Error distance : 598
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 80 RIGHT: 80
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:2745 Droit: 2747
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:533.698 Y: -6.4999 Theta: 0.414698 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51087
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.117953 Vitesse Linéaire (mm/s) : 402.9
+[ODOMETRY][TOTAL DISTANCE] (cm): 53.3752
+=======================
+[CONSIGNE] X_DIFF = 466.302 | Y_DIFF = 6.4999
+[CONSIGNE] TARGET ANGLE (°): 0.383911
+[CONSIGNE] TARGET DISTANCE (mm) : 466.347
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 466.347 - | CONSIGNE THETA:  0.383911
+m_prevConsigneVitesse: 88
+position_pivot: 459.095
+acceleration_consign: 459.095
+m_prevConsigneVitesse: 88
+consigneVitesse: 84
+ FILTER QUADRAMP DEBUG
+consigne: 466.347
+position_actuelle: 533.752
+sens: -1
+position_pivot: 459.095
+vitesse: 6.51087
+prevConsigneVitesse: 84
+consigneVitesse: 84
+acceleration_consign: 84
+return position_actuelle + consigneVitesse: 617.752
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 617.752
+ ========= 
+[ERROR DISTANCE] Error distance : 611
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:81 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:2826 Droit: 2834
+[DATA CODEUR][LAST TIME] : 0.041556 (s)
+[ODOMETRY][POSITION] : X:550.024 Y: -6.41242 Theta: 0.199316 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.3261
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0904594 Vitesse Linéaire (mm/s) : 392.87
+[ODOMETRY][TOTAL DISTANCE] (cm): 55.0078
+=======================
+[CONSIGNE] X_DIFF = 449.976 | Y_DIFF = 6.41242
+[CONSIGNE] TARGET ANGLE (°): 0.617121
+[CONSIGNE] TARGET DISTANCE (mm) : 450.021
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 450.021 - | CONSIGNE THETA:  0.617121
+m_prevConsigneVitesse: 84
+position_pivot: 411.806
+acceleration_consign: 411.806
+m_prevConsigneVitesse: 84
+consigneVitesse: 80
+ FILTER QUADRAMP DEBUG
+consigne: 450.021
+position_actuelle: 550.078
+sens: -1
+position_pivot: 411.806
+vitesse: 16.3261
+prevConsigneVitesse: 80
+consigneVitesse: 80
+acceleration_consign: 80
+return position_actuelle + consigneVitesse: 630.078
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 630.078
+ ========= 
+[ERROR DISTANCE] Error distance : 613
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:2857 Droit: 2867
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:556.244 Y: -6.39464 Theta: 0.128238 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.21953
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0768236 Vitesse Linéaire (mm/s) : 385.158
+[ODOMETRY][TOTAL DISTANCE] (cm): 55.6298
+=======================
+[CONSIGNE] X_DIFF = 443.756 | Y_DIFF = 6.39464
+[CONSIGNE] TARGET ANGLE (°): 0.697349
+[CONSIGNE] TARGET DISTANCE (mm) : 443.802
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 443.802 - | CONSIGNE THETA:  0.697349
+m_prevConsigneVitesse: 80
+position_pivot: 437.101
+acceleration_consign: 437.101
+m_prevConsigneVitesse: 80
+consigneVitesse: 76
+ FILTER QUADRAMP DEBUG
+consigne: 443.802
+position_actuelle: 556.298
+sens: -1
+position_pivot: 437.101
+vitesse: 6.21953
+prevConsigneVitesse: 76
+consigneVitesse: 76
+acceleration_consign: 76
+return position_actuelle + consigneVitesse: 632.298
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 632.298
+ ========= 
+[ERROR DISTANCE] Error distance : 626
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:80 Droit: 88
+[DATA CODEUR][TOTAL TICS] : Gauche:2937 Droit: 2955
+[DATA CODEUR][LAST TIME] : 0.04156 (s)
+[ODOMETRY][POSITION] : X:572.569 Y: -6.39973 Theta: -0.16395 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.3256
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.122706 Vitesse Linéaire (mm/s) : 392.821
+[ODOMETRY][TOTAL DISTANCE] (cm): 57.2623
+=======================
+[CONSIGNE] X_DIFF = 427.431 | Y_DIFF = 6.39973
+[CONSIGNE] TARGET ANGLE (°): 1.02176
+[CONSIGNE] TARGET DISTANCE (mm) : 427.478
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 427.478 - | CONSIGNE THETA:  1.02176
+m_prevConsigneVitesse: 76
+position_pivot: 389.265
+acceleration_consign: 389.265
+m_prevConsigneVitesse: 76
+consigneVitesse: 72
+ FILTER QUADRAMP DEBUG
+consigne: 427.478
+position_actuelle: 572.623
+sens: -1
+position_pivot: 389.265
+vitesse: 16.3256
+prevConsigneVitesse: 72
+consigneVitesse: 72
+acceleration_consign: 72
+return position_actuelle + consigneVitesse: 644.623
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 644.623
+ ========= 
+[ERROR DISTANCE] Error distance : 628
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:30 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:2967 Droit: 2988
+[DATA CODEUR][LAST TIME] : 0.016168 (s)
+[ODOMETRY][POSITION] : X:578.692 Y: -6.4231 Theta: -0.273521 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.12212
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.118281 Vitesse Linéaire (mm/s) : 378.656
+[ODOMETRY][TOTAL DISTANCE] (cm): 57.8745
+=======================
+[CONSIGNE] X_DIFF = 421.308 | Y_DIFF = 6.4231
+[CONSIGNE] TARGET ANGLE (°): 1.14697
+[CONSIGNE] TARGET DISTANCE (mm) : 421.357
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 421.357 - | CONSIGNE THETA:  1.14697
+m_prevConsigneVitesse: 72
+position_pivot: 414.836
+acceleration_consign: 414.836
+m_prevConsigneVitesse: 72
+consigneVitesse: 68
+ FILTER QUADRAMP DEBUG
+consigne: 421.357
+position_actuelle: 578.745
+sens: -1
+position_pivot: 414.836
+vitesse: 6.12212
+prevConsigneVitesse: 68
+consigneVitesse: 68
+acceleration_consign: 68
+return position_actuelle + consigneVitesse: 646.745
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 646.745
+ ========= 
+[ERROR DISTANCE] Error distance : 640
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:80 Droit: 83
+[DATA CODEUR][TOTAL TICS] : Gauche:3047 Droit: 3071
+[DATA CODEUR][LAST TIME] : 0.041516 (s)
+[ODOMETRY][POSITION] : X:594.532 Y: -6.51263 Theta: -0.374142 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 15.8408
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0423011 Vitesse Linéaire (mm/s) : 381.56
+[ODOMETRY][TOTAL DISTANCE] (cm): 59.4586
+=======================
+[CONSIGNE] X_DIFF = 405.468 | Y_DIFF = 6.51263
+[CONSIGNE] TARGET ANGLE (°): 1.29435
+[CONSIGNE] TARGET DISTANCE (mm) : 405.52
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 405.52 - | CONSIGNE THETA:  1.29435
+m_prevConsigneVitesse: 68
+position_pivot: 369.401
+acceleration_consign: 369.401
+m_prevConsigneVitesse: 68
+consigneVitesse: 64
+ FILTER QUADRAMP DEBUG
+consigne: 405.52
+position_actuelle: 594.586
+sens: -1
+position_pivot: 369.401
+vitesse: 15.8408
+prevConsigneVitesse: 64
+consigneVitesse: 64
+acceleration_consign: 64
+return position_actuelle + consigneVitesse: 658.586
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 658.586
+ ========= 
+[ERROR DISTANCE] Error distance : 642
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:3079 Droit: 3103
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:600.752 Y: -6.55294 Theta: -0.368414 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.21998
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00619064 Vitesse Linéaire (mm/s) : 385.186
+[ODOMETRY][TOTAL DISTANCE] (cm): 60.0806
+=======================
+[CONSIGNE] X_DIFF = 399.248 | Y_DIFF = 6.55294
+[CONSIGNE] TARGET ANGLE (°): 1.30873
+[CONSIGNE] TARGET DISTANCE (mm) : 399.302
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 399.302 - | CONSIGNE THETA:  1.30873
+m_prevConsigneVitesse: 64
+position_pivot: 392.6
+acceleration_consign: 392.6
+m_prevConsigneVitesse: 64
+consigneVitesse: 60
+ FILTER QUADRAMP DEBUG
+consigne: 399.302
+position_actuelle: 600.806
+sens: -1
+position_pivot: 392.6
+vitesse: 6.21998
+prevConsigneVitesse: 60
+consigneVitesse: 60
+acceleration_consign: 60
+return position_actuelle + consigneVitesse: 660.806
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 660.806
+ ========= 
+[ERROR DISTANCE] Error distance : 654
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:3112 Droit: 3138
+[DATA CODEUR][LAST TIME] : 0.016176 (s)
+[ODOMETRY][POSITION] : X:607.36 Y: -6.59951 Theta: -0.439134 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60828
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0763044 Vitesse Linéaire (mm/s) : 408.524
+[ODOMETRY][TOTAL DISTANCE] (cm): 60.7414
+=======================
+[CONSIGNE] X_DIFF = 392.64 | Y_DIFF = 6.59951
+[CONSIGNE] TARGET ANGLE (°): 1.40207
+[CONSIGNE] TARGET DISTANCE (mm) : 392.695
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 392.695 - | CONSIGNE THETA:  1.40207
+m_prevConsigneVitesse: 60
+position_pivot: 385.254
+acceleration_consign: 385.254
+m_prevConsigneVitesse: 60
+consigneVitesse: 56
+ FILTER QUADRAMP DEBUG
+consigne: 392.695
+position_actuelle: 607.414
+sens: -1
+position_pivot: 385.254
+vitesse: 6.60828
+prevConsigneVitesse: 56
+consigneVitesse: 56
+acceleration_consign: 56
+return position_actuelle + consigneVitesse: 663.414
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 663.414
+ ========= 
+[ERROR DISTANCE] Error distance : 656
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:84 Droit: 88
+[DATA CODEUR][TOTAL TICS] : Gauche:3196 Droit: 3226
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:624.075 Y: -6.74778 Theta: -0.577353 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.7153
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0581014 Vitesse Linéaire (mm/s) : 402.584
+[ODOMETRY][TOTAL DISTANCE] (cm): 62.413
+=======================
+[CONSIGNE] X_DIFF = 375.925 | Y_DIFF = 6.74778
+[CONSIGNE] TARGET ANGLE (°): 1.6057
+[CONSIGNE] TARGET DISTANCE (mm) : 375.986
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 375.986 - | CONSIGNE THETA:  1.6057
+m_prevConsigneVitesse: 56
+position_pivot: 336.046
+acceleration_consign: 336.046
+m_prevConsigneVitesse: 56
+consigneVitesse: 52
+ FILTER QUADRAMP DEBUG
+consigne: 375.986
+position_actuelle: 624.13
+sens: -1
+position_pivot: 336.046
+vitesse: 16.7153
+prevConsigneVitesse: 52
+consigneVitesse: 52
+acceleration_consign: 52
+return position_actuelle + consigneVitesse: 676.13
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 676.13
+ ========= 
+[ERROR DISTANCE] Error distance : 659
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:3229 Droit: 3260
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:630.586 Y: -6.81523 Theta: -0.60976 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.51132
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0350176 Vitesse Linéaire (mm/s) : 403.128
+[ODOMETRY][TOTAL DISTANCE] (cm): 63.0641
+=======================
+[CONSIGNE] X_DIFF = 369.414 | Y_DIFF = 6.81523
+[CONSIGNE] TARGET ANGLE (°): 1.66668
+[CONSIGNE] TARGET DISTANCE (mm) : 369.477
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 369.477 - | CONSIGNE THETA:  1.66668
+m_prevConsigneVitesse: 52
+position_pivot: 362.224
+acceleration_consign: 362.224
+m_prevConsigneVitesse: 52
+consigneVitesse: 48
+ FILTER QUADRAMP DEBUG
+consigne: 369.477
+position_actuelle: 630.641
+sens: -1
+position_pivot: 362.224
+vitesse: 6.51132
+prevConsigneVitesse: 48
+consigneVitesse: 48
+acceleration_consign: 48
+return position_actuelle + consigneVitesse: 678.641
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 678.641
+ ========= 
+[ERROR DISTANCE] Error distance : 672
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:81 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:3310 Droit: 3347
+[DATA CODEUR][LAST TIME] : 0.041536 (s)
+[ODOMETRY][POSITION] : X:646.911 Y: -7.01966 Theta: -0.825142 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.3261
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.090503 Vitesse Linéaire (mm/s) : 393.059
+[ODOMETRY][TOTAL DISTANCE] (cm): 64.6967
+=======================
+[CONSIGNE] X_DIFF = 353.089 | Y_DIFF = 7.01966
+[CONSIGNE] TARGET ANGLE (°): 1.96408
+[CONSIGNE] TARGET DISTANCE (mm) : 353.159
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 353.159 - | CONSIGNE THETA:  1.96408
+m_prevConsigneVitesse: 48
+position_pivot: 314.944
+acceleration_consign: 314.944
+m_prevConsigneVitesse: 48
+consigneVitesse: 44
+ FILTER QUADRAMP DEBUG
+consigne: 353.159
+position_actuelle: 646.967
+sens: -1
+position_pivot: 314.944
+vitesse: 16.3261
+prevConsigneVitesse: 44
+consigneVitesse: 44
+acceleration_consign: 44
+return position_actuelle + consigneVitesse: 690.967
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 690.967
+ ========= 
+[ERROR DISTANCE] Error distance : 674
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:3342 Droit: 3381
+[DATA CODEUR][LAST TIME] : 0.01614 (s)
+[ODOMETRY][POSITION] : X:653.324 Y: -7.11599 Theta: -0.896041 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41391
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0766681 Vitesse Linéaire (mm/s) : 397.392
+[ODOMETRY][TOTAL DISTANCE] (cm): 65.3381
+=======================
+[CONSIGNE] X_DIFF = 346.676 | Y_DIFF = 7.11599
+[CONSIGNE] TARGET ANGLE (°): 2.07195
+[CONSIGNE] TARGET DISTANCE (mm) : 346.749
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 346.749 - | CONSIGNE THETA:  2.07195
+m_prevConsigneVitesse: 44
+position_pivot: 339.683
+acceleration_consign: 339.683
+m_prevConsigneVitesse: 44
+consigneVitesse: 40
+ FILTER QUADRAMP DEBUG
+consigne: 346.749
+position_actuelle: 653.381
+sens: -1
+position_pivot: 339.683
+vitesse: 6.41391
+prevConsigneVitesse: 40
+consigneVitesse: 40
+acceleration_consign: 40
+return position_actuelle + consigneVitesse: 693.381
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 693.381
+ ========= 
+[ERROR DISTANCE] Error distance : 686
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:87 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:3429 Droit: 3468
+[DATA CODEUR][LAST TIME] : 0.041512 (s)
+[ODOMETRY][POSITION] : X:670.232 Y: -7.37815 Theta: -0.880469 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.9106
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00654696 Vitesse Linéaire (mm/s) : 407.366
+[ODOMETRY][TOTAL DISTANCE] (cm): 67.0292
+=======================
+[CONSIGNE] X_DIFF = 329.768 | Y_DIFF = 7.37815
+[CONSIGNE] TARGET ANGLE (°): 2.16218
+[CONSIGNE] TARGET DISTANCE (mm) : 329.85
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 329.85 - | CONSIGNE THETA:  2.16218
+m_prevConsigneVitesse: 40
+position_pivot: 289.031
+acceleration_consign: 289.031
+m_prevConsigneVitesse: 40
+consigneVitesse: 36
+ FILTER QUADRAMP DEBUG
+consigne: 329.85
+position_actuelle: 670.292
+sens: -1
+position_pivot: 289.031
+vitesse: 16.9106
+prevConsigneVitesse: 36
+consigneVitesse: 36
+acceleration_consign: 36
+return position_actuelle + consigneVitesse: 706.292
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 706.292
+ ========= 
+[ERROR DISTANCE] Error distance : 689
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 30
+[DATA CODEUR][TOTAL TICS] : Gauche:3463 Droit: 3498
+[DATA CODEUR][LAST TIME] : 0.016168 (s)
+[ODOMETRY][POSITION] : X:676.453 Y: -7.46509 Theta: -0.72113 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.22089
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.172006 Vitesse Linéaire (mm/s) : 384.766
+[ODOMETRY][TOTAL DISTANCE] (cm): 67.6512
+=======================
+[CONSIGNE] X_DIFF = 323.547 | Y_DIFF = 7.46509
+[CONSIGNE] TARGET ANGLE (°): 2.04286
+[CONSIGNE] TARGET DISTANCE (mm) : 323.634
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 323.634 - | CONSIGNE THETA:  2.04286
+m_prevConsigneVitesse: 36
+position_pivot: 316.93
+acceleration_consign: 316.93
+m_prevConsigneVitesse: 36
+consigneVitesse: 32
+ FILTER QUADRAMP DEBUG
+consigne: 323.634
+position_actuelle: 676.512
+sens: -1
+position_pivot: 316.93
+vitesse: 6.22089
+prevConsigneVitesse: 32
+consigneVitesse: 32
+acceleration_consign: 32
+return position_actuelle + consigneVitesse: 708.512
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 708.512
+ ========= 
+[ERROR DISTANCE] Error distance : 702
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:92 Droit: 72
+[DATA CODEUR][TOTAL TICS] : Gauche:3555 Droit: 3570
+[DATA CODEUR][LAST TIME] : 0.041532 (s)
+[ODOMETRY][POSITION] : X:692.396 Y: -7.55685 Theta: 0.0616047 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 15.9432
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.328934 Vitesse Linéaire (mm/s) : 383.878
+[ODOMETRY][TOTAL DISTANCE] (cm): 69.2456
+=======================
+[CONSIGNE] X_DIFF = 307.604 | Y_DIFF = 7.55685
+[CONSIGNE] TARGET ANGLE (°): 1.34568
+[CONSIGNE] TARGET DISTANCE (mm) : 307.697
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 307.697 - | CONSIGNE THETA:  1.34568
+m_prevConsigneVitesse: 32
+position_pivot: 271.141
+acceleration_consign: 271.141
+m_prevConsigneVitesse: 32
+consigneVitesse: 28
+ FILTER QUADRAMP DEBUG
+consigne: 307.697
+position_actuelle: 692.456
+sens: -1
+position_pivot: 271.141
+vitesse: 15.9432
+prevConsigneVitesse: 28
+consigneVitesse: 28
+acceleration_consign: 28
+return position_actuelle + consigneVitesse: 720.456
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 720.456
+ ========= 
+[ERROR DISTANCE] Error distance : 704
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 80 RIGHT: 80
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:37 Droit: 27
+[DATA CODEUR][TOTAL TICS] : Gauche:3592 Droit: 3597
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:698.618 Y: -7.529 Theta: 0.451361 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.22225
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.421262 Vitesse Linéaire (mm/s) : 385.326
+[ODOMETRY][TOTAL DISTANCE] (cm): 69.8678
+=======================
+[CONSIGNE] X_DIFF = 301.382 | Y_DIFF = 7.529
+[CONSIGNE] TARGET ANGLE (°): 0.979681
+[CONSIGNE] TARGET DISTANCE (mm) : 301.476
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 301.476 - | CONSIGNE THETA:  0.979681
+m_prevConsigneVitesse: 28
+position_pivot: 294.77
+acceleration_consign: 294.77
+m_prevConsigneVitesse: 28
+consigneVitesse: 24
+ FILTER QUADRAMP DEBUG
+consigne: 301.476
+position_actuelle: 698.678
+sens: -1
+position_pivot: 294.77
+vitesse: 6.22225
+prevConsigneVitesse: 24
+consigneVitesse: 24
+acceleration_consign: 24
+return position_actuelle + consigneVitesse: 722.678
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 722.678
+ ========= 
+[ERROR DISTANCE] Error distance : 716
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:94 Droit: 79
+[DATA CODEUR][TOTAL TICS] : Gauche:3686 Droit: 3676
+[DATA CODEUR][LAST TIME] : 0.041596 (s)
+[ODOMETRY][POSITION] : X:715.433 Y: -7.30972 Theta: 1.04289 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.8168
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.248199 Vitesse Linéaire (mm/s) : 404.289
+[ODOMETRY][TOTAL DISTANCE] (cm): 71.5495
+=======================
+[CONSIGNE] X_DIFF = 284.567 | Y_DIFF = 7.30972
+[CONSIGNE] TARGET ANGLE (°): 0.428553
+[CONSIGNE] TARGET DISTANCE (mm) : 284.661
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 284.661 - | CONSIGNE THETA:  0.428553
+m_prevConsigneVitesse: 24
+position_pivot: 244.265
+acceleration_consign: 244.265
+m_prevConsigneVitesse: 24
+consigneVitesse: 20
+ FILTER QUADRAMP DEBUG
+consigne: 284.661
+position_actuelle: 715.495
+sens: -1
+position_pivot: 244.265
+vitesse: 16.8168
+prevConsigneVitesse: 20
+consigneVitesse: 20
+acceleration_consign: 20
+return position_actuelle + consigneVitesse: 735.495
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 735.495
+ ========= 
+[ERROR DISTANCE] Error distance : 718
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 80 RIGHT: 80
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:36 Droit: 35
+[DATA CODEUR][TOTAL TICS] : Gauche:3722 Droit: 3711
+[DATA CODEUR][LAST TIME] : 0.016284 (s)
+[ODOMETRY][POSITION] : X:722.332 Y: -7.18143 Theta: 1.08764 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.90052
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0479708 Vitesse Linéaire (mm/s) : 423.761
+[ODOMETRY][TOTAL DISTANCE] (cm): 72.2395
+=======================
+[CONSIGNE] X_DIFF = 277.668 | Y_DIFF = 7.18143
+[CONSIGNE] TARGET ANGLE (°): 0.393883
+[CONSIGNE] TARGET DISTANCE (mm) : 277.76
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 277.76 - | CONSIGNE THETA:  0.393883
+m_prevConsigneVitesse: 20
+position_pivot: 269.738
+acceleration_consign: 269.738
+m_prevConsigneVitesse: 20
+consigneVitesse: 16
+ FILTER QUADRAMP DEBUG
+consigne: 277.76
+position_actuelle: 722.395
+sens: -1
+position_pivot: 269.738
+vitesse: 6.90052
+prevConsigneVitesse: 16
+consigneVitesse: 16
+acceleration_consign: 16
+return position_actuelle + consigneVitesse: 738.395
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 738.395
+ ========= 
+[ERROR DISTANCE] Error distance : 731
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:84 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:3806 Droit: 3798
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:738.948 Y: -6.88047 Theta: 0.987738 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.6183
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0419961 Vitesse Linéaire (mm/s) : 400.249
+[ODOMETRY][TOTAL DISTANCE] (cm): 73.9014
+=======================
+[CONSIGNE] X_DIFF = 261.052 | Y_DIFF = 6.88047
+[CONSIGNE] TARGET ANGLE (°): 0.522045
+[CONSIGNE] TARGET DISTANCE (mm) : 261.143
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 261.143 - | CONSIGNE THETA:  0.522045
+m_prevConsigneVitesse: 16
+position_pivot: 221.636
+acceleration_consign: 221.636
+m_prevConsigneVitesse: 16
+consigneVitesse: 12
+ FILTER QUADRAMP DEBUG
+consigne: 261.143
+position_actuelle: 739.013
+sens: -1
+position_pivot: 221.636
+vitesse: 16.6183
+prevConsigneVitesse: 12
+consigneVitesse: 12
+acceleration_consign: 12
+return position_actuelle + consigneVitesse: 751.013
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 751.013
+ ========= 
+[ERROR DISTANCE] Error distance : 734
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:3837 Droit: 3831
+[DATA CODEUR][LAST TIME] : 0.016192 (s)
+[ODOMETRY][POSITION] : X:745.167 Y: -6.77711 Theta: 0.91666 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.21953
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0766149 Vitesse Linéaire (mm/s) : 384.111
+[ODOMETRY][TOTAL DISTANCE] (cm): 74.5233
+=======================
+[CONSIGNE] X_DIFF = 254.833 | Y_DIFF = 6.77711
+[CONSIGNE] TARGET ANGLE (°): 0.606726
+[CONSIGNE] TARGET DISTANCE (mm) : 254.923
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 254.923 - | CONSIGNE THETA:  0.606726
+m_prevConsigneVitesse: 12
+position_pivot: 248.222
+acceleration_consign: 248.222
+m_prevConsigneVitesse: 12
+consigneVitesse: 8
+ FILTER QUADRAMP DEBUG
+consigne: 254.923
+position_actuelle: 745.233
+sens: -1
+position_pivot: 248.222
+vitesse: 6.21953
+prevConsigneVitesse: 8
+consigneVitesse: 8
+acceleration_consign: 8
+return position_actuelle + consigneVitesse: 753.233
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 753.233
+ ========= 
+[ERROR DISTANCE] Error distance : 747
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:83 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:3920 Droit: 3918
+[DATA CODEUR][LAST TIME] : 0.041508 (s)
+[ODOMETRY][POSITION] : X:761.686 Y: -6.53276 Theta: 0.778263 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.5209
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0581934 Vitesse Linéaire (mm/s) : 398.018
+[ODOMETRY][TOTAL DISTANCE] (cm): 76.1754
+=======================
+[CONSIGNE] X_DIFF = 238.314 | Y_DIFF = 6.53276
+[CONSIGNE] TARGET ANGLE (°): 0.79196
+[CONSIGNE] TARGET DISTANCE (mm) : 238.404
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 238.404 - | CONSIGNE THETA:  0.79196
+m_prevConsigneVitesse: 8
+position_pivot: 199.33
+acceleration_consign: 199.33
+m_prevConsigneVitesse: 8
+consigneVitesse: 4
+ FILTER QUADRAMP DEBUG
+consigne: 238.404
+position_actuelle: 761.754
+sens: -1
+position_pivot: 199.33
+vitesse: 16.5209
+prevConsigneVitesse: 4
+consigneVitesse: 4
+acceleration_consign: 4
+return position_actuelle + consigneVitesse: 765.754
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 765.754
+ ========= 
+[ERROR DISTANCE] Error distance : 749
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:3952 Droit: 3952
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:768.099 Y: -6.44961 Theta: 0.707364 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41391
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0766112 Vitesse Linéaire (mm/s) : 397.097
+[ODOMETRY][TOTAL DISTANCE] (cm): 76.8168
+=======================
+[CONSIGNE] X_DIFF = 231.901 | Y_DIFF = 6.44961
+[CONSIGNE] TARGET ANGLE (°): 0.885725
+[CONSIGNE] TARGET DISTANCE (mm) : 231.99
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 231.99 - | CONSIGNE THETA:  0.885725
+m_prevConsigneVitesse: 4
+position_pivot: 224.924
+acceleration_consign: 224.924
+m_prevConsigneVitesse: 4
+consigneVitesse: 0
+ FILTER QUADRAMP DEBUG
+consigne: 231.99
+position_actuelle: 768.168
+sens: -1
+position_pivot: 224.924
+vitesse: 6.41391
+prevConsigneVitesse: 0
+consigneVitesse: 0
+acceleration_consign: 0
+return position_actuelle + consigneVitesse: 768.168
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 768.168
+ ========= 
+[ERROR DISTANCE] Error distance : 761
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:78 Droit: 86
+[DATA CODEUR][TOTAL TICS] : Gauche:4030 Droit: 4038
+[DATA CODEUR][LAST TIME] : 0.04154 (s)
+[ODOMETRY][POSITION] : X:784.035 Y: -6.29354 Theta: 0.414817 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 15.9369
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.122915 Vitesse Linéaire (mm/s) : 383.652
+[ODOMETRY][TOTAL DISTANCE] (cm): 78.4105
+=======================
+[CONSIGNE] X_DIFF = 215.965 | Y_DIFF = 6.29354
+[CONSIGNE] TARGET ANGLE (°): 1.25439
+[CONSIGNE] TARGET DISTANCE (mm) : 216.056
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 216.056 - | CONSIGNE THETA:  1.25439
+m_prevConsigneVitesse: 0
+position_pivot: 179.527
+acceleration_consign: 179.527
+m_prevConsigneVitesse: 0
+consigneVitesse: -4
+ FILTER QUADRAMP DEBUG
+consigne: 216.056
+position_actuelle: 784.105
+sens: -1
+position_pivot: 179.527
+vitesse: 15.9369
+prevConsigneVitesse: -4
+consigneVitesse: -4
+acceleration_consign: -4
+return position_actuelle + consigneVitesse: 780.105
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 780.105
+ ========= 
+[ERROR DISTANCE] Error distance : 764
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:31 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:4061 Droit: 4070
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:790.158 Y: -6.25097 Theta: 0.382053 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.12257
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0354132 Vitesse Linéaire (mm/s) : 379.153
+[ODOMETRY][TOTAL DISTANCE] (cm): 79.0227
+=======================
+[CONSIGNE] X_DIFF = 209.842 | Y_DIFF = 6.25097
+[CONSIGNE] TARGET ANGLE (°): 1.32422
+[CONSIGNE] TARGET DISTANCE (mm) : 209.935
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 209.935 - | CONSIGNE THETA:  1.32422
+m_prevConsigneVitesse: -4
+position_pivot: 203.413
+acceleration_consign: 203.413
+m_prevConsigneVitesse: -4
+consigneVitesse: -8
+ FILTER QUADRAMP DEBUG
+consigne: 209.935
+position_actuelle: 790.227
+sens: -1
+position_pivot: 203.413
+vitesse: 6.12257
+prevConsigneVitesse: -8
+consigneVitesse: -8
+acceleration_consign: -8
+return position_actuelle + consigneVitesse: 782.227
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 782.227
+ ========= 
+[ERROR DISTANCE] Error distance : 776
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:84 Droit: 82
+[DATA CODEUR][TOTAL TICS] : Gauche:4145 Droit: 4152
+[DATA CODEUR][LAST TIME] : 0.041512 (s)
+[ODOMETRY][POSITION] : X:806.291 Y: -6.13048 Theta: 0.473714 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.1335
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0385382 Vitesse Linéaire (mm/s) : 388.647
+[ODOMETRY][TOTAL DISTANCE] (cm): 80.6361
+=======================
+[CONSIGNE] X_DIFF = 193.709 | Y_DIFF = 6.13048
+[CONSIGNE] TARGET ANGLE (°): 1.33898
+[CONSIGNE] TARGET DISTANCE (mm) : 193.806
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 193.806 - | CONSIGNE THETA:  1.33898
+m_prevConsigneVitesse: -8
+position_pivot: 156.43
+acceleration_consign: 156.43
+m_prevConsigneVitesse: -8
+consigneVitesse: -12
+ FILTER QUADRAMP DEBUG
+consigne: 193.806
+position_actuelle: 806.361
+sens: -1
+position_pivot: 156.43
+vitesse: 16.1335
+prevConsigneVitesse: -12
+consigneVitesse: -12
+acceleration_consign: -12
+return position_actuelle + consigneVitesse: 794.361
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 794.361
+ ========= 
+[ERROR DISTANCE] Error distance : 778
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:4179 Droit: 4184
+[DATA CODEUR][LAST TIME] : 0.016168 (s)
+[ODOMETRY][POSITION] : X:812.705 Y: -6.07281 Theta: 0.556427 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41481
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0892878 Vitesse Linéaire (mm/s) : 396.76
+[ODOMETRY][TOTAL DISTANCE] (cm): 81.2776
+=======================
+[CONSIGNE] X_DIFF = 187.295 | Y_DIFF = 6.07281
+[CONSIGNE] TARGET ANGLE (°): 1.30067
+[CONSIGNE] TARGET DISTANCE (mm) : 187.393
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 187.393 - | CONSIGNE THETA:  1.30067
+m_prevConsigneVitesse: -12
+position_pivot: 180.325
+acceleration_consign: 180.325
+m_prevConsigneVitesse: -12
+consigneVitesse: -16
+ FILTER QUADRAMP DEBUG
+consigne: 187.393
+position_actuelle: 812.776
+sens: -1
+position_pivot: 180.325
+vitesse: 6.41481
+prevConsigneVitesse: -16
+consigneVitesse: -16
+acceleration_consign: -16
+return position_actuelle + consigneVitesse: 796.776
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 796.776
+ ========= 
+[ERROR DISTANCE] Error distance : 790
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:85 Droit: 88
+[DATA CODEUR][TOTAL TICS] : Gauche:4264 Droit: 4272
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:829.518 Y: -5.92417 Theta: 0.456701 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.8127
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0419207 Vitesse Linéaire (mm/s) : 404.93
+[ODOMETRY][TOTAL DISTANCE] (cm): 82.9588
+=======================
+[CONSIGNE] X_DIFF = 170.482 | Y_DIFF = 5.92417
+[CONSIGNE] TARGET ANGLE (°): 1.5335
+[CONSIGNE] TARGET DISTANCE (mm) : 170.585
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 170.585 - | CONSIGNE THETA:  1.5335
+m_prevConsigneVitesse: -16
+position_pivot: 130.208
+acceleration_consign: 130.208
+m_prevConsigneVitesse: -16
+consigneVitesse: -20
+ FILTER QUADRAMP DEBUG
+consigne: 170.585
+position_actuelle: 829.588
+sens: -1
+position_pivot: 130.208
+vitesse: 16.8127
+prevConsigneVitesse: -20
+consigneVitesse: -20
+acceleration_consign: -20
+return position_actuelle + consigneVitesse: 809.588
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 809.588
+ ========= 
+[ERROR DISTANCE] Error distance : 792
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:4296 Droit: 4306
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:835.931 Y: -5.87702 Theta: 0.385802 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41391
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0766302 Vitesse Linéaire (mm/s) : 397.195
+[ODOMETRY][TOTAL DISTANCE] (cm): 83.6002
+=======================
+[CONSIGNE] X_DIFF = 164.069 | Y_DIFF = 5.87702
+[CONSIGNE] TARGET ANGLE (°): 1.66568
+[CONSIGNE] TARGET DISTANCE (mm) : 164.174
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 164.174 - | CONSIGNE THETA:  1.66568
+m_prevConsigneVitesse: -20
+position_pivot: 157.108
+acceleration_consign: 157.108
+m_prevConsigneVitesse: -20
+consigneVitesse: -24
+ FILTER QUADRAMP DEBUG
+consigne: 164.174
+position_actuelle: 836.002
+sens: -1
+position_pivot: 157.108
+vitesse: 6.41391
+prevConsigneVitesse: -24
+consigneVitesse: -24
+acceleration_consign: -24
+return position_actuelle + consigneVitesse: 812.002
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 812.002
+ ========= 
+[ERROR DISTANCE] Error distance : 805
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:80 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:4376 Droit: 4393
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:852.16 Y: -5.8037 Theta: 0.131927 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.2287
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.106718 Vitesse Linéaire (mm/s) : 390.864
+[ODOMETRY][TOTAL DISTANCE] (cm): 85.2231
+=======================
+[CONSIGNE] X_DIFF = 147.84 | Y_DIFF = 5.8037
+[CONSIGNE] TARGET ANGLE (°): 2.11616
+[CONSIGNE] TARGET DISTANCE (mm) : 147.954
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 147.954 - | CONSIGNE THETA:  2.11616
+m_prevConsigneVitesse: -24
+position_pivot: 110.164
+acceleration_consign: 110.164
+m_prevConsigneVitesse: -24
+consigneVitesse: -28
+ FILTER QUADRAMP DEBUG
+consigne: 147.954
+position_actuelle: 852.231
+sens: -1
+position_pivot: 110.164
+vitesse: 16.2287
+prevConsigneVitesse: -28
+consigneVitesse: -28
+acceleration_consign: -28
+return position_actuelle + consigneVitesse: 824.231
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 824.231
+ ========= 
+[ERROR DISTANCE] Error distance : 808
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 5[PWM] LEFT : 75 RIGHT: 85
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:4409 Droit: 4426
+[DATA CODEUR][LAST TIME] : 0.016168 (s)
+[ODOMETRY][POSITION] : X:858.574 Y: -5.7886 Theta: 0.137833 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41436
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00637621 Vitesse Linéaire (mm/s) : 396.732
+[ODOMETRY][TOTAL DISTANCE] (cm): 85.8645
+=======================
+[CONSIGNE] X_DIFF = 141.426 | Y_DIFF = 5.7886
+[CONSIGNE] TARGET ANGLE (°): 2.20599
+[CONSIGNE] TARGET DISTANCE (mm) : 141.544
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 141.544 - | CONSIGNE THETA:  2.20599
+m_prevConsigneVitesse: -28
+position_pivot: 134.477
+acceleration_consign: 134.477
+m_prevConsigneVitesse: -28
+consigneVitesse: -32
+ FILTER QUADRAMP DEBUG
+consigne: 141.544
+position_actuelle: 858.645
+sens: -1
+position_pivot: 134.477
+vitesse: 6.41436
+prevConsigneVitesse: -32
+consigneVitesse: -32
+acceleration_consign: -32
+return position_actuelle + consigneVitesse: 826.645
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 826.645
+ ========= 
+[ERROR DISTANCE] Error distance : 820
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:90 Droit: 86
+[DATA CODEUR][TOTAL TICS] : Gauche:4499 Droit: 4512
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:875.68 Y: -5.72216 Theta: 0.307196 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 17.1059
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0711931 Vitesse Linéaire (mm/s) : 411.991
+[ODOMETRY][TOTAL DISTANCE] (cm): 87.5751
+=======================
+[CONSIGNE] X_DIFF = 124.32 | Y_DIFF = 5.72216
+[CONSIGNE] TARGET ANGLE (°): 2.32814
+[CONSIGNE] TARGET DISTANCE (mm) : 124.452
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 124.452 - | CONSIGNE THETA:  2.32814
+m_prevConsigneVitesse: -32
+position_pivot: 82.7437
+acceleration_consign: 82.7437
+m_prevConsigneVitesse: -32
+consigneVitesse: -36
+ FILTER QUADRAMP DEBUG
+consigne: 124.452
+position_actuelle: 875.751
+sens: -1
+position_pivot: 82.7437
+vitesse: 17.1059
+prevConsigneVitesse: -36
+consigneVitesse: -36
+acceleration_consign: -36
+return position_actuelle + consigneVitesse: 839.751
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 839.751
+ ========= 
+[ERROR DISTANCE] Error distance : 822
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:34 Droit: 31
+[DATA CODEUR][TOTAL TICS] : Gauche:4533 Droit: 4543
+[DATA CODEUR][LAST TIME] : 0.016148 (s)
+[ODOMETRY][POSITION] : X:881.998 Y: -5.68162 Theta: 0.428222 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.31785
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.130809 Vitesse Linéaire (mm/s) : 391.247
+[ODOMETRY][TOTAL DISTANCE] (cm): 88.2069
+=======================
+[CONSIGNE] X_DIFF = 118.002 | Y_DIFF = 5.68162
+[CONSIGNE] TARGET ANGLE (°): 2.32834
+[CONSIGNE] TARGET DISTANCE (mm) : 118.139
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 118.139 - | CONSIGNE THETA:  2.32834
+m_prevConsigneVitesse: -36
+position_pivot: 111.254
+acceleration_consign: 111.254
+m_prevConsigneVitesse: -36
+consigneVitesse: -40
+ FILTER QUADRAMP DEBUG
+consigne: 118.139
+position_actuelle: 882.069
+sens: -1
+position_pivot: 111.254
+vitesse: 6.31785
+prevConsigneVitesse: -40
+consigneVitesse: -40
+acceleration_consign: -40
+return position_actuelle + consigneVitesse: 842.069
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 842.069
+ ========= 
+[ERROR DISTANCE] Error distance : 835
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 4[PWM] LEFT : 76 RIGHT: 84
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:92 Droit: 70
+[DATA CODEUR][TOTAL TICS] : Gauche:4625 Droit: 4613
+[DATA CODEUR][LAST TIME] : 0.041528 (s)
+[ODOMETRY][POSITION] : X:897.745 Y: -5.44581 Theta: 1.28758 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 15.7493
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.361171 Vitesse Linéaire (mm/s) : 379.246
+[ODOMETRY][TOTAL DISTANCE] (cm): 89.7818
+=======================
+[CONSIGNE] X_DIFF = 102.255 | Y_DIFF = 5.44581
+[CONSIGNE] TARGET ANGLE (°): 1.76095
+[CONSIGNE] TARGET DISTANCE (mm) : 102.4
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 102.4 - | CONSIGNE THETA:  1.76095
+m_prevConsigneVitesse: -40
+position_pivot: 66.6698
+acceleration_consign: 66.6698
+m_prevConsigneVitesse: -40
+consigneVitesse: -44
+ FILTER QUADRAMP DEBUG
+consigne: 102.4
+position_actuelle: 897.818
+sens: -1
+position_pivot: 66.6698
+vitesse: 15.7493
+prevConsigneVitesse: -44
+consigneVitesse: -44
+acceleration_consign: -44
+return position_actuelle + consigneVitesse: 853.818
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 853.818
+ ========= 
+[ERROR DISTANCE] Error distance : 838
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:36 Droit: 26
+[DATA CODEUR][TOTAL TICS] : Gauche:4661 Droit: 4639
+[DATA CODEUR][LAST TIME] : 0.016152 (s)
+[ODOMETRY][POSITION] : X:903.771 Y: -5.28987 Theta: 1.67716 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.02787
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.420964 Vitesse Linéaire (mm/s) : 373.197
+[ODOMETRY][TOTAL DISTANCE] (cm): 90.3846
+=======================
+[CONSIGNE] X_DIFF = 96.2289 | Y_DIFF = 5.28987
+[CONSIGNE] TARGET ANGLE (°): 1.46932
+[CONSIGNE] TARGET DISTANCE (mm) : 96.3742
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 96.3742 - | CONSIGNE THETA:  1.46932
+m_prevConsigneVitesse: -44
+position_pivot: 90.024
+acceleration_consign: 90.024
+m_prevConsigneVitesse: -44
+consigneVitesse: -48
+ FILTER QUADRAMP DEBUG
+consigne: 96.3742
+position_actuelle: 903.846
+sens: -1
+position_pivot: 90.024
+vitesse: 6.02787
+prevConsigneVitesse: -48
+consigneVitesse: -48
+acceleration_consign: -48
+return position_actuelle + consigneVitesse: 855.846
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 855.846
+ ========= 
+[ERROR DISTANCE] Error distance : 849
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:96 Droit: 77
+[DATA CODEUR][TOTAL TICS] : Gauche:4757 Droit: 4716
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:920.578 Y: -4.68835 Theta: 2.4223 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.8177
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.313225 Vitesse Linéaire (mm/s) : 405.05
+[ODOMETRY][TOTAL DISTANCE] (cm): 92.0664
+=======================
+[CONSIGNE] X_DIFF = 79.422 | Y_DIFF = 4.68835
+[CONSIGNE] TARGET ANGLE (°): 0.956008
+[CONSIGNE] TARGET DISTANCE (mm) : 79.5603
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 79.5603 - | CONSIGNE THETA:  0.956008
+m_prevConsigneVitesse: -48
+position_pivot: 39.1606
+acceleration_consign: 39.1606
+m_prevConsigneVitesse: -48
+consigneVitesse: -52
+ FILTER QUADRAMP DEBUG
+consigne: 79.5603
+position_actuelle: 920.664
+sens: -1
+position_pivot: 39.1606
+vitesse: 16.8177
+prevConsigneVitesse: -52
+consigneVitesse: -52
+acceleration_consign: -52
+return position_actuelle + consigneVitesse: 868.664
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 868.664
+ ========= 
+[ERROR DISTANCE] Error distance : 851
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 0[PWM] LEFT : 80 RIGHT: 80
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:36 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:4793 Droit: 4748
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:927.181 Y: -4.3998 Theta: 2.582 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.60964
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.172478 Vitesse Linéaire (mm/s) : 409.012
+[ODOMETRY][TOTAL DISTANCE] (cm): 92.7274
+=======================
+[CONSIGNE] X_DIFF = 72.8187 | Y_DIFF = 4.3998
+[CONSIGNE] TARGET ANGLE (°): 0.875685
+[CONSIGNE] TARGET DISTANCE (mm) : 72.9515
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 72.9515 - | CONSIGNE THETA:  0.875685
+m_prevConsigneVitesse: -52
+position_pivot: 65.5077
+acceleration_consign: 65.5077
+m_prevConsigneVitesse: -52
+consigneVitesse: -56
+ FILTER QUADRAMP DEBUG
+consigne: 72.9515
+position_actuelle: 927.274
+sens: -1
+position_pivot: 65.5077
+vitesse: 6.60964
+prevConsigneVitesse: -56
+consigneVitesse: -56
+acceleration_consign: -56
+return position_actuelle + consigneVitesse: 871.274
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 871.274
+ ========= 
+[ERROR DISTANCE] Error distance : 864
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 1[PWM] LEFT : 79 RIGHT: 81
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:85 Droit: 85
+[DATA CODEUR][TOTAL TICS] : Gauche:4878 Droit: 4833
+[DATA CODEUR][LAST TIME] : 0.04152 (s)
+[ODOMETRY][POSITION] : X:943.686 Y: -3.65331 Theta: 2.59721 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.5218
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.00639537 Vitesse Linéaire (mm/s) : 397.925
+[ODOMETRY][TOTAL DISTANCE] (cm): 94.3795
+=======================
+[CONSIGNE] X_DIFF = 56.3137 | Y_DIFF = 3.65331
+[CONSIGNE] TARGET ANGLE (°): 1.11462
+[CONSIGNE] TARGET DISTANCE (mm) : 56.4321
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 56.4321 - | CONSIGNE THETA:  1.11462
+m_prevConsigneVitesse: -56
+position_pivot: 17.3542
+acceleration_consign: 17.3542
+m_prevConsigneVitesse: -56
+consigneVitesse: -60
+ FILTER QUADRAMP DEBUG
+consigne: 56.4321
+position_actuelle: 943.795
+sens: -1
+position_pivot: 17.3542
+vitesse: 16.5218
+prevConsigneVitesse: -60
+consigneVitesse: -60
+acceleration_consign: -60
+return position_actuelle + consigneVitesse: 883.795
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 883.795
+ ========= 
+[ERROR DISTANCE] Error distance : 867
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 2[PWM] LEFT : 78 RIGHT: 82
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 34
+[DATA CODEUR][TOTAL TICS] : Gauche:4910 Droit: 4867
+[DATA CODEUR][LAST TIME] : 0.01616 (s)
+[ODOMETRY][POSITION] : X:950.094 Y: -3.36664 Theta: 2.52631 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.41391
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0765732 Vitesse Linéaire (mm/s) : 396.9
+[ODOMETRY][TOTAL DISTANCE] (cm): 95.0209
+=======================
+[CONSIGNE] X_DIFF = 49.9062 | Y_DIFF = 3.36664
+[CONSIGNE] TARGET ANGLE (°): 1.33297
+[CONSIGNE] TARGET DISTANCE (mm) : 50.0197
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 50.0197 - | CONSIGNE THETA:  1.33297
+m_prevConsigneVitesse: -60
+position_pivot: 42.9532
+acceleration_consign: 42.9532
+m_prevConsigneVitesse: -60
+consigneVitesse: -64
+ FILTER QUADRAMP DEBUG
+consigne: 50.0197
+position_actuelle: 950.209
+sens: -1
+position_pivot: 42.9532
+vitesse: 6.41391
+prevConsigneVitesse: -64
+consigneVitesse: -64
+acceleration_consign: -64
+return position_actuelle + consigneVitesse: 886.209
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 886.209
+ ========= 
+[ERROR DISTANCE] Error distance : 879
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 3[PWM] LEFT : 77 RIGHT: 83
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:81 Droit: 87
+[DATA CODEUR][TOTAL TICS] : Gauche:4991 Droit: 4954
+[DATA CODEUR][LAST TIME] : 0.041528 (s)
+[ODOMETRY][POSITION] : X:966.405 Y: -2.67767 Theta: 2.31093 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.3261
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0905204 Vitesse Linéaire (mm/s) : 393.135
+[ODOMETRY][TOTAL DISTANCE] (cm): 96.6535
+=======================
+[CONSIGNE] X_DIFF = 33.5947 | Y_DIFF = 2.67767
+[CONSIGNE] TARGET ANGLE (°): 2.2462
+[CONSIGNE] TARGET DISTANCE (mm) : 33.7013
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 33.7013 - | CONSIGNE THETA:  2.2462
+m_prevConsigneVitesse: -64
+position_pivot: -4.51424
+acceleration_consign: -4.51424
+m_prevConsigneVitesse: -64
+consigneVitesse: -68
+ FILTER QUADRAMP DEBUG
+consigne: 33.7013
+position_actuelle: 966.535
+sens: -1
+position_pivot: -4.51424
+vitesse: 16.3261
+prevConsigneVitesse: -68
+consigneVitesse: -68
+acceleration_consign: -68
+return position_actuelle + consigneVitesse: 898.535
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 898.535
+ ========= 
+[ERROR DISTANCE] Error distance : 882
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 5[PWM] LEFT : 75 RIGHT: 85
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:32 Droit: 33
+[DATA CODEUR][TOTAL TICS] : Gauche:5023 Droit: 4987
+[DATA CODEUR][LAST TIME] : 0.01614 (s)
+[ODOMETRY][POSITION] : X:972.717 Y: -2.42475 Theta: 2.27834 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.31694
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0352372 Vitesse Linéaire (mm/s) : 391.384
+[ODOMETRY][TOTAL DISTANCE] (cm): 97.2852
+=======================
+[CONSIGNE] X_DIFF = 27.2828 | Y_DIFF = 2.42475
+[CONSIGNE] TARGET ANGLE (°): 2.80045
+[CONSIGNE] TARGET DISTANCE (mm) : 27.3904
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 27.3904 - | CONSIGNE THETA:  2.80045
+m_prevConsigneVitesse: -68
+position_pivot: 20.5073
+acceleration_consign: 20.5073
+m_prevConsigneVitesse: -68
+consigneVitesse: -72
+ FILTER QUADRAMP DEBUG
+consigne: 27.3904
+position_actuelle: 972.852
+sens: -1
+position_pivot: 20.5073
+vitesse: 6.31694
+prevConsigneVitesse: -72
+consigneVitesse: -72
+acceleration_consign: -72
+return position_actuelle + consigneVitesse: 900.852
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 900.852
+ ========= 
+[ERROR DISTANCE] Error distance : 894
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 6[PWM] LEFT : 74 RIGHT: 86
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:81 Droit: 86
+[DATA CODEUR][TOTAL TICS] : Gauche:5104 Droit: 5073
+[DATA CODEUR][LAST TIME] : 0.041512 (s)
+[ODOMETRY][POSITION] : X:988.934 Y: -1.80463 Theta: 2.10127 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 16.2291
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : -0.0744468 Vitesse Linéaire (mm/s) : 390.951
+[ODOMETRY][TOTAL DISTANCE] (cm): 98.9081
+=======================
+[CONSIGNE] X_DIFF = 11.0656 | Y_DIFF = 1.80463
+[CONSIGNE] TARGET ANGLE (°): 7.1613
+[CONSIGNE] TARGET DISTANCE (mm) : 11.2117
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 11.2117 - | CONSIGNE THETA:  7.1613
+m_prevConsigneVitesse: -72
+position_pivot: -26.5801
+acceleration_consign: -26.5801
+m_prevConsigneVitesse: -72
+consigneVitesse: -76
+ FILTER QUADRAMP DEBUG
+consigne: 11.2117
+position_actuelle: 989.081
+sens: -1
+position_pivot: -26.5801
+vitesse: 16.2291
+prevConsigneVitesse: -76
+consigneVitesse: -76
+acceleration_consign: -76
+return position_actuelle + consigneVitesse: 913.081
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 913.081
+ ========= 
+[ERROR DISTANCE] Error distance : 896
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 17[PWM] LEFT : 63 RIGHT: 97
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:33 Droit: 32
+[DATA CODEUR][TOTAL TICS] : Gauche:5137 Droit: 5105
+[DATA CODEUR][LAST TIME] : 0.016164 (s)
+[ODOMETRY][POSITION] : X:995.247 Y: -1.57056 Theta: 2.14549 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.3174
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.0477472 Vitesse Linéaire (mm/s) : 390.831
+[ODOMETRY][TOTAL DISTANCE] (cm): 99.5399
+=======================
+[CONSIGNE] X_DIFF = 4.7525 | Y_DIFF = 1.57056
+[CONSIGNE] TARGET ANGLE (°): 16.1417
+[CONSIGNE] TARGET DISTANCE (mm) : 5.00529
+[CONSIGNE] DIRECTION: 1
+CONSIGNE_DISTANCE 5.00529 - | CONSIGNE THETA:  16.1417
+m_prevConsigneVitesse: -76
+position_pivot: -1.87862
+acceleration_consign: -1.87862
+m_prevConsigneVitesse: -76
+consigneVitesse: -80
+ FILTER QUADRAMP DEBUG
+consigne: 5.00529
+position_actuelle: 995.399
+sens: -1
+position_pivot: -1.87862
+vitesse: 6.3174
+prevConsigneVitesse: -80
+consigneVitesse: -80
+acceleration_consign: -80
+return position_actuelle + consigneVitesse: 915.399
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 915.399
+ ========= 
+[ERROR DISTANCE] Error distance : 909
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : 36[PWM] LEFT : 44 RIGHT: 116
+ ======================== 
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:95 Droit: 67
+[DATA CODEUR][TOTAL TICS] : Gauche:5232 Droit: 5172
+[DATA CODEUR][LAST TIME] : 0.041512 (s)
+[ODOMETRY][POSITION] : X:1010.98 Y: -0.831247 Theta: 3.23527 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 15.7507
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.458186 Vitesse Linéaire (mm/s) : 379.425
+[ODOMETRY][TOTAL DISTANCE] (cm): 101.115
+=======================
+[CONSIGNE] X_DIFF = -10.9808 | Y_DIFF = 0.831247
+[CONSIGNE] TARGET ANGLE (°): -7.5643
+[CONSIGNE] TARGET DISTANCE (mm) : -11.0123
+[CONSIGNE] DIRECTION: -1
+CONSIGNE_DISTANCE -11.0123 - | CONSIGNE THETA:  -7.5643
+m_prevConsigneVitesse: -80
+position_pivot: -46.7479
+acceleration_consign: -46.7479
+m_prevConsigneVitesse: -80
+consigneVitesse: -84
+ FILTER QUADRAMP DEBUG
+consigne: -11.0123
+position_actuelle: 1011.15
+sens: -1
+position_pivot: -46.7479
+vitesse: 15.7507
+prevConsigneVitesse: -84
+consigneVitesse: -84
+acceleration_consign: -84
+return position_actuelle + consigneVitesse: 927.15
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 927.15
+ ========= 
+[ERROR DISTANCE] Error distance : 911
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : -26[PWM] LEFT : 106 RIGHT: 54
+ ======================== 
+CTRL+C détecté
+===========DEBUG ODOMETRY============
+[DATA CODEUR][TICS] : Gauche:42 Droit: 20
+[DATA CODEUR][TOTAL TICS] : Gauche:5274 Droit: 5192
+[DATA CODEUR][LAST TIME] : 0.016168 (s)
+[ODOMETRY][POSITION] : X:1017 Y: -0.44623 Theta: 4.08568 °
+[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : 6.03059
+[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : 0
+[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : 0.918016 Vitesse Linéaire (mm/s) : 372.996
+[ODOMETRY][TOTAL DISTANCE] (cm): 101.718
+=======================
+[CONSIGNE] X_DIFF = -16.9991 | Y_DIFF = 0.44623
+[CONSIGNE] TARGET ANGLE (°): -5.58936
+[CONSIGNE] TARGET DISTANCE (mm) : -17.005
+[CONSIGNE] DIRECTION: -1
+CONSIGNE_DISTANCE -17.005 - | CONSIGNE THETA:  -5.58936
+m_prevConsigneVitesse: -84
+position_pivot: -23.3602
+acceleration_consign: -23.3602
+m_prevConsigneVitesse: -84
+consigneVitesse: -88
+ FILTER QUADRAMP DEBUG
+consigne: -17.005
+position_actuelle: 1017.18
+sens: -1
+position_pivot: -23.3602
+vitesse: 6.03059
+prevConsigneVitesse: -88
+consigneVitesse: -88
+acceleration_consign: -88
+return position_actuelle + consigneVitesse: 929.18
+ ================================ 
+ === FILTRE RAMP === 
+Ramped distance: 929.18
+ ========= 
+[ERROR DISTANCE] Error distance : 923
+[ERROR ANGLE] Error Angle : 0
+[PID DISTANCE] Speed Translation : 80[PID ANGLE] Speed Rotation : -12[PWM] LEFT : 92 RIGHT: 68
+ ======================== 
+Forcing stop
+Liberation de la memoire
+Arrêt du lanceur
+Close port AX12
+Close serial
+Fin du programme
