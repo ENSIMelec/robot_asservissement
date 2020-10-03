@@ -11,6 +11,7 @@ vector<Point> FichierPoint::readPoints(string filename) {
     float distance_tolerance;
     float angle_tolerance;
     int speed;
+    bool slipping;
     //string sens, blocage;
     //double coefCourbe;
     //bool lissage, derapage, attAction;
@@ -32,6 +33,7 @@ vector<Point> FichierPoint::readPoints(string filename) {
         speed = 0;
         timeout = 0;
         action = "null";
+        slipping = false;
 
         type = point.second.get<string>("type");
 		
@@ -44,9 +46,31 @@ vector<Point> FichierPoint::readPoints(string filename) {
             speed = point.second.get<int>("speed");
             timeout = point.second.get<int>("timeout");
             action = point.second.get<string>("action");
+            slipping = point.second.get<string>("slipping"); // dérapage ?
             mTrajectory = Controller::Trajectory::XY_ABSOLU;
 
 		}
+        if(type.compare("CALIB_X") == 0) {
+            X = point.second.get<float>("X");
+            angle = point.second.get<float>("THETA");
+            timeout = point.second.get<int>("timeout");
+            action = point.second.get<string>("action");
+            mTrajectory = Controller::Trajectory::CALIB_X;
+        }
+        if(type.compare("CALIB_Y") == 0) {
+            X = point.second.get<float>("X");
+            angle = point.second.get<float>("THETA");
+            timeout = point.second.get<int>("timeout");
+            action = point.second.get<string>("action");
+            mTrajectory = Controller::Trajectory::CALIB_Y;
+        }
+        if(type.compare("CALIB_XY") == 0) {
+            X = point.second.get<float>("X");
+            angle = point.second.get<float>("THETA");
+            timeout = point.second.get<int>("timeout");
+            action = point.second.get<string>("action");
+            mTrajectory = Controller::Trajectory::CALIB_XY;
+        }
 		else if (type.compare("THETA") == 0) {
             angle = point.second.get<float>("THETA");
             angle_tolerance = point.second.get<float>("angle_tolerance");
@@ -70,6 +94,7 @@ vector<Point> FichierPoint::readPoints(string filename) {
         // Controller
         Point p(X, Y, angle, mTrajectory);
         p.setMAction(ref(action));
+        p.setSlipping(slipping);
 
         //Point p(type, X, Y, angle, deltaDeplacement, deltaAngle, vitesse, sens, blocage, coefCourbe, lissage, derapage, timeOut, action, attAction);
         pts.push_back(p);

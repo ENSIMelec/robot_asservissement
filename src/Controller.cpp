@@ -76,6 +76,16 @@ void Controller::update()
             trajectory_stop();
             break;
 
+        case CALIB_X:
+            trajectory_calibration_x();
+            break;
+        case CALIB_Y:
+            trajectory_calibration_y();
+            break;
+        case CALIB_XY:
+            trajectory_calibration_xy();
+            break;
+
         case NOTHING:
             //il n'y a plus rien a faire
             break;
@@ -169,6 +179,31 @@ void Controller::trajectory_stop() {
     m_consign.angle = 0;
 }
 
+void Controller::trajectory_calibration_x() {
+    m_odometry.setPosition(
+            m_point.getX(),
+            m_odometry.getPosition().y,
+            m_point.getTheta());
+
+    trajectory_stop();
+}
+void Controller::trajectory_calibration_xy() {
+    m_odometry.setPosition(
+            m_point.getX(),
+            m_point.getY(),
+            m_point.getTheta());
+
+    trajectory_stop();
+}
+void Controller::trajectory_calibration_y() {
+    m_odometry.setPosition(
+            m_odometry.getPosition().x,
+            m_point.getY(),
+            m_point.getTheta());
+
+    trajectory_stop();
+}
+
 /**
  * Calcul PID
  * @param consigne_distance : distance to do in mm (is the distance between the robot and the goal position)
@@ -201,9 +236,35 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
         m_speedAngle = max(-m_maxPWMR, min(m_maxPWMR, m_speedAngle));
     }
 
+    // On désactive la correction de l'angle lorsque il s'agit d'un point de dérapage (recalage)
+    if(m_point != null && m_point.isSlipping()) {
+        m_speedAngle = 0;
+    }
 
     int leftPWM = m_speedDistance - m_speedAngle;
     int rightPWM = m_speedDistance + m_speedAngle;
+
+    //détection de dérapage
+    if(m_point != null && m_point.isSlipping()) {
+
+        if(abs(leftPWM)>=50 && abs(m_odometry.getLeftVel())<5){
+            leftPWM = 0;
+            //derapageG = true;
+            cout << "Dérapage Gauche" << endl;
+        }
+
+        if(abs(rightPWM)>=50 && abs(m_odometry.getRightVel())<5){
+            rightPWM = 0;
+            //derapageD = true;
+            cout << "Dérapage Droite" << endl;
+        }
+
+        //Dérapage des deux cotés, on est contre la bordure, prêt pour le recalage
+        if(derapageD && derapageG){
+            // asservissement fini!
+            m_trajectory = Trajectory::LOCKED;
+        }
+    }
 
     m_motor.setConsigne(leftPWM, rightPWM);
 
@@ -227,6 +288,19 @@ void Controller::set_point(int x, int y, int angle) {
     m_targetPos.y = y;
     m_targetPos.theta = MathUtils::deg2rad(angle);
 }
+/**
+ * Mettre en place le point voulu à atteindre dans la table
+ * @param Point point
+ */
+void Controller::set_point_o(Point p) {
+    m_targetPos.x = p.getX();
+    m_targetPos.y = p.getY();
+    m_targetPos.theta = MathUtils::deg2rad(p.getTheta());
+
+    // set point to reach
+    this->m_point = p;
+}
+
 /**
  * Stop des moteurs et réinitilisation des PID
  */

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eda5b4f0-de5c-450e-92fc-875d077744f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/controller/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/FichierPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FichierPoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/FichierPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/FichierPoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Point.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Point.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/asservt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/controller/asservt.cpp" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectId" id="1TVhks2IOOBPw0sfumkcLAljKEN" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../quadramp_filter" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eda5b4f0-de5c-450e-92fc-875d077744f5" name="Default Changelist" comment="" />
+      <created>1573551317901</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573551317901</updated>
+      <workItem from="1573551324027" duration="7619000" />
+      <workItem from="1573570823341" duration="1406000" />
+      <workItem from="1573572666981" duration="4641000" />
+      <workItem from="1573657791793" duration="10705000" />
+      <workItem from="1573743205126" duration="9432000" />
+      <workItem from="1573828047009" duration="8328000" />
+      <workItem from="1574326118306" duration="6791000" />
+      <workItem from="1574445291744" duration="15222000" />
+      <workItem from="1574773385265" duration="4132000" />
+      <workItem from="1575048675262" duration="2258000" />
+      <workItem from="1575125537038" duration="6854000" />
+      <workItem from="1575220331155" duration="1060000" />
+      <workItem from="1575479919179" duration="8460000" />
+      <workItem from="1575538644898" duration="6617000" />
+      <workItem from="1575823694841" duration="7356000" />
+      <workItem from="1575999308065" duration="11927000" />
+      <workItem from="1576144621735" duration="6368000" />
+      <workItem from="1576235196565" duration="367000" />
+      <workItem from="1576689694413" duration="2282000" />
+      <workItem from="1576745994337" duration="8082000" />
+      <workItem from="1577020628749" duration="118000" />
+      <workItem from="1577085766490" duration="233000" />
+      <workItem from="1578493525738" duration="1058000" />
+      <workItem from="1579164954893" duration="3104000" />
+      <workItem from="1579777905724" duration="1451000" />
+      <workItem from="1580374724186" duration="13615000" />
+      <workItem from="1581018573429" duration="3675000" />
+      <workItem from="1581775338406" duration="21885000" />
+      <workItem from="1581872371958" duration="1405000" />
+      <workItem from="1582193594183" duration="1878000" />
+      <workItem from="1583404762913" duration="3235000" />
+      <workItem from="1583683886232" duration="15438000" />
+      <workItem from="1583765785643" duration="620000" />
+      <workItem from="1583831471482" duration="623000" />
+      <workItem from="1583860192606" duration="2598000" />
+      <workItem from="1601656782150" duration="10353000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

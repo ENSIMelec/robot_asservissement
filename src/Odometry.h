@@ -75,12 +75,15 @@ public:
     float getTotalTicksL() const { return m_totalTicksL; };
     float getTotalTicksR() const { return m_totalTicksR; };
     float getEntraxe() const { return ENTRAXE; };
-
+    float getRightVel() const { return m_rightVel; }
+    float getLeftVel() const { return m_leftVel; }
 
 protected:
     Position m_pos; /*!< Structure de position de Odometry. */
     float m_linVel = 0; /*!< Vitesse lineaire en mm/s. */
     float m_angVel = 0; /*!< Vitesse angulaire en rad/s.*/
+    float m_rightVel = 0; /*! Vitesse roue droite */
+    float m_leftVel = 0; /*! Vitesse roue gauche */
 
     int m_totalTicksL = 0; /* Totat des tics gauche */
     int m_totalTicksR = 0;/* Totat des tics droite */

@@ -13,6 +13,7 @@
 #include "MathUtils.h"
 #include "Config.h"
 #include "QuadrampDerivate.h"
+#include "Point.h"
 
 class Controller {
 
@@ -36,7 +37,10 @@ public:
         THETA,
         XY_ABSOLU,
         LOCKED,
-        NOTHING
+        NOTHING,
+        CALIB_X,
+        CALIB_Y,
+        CALIB_XY
     };
 
     /**
@@ -44,6 +48,7 @@ public:
      */
     void update();
     void set_point(int x, int y, int angle);
+    void set_point_o(Point p);
     void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
     void motors_stop();
     bool is_target_reached();
@@ -63,6 +68,9 @@ private:
     void trajectory_theta(float angle_voulu);
     void trajectory_xy(float x_voulu, float y_voulu);
     void trajectory_stop();
+    void trajectory_calibration_x(); // recalage en X
+    void trajectory_calibration_y(); // recalage en Y
+    void trajectory_calibration_xy(); // recalage en X et Y
     void trajectory_distance_finished();
     void trajectory_angle_finished();
     void trajectory_distance_angle();
@@ -120,6 +128,9 @@ private:
     // cs speed
     int m_speedDistance = 0;
     int m_speedAngle = 0;
+
+    // Point to reach
+    Point m_point;
 
     // Quadramp filter distance
     QuadrampDerivate m_rampfilterDistance;

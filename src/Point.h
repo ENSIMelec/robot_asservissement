@@ -42,6 +42,9 @@ public:
 
     Controller::Trajectory getTrajectory() const;
 
+    bool isSlipping() const { return m_slip; } // dérapage
+    void setSlipping(bool slip) const { m_slip = slip; }
+
 private:
 
     float m_x = 0;
@@ -50,6 +53,8 @@ private:
     float m_distance_tolerance;
     float m_angle_tolerance;
     int m_speed;
+    bool m_slip = false; // dérapage
+
     string m_action;
     int m_timeout;
     Controller::Trajectory m_trajectory = Controller::Trajectory::THETA;

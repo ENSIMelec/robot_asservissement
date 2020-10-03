@@ -120,6 +120,9 @@ void Odometry::update() {
     if(timestep > 0) {
         linVel = dDistance / timestep;
         angVel = dAngle / timestep;
+
+        this->m_leftVel = distanceLeft / timestep;
+        this->m_rightVel = distanceRight / timestep;
     }
 
     // Actualisation de la vitesse linéaire et angulaire du robot
