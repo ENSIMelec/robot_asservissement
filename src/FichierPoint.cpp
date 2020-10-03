@@ -58,7 +58,7 @@ vector<Point> FichierPoint::readPoints(string filename) {
             mTrajectory = Controller::Trajectory::CALIB_X;
         }
         if(type.compare("CALIB_Y") == 0) {
-            X = point.second.get<float>("X");
+            Y = point.second.get<float>("Y");
             angle = point.second.get<float>("THETA");
             timeout = point.second.get<int>("timeout");
             action = point.second.get<string>("action");
@@ -66,6 +66,7 @@ vector<Point> FichierPoint::readPoints(string filename) {
         }
         if(type.compare("CALIB_XY") == 0) {
             X = point.second.get<float>("X");
+            Y = point.second.get<float>("Y");
             angle = point.second.get<float>("THETA");
             timeout = point.second.get<int>("timeout");
             action = point.second.get<string>("action");
