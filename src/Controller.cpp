@@ -249,18 +249,18 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
         if(abs(leftPWM)>=50 && abs(m_odometry.getLeftVel())<5){
             leftPWM = 0;
-            //derapageG = true;
+            m_slipping_left = true;
             cout << "Dérapage Gauche" << endl;
         }
 
         if(abs(rightPWM)>=50 && abs(m_odometry.getRightVel())<5){
             rightPWM = 0;
-            //derapageD = true;
+            m_slipping_right = true;
             cout << "Dérapage Droite" << endl;
         }
 
         //Dérapage des deux cotés, on est contre la bordure, prêt pour le recalage
-        if(derapageD && derapageG){
+        if(m_slipping_left && m_slipping_right){
             // asservissement fini!
             m_trajectory = Trajectory::LOCKED;
         }

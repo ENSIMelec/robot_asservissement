@@ -129,6 +129,10 @@ private:
     int m_speedDistance = 0;
     int m_speedAngle = 0;
 
+    // slipping
+    bool m_slipping_right = false;
+    bool m_slipping_left = false;
+
     // Point to reach
     Point m_point;
 
