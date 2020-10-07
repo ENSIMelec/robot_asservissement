@@ -19,8 +19,7 @@
 using namespace std;
 
 Controller::Controller(ICodeurManager& codeurs, MoteurManager& motor, Config& config):
-        m_odometry(codeurs), m_motor(motor), m_config(config)
-{
+        m_odometry(codeurs), m_motor(motor), m_config(config) {
     // Init PID Controllers
 
     this->m_maxPWM = 150;
@@ -66,27 +65,27 @@ void Controller::update()
 
     switch (m_trajectory) {
 
-        case THETA:
+        case Point::Trajectory::THETA:
             trajectory_theta(m_targetPos.theta);
             break;
-        case XY_ABSOLU:
+        case Point::Trajectory::XY_ABSOLU:
             trajectory_xy(m_targetPos.x, m_targetPos.y);
             break;
-        case LOCKED:
+        case Point::Trajectory::LOCKED:
             trajectory_stop();
             break;
 
-        case CALIB_X:
+        case Point::Trajectory::CALIB_X:
             trajectory_calibration_x();
             break;
-        case CALIB_Y:
+        case Point::Trajectory::CALIB_Y:
             trajectory_calibration_y();
             break;
-        case CALIB_XY:
+        case Point::Trajectory::CALIB_XY:
             trajectory_calibration_xy();
             break;
 
-        case NOTHING:
+        case Point::Trajectory::NOTHING:
             //il n'y a plus rien a faire
             break;
 
@@ -104,7 +103,7 @@ void Controller::update()
     if(is_target_reached()) {
         //trajectory_stop();
         //motors_stop();
-        cout << " ----- REACHED target" << endl;
+        cout << " ----- REACHED target --------- " << endl;
     }
 
 }
@@ -177,6 +176,8 @@ void Controller::trajectory_stop() {
     // set consigne angle et distance en 0
     m_consign.distance = 0;
     m_consign.angle = 0;
+
+    m_point_reached = true;
 }
 
 void Controller::trajectory_calibration_x() {
@@ -216,7 +217,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
 
     // On filtre la consigne à l'aide de la QuadrampDerivate pour savoir si l'on est en phase d'accélération, constante ou de décélération
     float ramped_consign_distance = this->m_rampfilterDistance.process(consigne_distance + m_odometry.getTotalDistance(), m_odometry.getTotalDistance(), m_odometry.getDeltaDistance());
-    float ramped_consign_angle = this->m_rampfilterAngle.process(consigne_theta + m_odometry.getTotalTheta(), m_odometry.getTotalTheta(), m_odometry.getDeltaTheta());
+    //float ramped_consign_angle = this->m_rampfilterAngle.process(consigne_theta + m_odometry.getTotalTheta(), m_odometry.getTotalTheta(), m_odometry.getDeltaTheta());
 
     // un mouvement en distance
     // PID distance activé
@@ -237,7 +238,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
     }
 
     // On désactive la correction de l'angle lorsque il s'agit d'un point de dérapage (recalage)
-    if(m_point != null && m_point.isSlipping()) {
+    if(m_point.isSlipping()) {
         m_speedAngle = 0;
     }
 
@@ -245,15 +246,15 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
     int rightPWM = m_speedDistance + m_speedAngle;
 
     //détection de dérapage
-    if(m_point != null && m_point.isSlipping()) {
+    if(m_point.isSlipping()) {
 
-        if(abs(leftPWM)>=50 && abs(m_odometry.getLeftVel())<5){
+        if(leftPWM <= -50 && abs(m_odometry.getLeftVel())<80){
             leftPWM = 0;
             m_slipping_left = true;
             cout << "Dérapage Gauche" << endl;
         }
 
-        if(abs(rightPWM)>=50 && abs(m_odometry.getRightVel())<5){
+        if(rightPWM <= -50 && abs(m_odometry.getRightVel())<80){
             rightPWM = 0;
             m_slipping_right = true;
             cout << "Dérapage Droite" << endl;
@@ -262,7 +263,7 @@ void Controller::update_speed(float consigne_distance, float consigne_theta) {
         //Dérapage des deux cotés, on est contre la bordure, prêt pour le recalage
         if(m_slipping_left && m_slipping_right){
             // asservissement fini!
-            m_trajectory = Trajectory::LOCKED;
+            m_trajectory = Point::Trajectory::LOCKED;
         }
     }
 
@@ -318,7 +319,7 @@ bool Controller::is_target_reached() {
     int distance_tolerance = 8; // mm
     // get errors from PID
     return abs(m_distancePID.getError()) < distance_tolerance;
-           //&& (abs(m_anglePID.getError()) < angle_tolerance);
+    //&& (abs(m_anglePID.getError()) < angle_tolerance);
 }
 
 /** return true if traj is nearly finished */
@@ -330,18 +331,27 @@ bool Controller::is_trajectory_reached() {
 
     switch (m_trajectory) {
 
-        case THETA:
+        case Point::Trajectory::THETA:
             reached = (abs(m_consign.angle) < angle_tolerance);
             //reached = m_rampfilterAngle.isRampFinished();
             break;
-        case XY_ABSOLU:
+        case Point::Trajectory::XY_ABSOLU:
             //reached = is_target_reached();
             reached = m_rampfilterDistance.isRampFinished();
             break;
-        case LOCKED:
-            reached = true;
+        case Point::Trajectory::LOCKED:
+            reached = m_point_reached;
             break;
-        case NOTHING:
+        case Point::Trajectory::CALIB_X:
+            reached = m_point_reached;
+            break;
+        case Point::Trajectory::CALIB_Y:
+            reached = m_point_reached;
+            break;
+        case Point::Trajectory::CALIB_XY:
+            reached = m_point_reached;
+            break;
+        case Point::Trajectory::NOTHING:
             reached = true;
             break;
         default:

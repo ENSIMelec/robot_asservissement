@@ -97,7 +97,7 @@ float QuadrampDerivate::process(float consigne_init, float position_actuelle, fl
     m_prevConsigneVitesse = consigneVitesse;
 
     // debug
-    cout << "======= FILTER QUADRAMP DEBUG =======" << endl;
+    /*cout << "======= FILTER QUADRAMP DEBUG =======" << endl;
     cout << "[RAMP] consigne init: " << consigne_init << endl;
     cout << "[RAMP] position_actuelle: " << position_actuelle << endl;
     cout << "[RAMP] sens: " << sens << endl;
@@ -106,7 +106,7 @@ float QuadrampDerivate::process(float consigne_init, float position_actuelle, fl
     cout << "[RAMP] consigneVitesse: " << consigneVitesse << endl;
     cout << "[RAMP] acceleration_consign: " << consigneVitesse << endl;
     cout << "[RAMP] return rampedDistance: " << position_actuelle + consigneVitesse << endl;
-    cout << " ================================ " << endl;
+    cout << " ================================ " << endl;*/
 
 
     // On vérifie si on est dans la fenêtre d'arrivée et si oui, on est arrivé à la fin de la rampe

@@ -30,7 +30,7 @@ struct Position
      * @param y coordoonée en y initial.
      * @param theta angle initial.
      */
-    Position(float x, float y, float theta) : x(x), y(y), theta(theta){}
+    Position(float vx, float vy, float vtheta) : x(vx), y(vy), theta(vtheta){}
     // Coordonnée en x
     float x;
     // Cordonnée en y
@@ -77,6 +77,7 @@ public:
     float getEntraxe() const { return ENTRAXE; };
     float getRightVel() const { return m_rightVel; }
     float getLeftVel() const { return m_leftVel; }
+
 
 protected:
     Position m_pos; /*!< Structure de position de Odometry. */

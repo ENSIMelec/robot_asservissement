@@ -149,6 +149,8 @@ void Odometry::debug() {
     cout << "[ODOMETRY][DISTANCE PARCOURU EN LASTTIME (mm)] : " << getDeltaDistance() << endl;
     cout << "[ODOMETRY][ROTATION EFFECTUE EN LASTTIME (rad)] : " << getDeltaOrientation() << endl;
     cout << "[ODOMETRY][VITESSE]: Vitesse angulaire (rad/s) : " << getAngVel() << " Vitesse Linéaire (mm/s) : " << getLinVel() << endl;
+    cout << "[ODOMETRY][VITESSE]: Roue gauche (mm/s) : " << getLeftVel() << endl;
+    cout << "[ODOMETRY][VITESSE]: Roue droite (mm/s) : " << getLeftVel() << endl;
     cout << "[ODOMETRY][TOTAL DISTANCE] (cm): " << getTotalDistance() / 10 << endl;
     cout << "=======================" << endl;
 

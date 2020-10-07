@@ -6,44 +6,42 @@
 #define ROBOT_POINT_H
 
 using namespace std;
-#include "Controller.h"
 
 class Point {
 
 public:
-    Point(float mX, float mY, float mTheta, Controller::Trajectory mTrajectory);
+    // Les types d'un point
+    enum Trajectory {
+        THETA,
+        XY_ABSOLU,
+        LOCKED,
+        NOTHING,
+        CALIB_X,
+        CALIB_Y,
+        CALIB_XY
+    };
+
+    Point();
+    Point(float mX, float mY, float mTheta, Point::Trajectory mTrajectory);
     float getX() const;
     float getY() const;
     float getTheta() const;
 
     float getMDistanceTolerance() const;
-
     void setMDistanceTolerance(float mDistanceTolerance);
-
     float getMAngleTolerance() const;
-
     void setMAngleTolerance(float mAngleTolerance);
-
     int getMSpeed() const;
-
     void setMSpeed(int mSpeed);
-
     const string &getMAction() const;
-
     void setMAction(const string &mAction);
-
     int getMTimeout() const;
-
     void setMTimeout(int mTimeout);
-
-    Controller::Trajectory getMTrajectory() const;
-
-    void setMTrajectory(Controller::Trajectory mTrajectory);
-
-    Controller::Trajectory getTrajectory() const;
-
-    bool isSlipping() const { return m_slip; } // dérapage
-    void setSlipping(bool slip) const { m_slip = slip; }
+    Point::Trajectory getMTrajectory() const;
+    void setMTrajectory(Trajectory mTrajectory);
+    Point::Trajectory getTrajectory() const;
+    bool isSlipping() const;
+    void setSlipping(bool slip);
 
 private:
 
@@ -57,7 +55,7 @@ private:
 
     string m_action;
     int m_timeout;
-    Controller::Trajectory m_trajectory = Controller::Trajectory::THETA;
+    Point::Trajectory m_trajectory = Point::Trajectory::NOTHING;
 
 };
 

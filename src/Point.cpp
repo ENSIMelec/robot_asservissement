@@ -1,10 +1,14 @@
 //
 // Created by Taoufik on 20/12/2019.
 //
-
+#include <string>
 #include "Point.h"
 
-Point::Point(float x, float y, float theta, Controller::Trajectory mTrajectory) : m_x(x), m_y(y), m_theta(theta),
+Point::Point() : m_x(0), m_y(0), m_theta(0),
+                 m_trajectory(Point::Trajectory::NOTHING) {
+
+}
+Point::Point(float x, float y, float theta, Trajectory mTrajectory) : m_x(x), m_y(y), m_theta(theta),
                                                                                      m_trajectory(mTrajectory) {
 
 }
@@ -21,7 +25,7 @@ float Point::getTheta() const {
     return m_theta;
 }
 
-Controller::Trajectory Point::getTrajectory() const {
+Point::Trajectory Point::getTrajectory() const {
     return m_trajectory;
 }
 
@@ -65,11 +69,18 @@ void Point::setMTimeout(int mTimeout) {
     m_timeout = mTimeout;
 }
 
-Controller::Trajectory Point::getMTrajectory() const {
+Point::Trajectory Point::getMTrajectory() const {
     return m_trajectory;
 }
 
-void Point::setMTrajectory(Controller::Trajectory mTrajectory) {
+void Point::setMTrajectory(Trajectory mTrajectory) {
     m_trajectory = mTrajectory;
+}
+
+bool Point::isSlipping() const {
+    return m_slip;
+}
+void Point::setSlipping(bool slip) {
+    m_slip = slip;
 }
 

@@ -33,15 +33,15 @@ public:
         BACKWARD    = -1 ///< Le robot avance en marche arrière.
     };
 
-    enum Trajectory {
-        THETA,
-        XY_ABSOLU,
-        LOCKED,
-        NOTHING,
-        CALIB_X,
-        CALIB_Y,
-        CALIB_XY
-    };
+//    enum Trajectory {
+//        THETA,
+//        XY_ABSOLU,
+//        LOCKED,
+//        NOTHING,
+//        CALIB_X,
+//        CALIB_Y,
+//        CALIB_XY
+//    };
 
     /**
      * Method asserv
@@ -49,7 +49,7 @@ public:
     void update();
     void set_point(int x, int y, int angle);
     void set_point_o(Point p);
-    void set_trajectory(Trajectory trajectory) { m_trajectory = trajectory; }
+    void set_trajectory(Point::Trajectory trajectory) { m_trajectory = trajectory; }
     void motors_stop();
     bool is_target_reached();
     bool is_target_reached_xy();
@@ -86,7 +86,7 @@ private:
     Position m_targetPos;
 
     //Trajectory actuelle
-    Trajectory m_trajectory = NOTHING;
+    Point::Trajectory m_trajectory = Point::Trajectory::NOTHING;
 
     /**
      * Structure de la consigne à atteindre
@@ -101,10 +101,10 @@ private:
     /**
      * Structure de la consigne initial à atteindre
      */
-     struct {
-         float distance = 0.0; // mm
-         float angle = 0.0; // rad
-     } m_consignInitial;
+    struct {
+        float distance = 0.0; // mm
+        float angle = 0.0; // rad
+    } m_consignInitial;
 
     int m_direction = 0;
 
@@ -135,6 +135,9 @@ private:
 
     // Point to reach
     Point m_point;
+
+    // Point is reached ?
+    bool m_point_reached = false;
 
     // Quadramp filter distance
     QuadrampDerivate m_rampfilterDistance;

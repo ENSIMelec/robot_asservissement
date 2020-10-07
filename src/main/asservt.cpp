@@ -21,6 +21,7 @@ using namespace std;
 #include "MathUtils.h"
 #include "ActionManager.h"
 #include "Configuration.h"
+#include "Timering.cpp"
 
 /*********************************** Define ************************************/
 
@@ -156,37 +157,8 @@ void jouerMatch(Controller& controller, Odometry& odometry, ActionManager& actio
 
     cout << "jouerMatch launch" << endl;
     timer asservTimer;
-    // Définition de l'ensemble des points de stratégies
-    //controller.set_trajectory(Controller::Trajectory::THETA);
-    //controller.set_point(0,0,-90);
 
-    /*Point pt1(500,0,0,Controller::Trajectory::XY_ABSOLU);
-    Point pt2(0,0,-90,Controller::Trajectory::THETA);
-    Point pt3(500,-500,0,Controller::Trajectory::XY_ABSOLU);
-    Point pt4(0,0,-180,Controller::Trajectory::THETA);
-    Point pt5(0,-500,0,Controller::Trajectory::XY_ABSOLU);
-    Point pt6(0,0,-270,Controller::Trajectory::THETA);
-    Point pt7(0,0,0,Controller::Trajectory::XY_ABSOLU);
-    Point pt8(0,0,0,Controller::Trajectory::THETA);
-    Point pt9(0,0,0,Controller::Trajectory::LOCKED);
 
-    // Ajouter dans le tableau
-    vector<Point> strategy;
-    strategy.push_back(pt1);
-    strategy.push_back(pt2);
-    strategy.push_back(pt3);
-    strategy.push_back(pt4);
-    strategy.push_back(pt5);
-    strategy.push_back(pt6);
-    strategy.push_back(pt7);
-    strategy.push_back(pt8);
-    strategy.push_back(pt9);*/
-
-    /*Point pt1(0,0,180,Controller::Trajectory::THETA);
-
-    vector<Point> strategy;
-    strategy.push_back(pt1);
-     */
     bool thereIsAnAction = false, actionDone = false, actionEnCours = false;
     nbActionFileExecuted = 0;
     vector<Point> strategy = FichierPoint::readPoints(nomFileStrategy);
@@ -195,28 +167,37 @@ void jouerMatch(Controller& controller, Odometry& odometry, ActionManager& actio
         cout << "Type de trajectoire : " << pt.getTrajectory() << " X: " << pt.getX() << " Y:" << pt.getY() << " T: " << pt.getTheta() << endl;
     }
 
+    // position of robot
     Point pinitial = strategy[0];
     controller.setPosition(pinitial.getX(), pinitial.getY(), MathUtils::deg2rad(pinitial.getTheta()));
 
     int strategyIndex = 0;
-    Point point(0,0,0, Controller::Trajectory::NOTHING);
-	
-	const int FIN_MATCH_MS = 100000;
-	const int DEPLOYER_PAV_MS = 90000;
-	
+    Point point(0,0,0, Point::Trajectory::NOTHING);
 
-    while(!forcing_stop && ((strategy.size() >= strategyIndex+1) || asservTimer.elapsed_ms() >= FIN_MATCH_MS)) {
+	
+	const int FIN_MATCH_S = 100; // en secondes
+	const int DEPLOYER_PAV_S = 90; // en secondes
+	// match time
+    Timering matchTimer;
+    matchTimer.start();
+
+    bool deployed_pav = false;
+    // baisser le pavillon au début du match
+    thread(actionThreadFunc, ref(actions), "BaisserPavillon", ref(actionEnCours), ref(actionDone)).detach();
+
+    while(!forcing_stop && matchTimer.elapsedSeconds() < FIN_MATCH_S) {
+        //cout << "time elapsed(s): " << matchTimer.elapsedSeconds() << endl;
 		// déployer le pavillon
-		if(asservTimer.elapsed_ms() >= DEPLOYER_PAV_MS) {
+		if(matchTimer.elapsedSeconds() >= DEPLOYER_PAV_S && !deployed_pav) {
+            cout << "Déployment du pavillon" << endl;
 			// créer un thread qui effectue l'action
 			actionEnCours = true;
-			cout << "Déployment du pavillon" << endl;
-			thread(actionThreadFunc, ref(actions), "HisserPavillon", ref(actionEnCours),
-                       ref(actionDone)).detach();
+			thread(actionThreadFunc, ref(actions), "HisserPavillon", ref(actionEnCours), ref(actionDone)).detach();
+            deployed_pav = true;
 		}
 		// vérification de fin match
 		// vérification asservissement
-        if(asservTimer.elapsed_ms() >= deltaAsservTimer) {
+        if(strategy.size() >= strategyIndex+1  && asservTimer.elapsed_ms() >= deltaAsservTimer) {
             // passage au point suivant
             if ((controller.is_trajectory_reached() || strategyIndex == 0)
                 && strategy.size() >= strategyIndex) {
@@ -227,7 +208,8 @@ void jouerMatch(Controller& controller, Odometry& odometry, ActionManager& actio
                 // set trajectory type
                 controller.set_trajectory(point.getTrajectory());
                 // set point coords
-                controller.set_point(point.getX(), point.getY(), point.getTheta());
+                //controller.set_point(point.getX(), point.getY(), point.getTheta());
+                controller.set_point_o(point);
 
                 strategyIndex++;
             }
@@ -268,7 +250,7 @@ void jouerMatch(Controller& controller, Odometry& odometry, ActionManager& actio
 	}
 
     /*controller.setPosition(0, 0, 0);
-    Point pt(0,0,90,Controller::Trajectory::THETA);
+    Point pt(0,0,90,Point::Trajectory::THETA);
     controller.set_trajectory(pt.getTrajectory());
     controller.set_point(pt.getX(), pt.getY(), pt.getTheta());
 
